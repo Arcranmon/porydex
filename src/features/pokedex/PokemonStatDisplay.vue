@@ -1,10 +1,10 @@
 <template>
     <!-- 70% width to work with -->
-    <div>
+    <div style="padding:15px">
         <div class="wrapper">
             <div class="pokemon-cell" style="width:33%; float:left; text-align: center;">
-                <h1 style="display:inline"> {{pokemon.name}} </h1>
-                <img :src="getPokemonImage(pokemon.dexnumber)" style="max-width:100%; max-height:100%"/>
+                <h1 style="display:inline"> {{pokemon.name}} </h1> <br>
+                <img :src="getPokemonImage(pokemon.dexnumber)" style="max-width:60%; max-height:100%"/>
             </div>
             <div class="pokemon-cell" style="width:67%; float:left; text-align: left;">
                 <div v-if="!(pokemon.type2)">  <b>Type:</b> {{pokemon.type1}}</div>  
@@ -24,31 +24,70 @@
             </div>
         </div>
         <div class="wrapper">
-           <div class="pokemon-cell" style="width:100%; float:left; text-align: center;">
-                <h1 style="display:inline">Roles</h1>
-            </div>
-        </div>
-        <div class="wrapper">
-           <div class="pokemon-cell" style="width:33%; float:left; text-align: center;">
-                <h3 style="display:inline">{{pokemon.role1}}</h3>
-                <vs-collapse>
-                </vs-collapse>
-            </div>
-            <div class="pokemon-cell" style="width:34%; float:left; text-align: center;">
-                <h3 style="display:inline">{{pokemon.role2}}</h3>
-            </div>
-            <div class="pokemon-cell" style="width:33%; float:left; text-align: center;">
-                <h3 style="display:inline">{{pokemon.role3}}</h3>
+           <div class="pokemon-cell" style="width:100%; text-align: center;">
+                <v-expansion-panels>
+                    <v-expansion-panel>
+                        <v-expansion-panel-header expand-icon='mdi-chevron-down' class='pokemon-cell-dropdown'><h1>Roles</h1></v-expansion-panel-header>
+                        <v-expansion-panel-content class="pokemon-cell" style="display:float">                            
+                            <div class="wrapper" style="width:100%">
+                                <div class="pokemon-cell-interior" style="width:33%; text-align: center;">
+                                    <h3 style="display:inline">{{pokemon.role1}}</h3>
+                                </div>
+                                <div class="pokemon-cell-interior" style="width:34%; text-align: center;">
+                                    <h3 style="display:inline">{{pokemon.role2}}</h3>
+                                </div>
+                                <div class="pokemon-cell-interior" style="width:33%; text-align: center;">
+                                    <h3 style="display:inline">{{pokemon.role3}}</h3>
+                                </div>
+                            </div>
+                        </v-expansion-panel-content>
+                    </v-expansion-panel>
+                </v-expansion-panels>
             </div> 
         </div>
         <div class="wrapper">
            <div class="pokemon-cell" style="width:100%; float:left; text-align: center;">
-                <h1 style="display:inline">Abilities</h1>
                 <v-expansion-panels>
                     <v-expansion-panel>
-                        <v-expansion-panel-header>Abilities</v-expansion-panel-header>
-                        <v-expansion-panel-content>
-                        Blah blah blah
+                        <v-expansion-panel-header expand-icon='mdi-chevron-down' class='pokemon-cell-dropdown'><h1>Abilities</h1></v-expansion-panel-header>
+                        <v-expansion-panel-content class="pokemon-cell">
+                            <show-abilities :abilitiesRef='parseAbilities(pokemon)'/>
+                        </v-expansion-panel-content>
+                    </v-expansion-panel>
+                </v-expansion-panels>
+            </div>
+        </div>
+        <div class="wrapper">
+           <div class="pokemon-cell" style="width:100%; float:left; text-align: center;">
+                <v-expansion-panels>
+                    <v-expansion-panel>
+                        <v-expansion-panel-header expand-icon='mdi-chevron-down' class='pokemon-cell-dropdown'><h1>Starting Moves</h1></v-expansion-panel-header>
+                        <v-expansion-panel-content class="pokemon-cell">
+                            <show-moves :movesRef='parseMoves(pokemon, 0, false)'/>
+                        </v-expansion-panel-content>
+                    </v-expansion-panel>
+                </v-expansion-panels>
+            </div>
+        </div>
+        
+        <div class="wrapper">
+           <div class="pokemon-cell" style="width:100%; float:left; text-align: center;">
+                <v-expansion-panels>
+                    <v-expansion-panel>
+                        <v-expansion-panel-header expand-icon='mdi-chevron-down' class='pokemon-cell-dropdown'><h1>Natural Moves</h1></v-expansion-panel-header>
+                        <v-expansion-panel-content class="pokemon-cell">
+                        </v-expansion-panel-content>
+                    </v-expansion-panel>
+                </v-expansion-panels>
+            </div>
+        </div>
+        
+        <div class="wrapper">
+           <div class="pokemon-cell" style="width:100%; float:left; text-align: center;">
+                <v-expansion-panels>
+                    <v-expansion-panel>
+                        <v-expansion-panel-header expand-icon='mdi-chevron-down' class='pokemon-cell-dropdown'><h1>Tutor Moves</h1></v-expansion-panel-header>
+                        <v-expansion-panel-content class="pokemon-cell">
                         </v-expansion-panel-content>
                     </v-expansion-panel>
                 </v-expansion-panels>
@@ -60,9 +99,15 @@
 
 <script>
 import Vue from 'vue'
+import ShowAbilities from './ShowAbilities'
+import ShowMoves from './ShowMoves'
 
 export default Vue.extend({
     name: 'pokemon-stat-display',
+    components: {
+        ShowAbilities,
+        ShowMoves
+    },
     props: {
         pokemon: {
             type: Array,
@@ -73,6 +118,17 @@ export default Vue.extend({
         getPokemonImage: function(number){
             return 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/' + number + '.png'
         },
+        parseAbilities: function(pokemon){
+            if (!pokemon.ability2){
+                return [pokemon.ability1]}
+            else{
+                return [pokemon.ability1, pokemon.ability2]}
+        },  
+        parseMoves: function(pokemon, tier, tutor){
+            if(tier == 0){
+                return [pokemon.smove1, pokemon.smove2, pokemon.smove3]
+            }
+        }
     },      
    
 })
@@ -85,6 +141,23 @@ export default Vue.extend({
         font-family:  "Courier New";
         font-size: 18px;
         padding: 10px;
+        box-sizing: border-box;
+    }
+    .pokemon-cell-dropdown {
+        color: white;
+        background-color: rgb(1, 95, 95);
+        border: 2px solid darkslategrey;
+        font-family:  "Courier New";
+        font-size: 18px;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+    .pokemon-cell-interior {
+        color: black;
+        background-color: rgb(31, 170, 170);
+        border: 2px solid darkslategrey;
+        font-family:  "Courier New";
+        font-size: 18px;
         box-sizing: border-box;
     }
     .wrapper {

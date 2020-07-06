@@ -1,6 +1,6 @@
 <template>
     <div> 
-        <div style="width:15%; float:left">
+        <div style="width:15%; float:left; padding:15px">
             <v-select 
                 label="name"
                 :options="allPokemon"
@@ -8,16 +8,16 @@
                 class='dex-scroll'>
             </v-select>
         </div>    
-        <div style="width:70%; float:right">
+        <div style="width:80%; float:right">
             <pokemon-stat-display :pokemon="selectedPokemon" />
-        </div>    
+        </div>            
     </div>
 </template>
 
 
 <script>
     import Vue from 'vue'
-    import allPokemon from './randomPokemon.json'
+    import allPokemon from '@/assets/database/pokemon.json'
     import PokemonStatDisplay from './PokemonStatDisplay'
 
     export default Vue.extend({

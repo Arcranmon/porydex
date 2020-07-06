@@ -1,6 +1,6 @@
 <template>
     <div>
-        Pokemon Trainer Club
+        Pokémon Trainer Club
     </div>
 </template>
 
