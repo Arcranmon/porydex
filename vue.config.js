@@ -1,4 +1,4 @@
 module.exports = {
-    publicPath: '/poke-oddy/'
+    publicPath: '/porydex/'
   }
   
