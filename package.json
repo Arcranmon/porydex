@@ -1,5 +1,5 @@
 {
-  "name": "poke-odyssey-dev",
+  "name": "porydex",
   "version": "1.0.0",
   "private": true,
   "description": "Test for creating a Pokemon Odyssey sheet",
@@ -57,15 +57,15 @@
     "last 2 versions",
     "not dead"
   ],
-  "_id": "poke-odyssey-dev@1.0.0",
+  "_id": "porydex@1.0.0",
   "bugs": {
-    "url": "https://github.com/Arcranmon/poke-odyssey-dev/issues"
+    "url": "https://github.com/Arcranmon/porydex/issues"
   },
-  "homepage": "https://github.com/Arcranmon/poke-odyssey-dev#readme",
+  "homepage": "https://github.com/Arcranmon/porydex#readme",
   "license": "ISC",
   "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Arcranmon/poke-odyssey-dev.git"
+    "url": "git+https://github.com/Arcranmon/porydex.git"
   }
 }
