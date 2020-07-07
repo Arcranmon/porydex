@@ -32,7 +32,7 @@
     margin: 0px;
     background-color: black;
     padding: 15px;
-    font-family: "typeface-press-start-2p";
+    font-family: 'Press Start 2P';
     font-size: 30px;
   }
 </style>
