@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <header>
+      <title>PoryDex</title>
       <Navbar />
     </header>
     <router-view />
@@ -15,6 +16,11 @@
       components: {
         Navbar
       },
+      watch: {
+      '$route' (to, from) {
+        document.title = to.meta.title || 'PoryDex'
+      }
+    },
     } 
 </script>
 

@@ -17,21 +17,19 @@ const r = new Router({
   routes: [
     {
       path: '/',
+      component: MainMenu,
       name: 'main-menu',
       meta:{
-        title: 'Welcome!',
+        title: 'PoryDex',
       },
-      component: MainMenu,
     },
     {
       path: '/pokedex',
       name: 'pokedex',
-      meta:{
-        title: 'Pokedex',
-      },
       component: Pokedex,
     },
   ], 
 })
+
 
 export default r
