@@ -18,11 +18,17 @@ const r = new Router({
     {
       path: '/',
       name: 'main-menu',
+      meta:{
+        title: 'Welcome!',
+      },
       component: MainMenu,
     },
     {
       path: '/pokedex',
       name: 'pokedex',
+      meta:{
+        title: 'Pokedex',
+      },
       component: Pokedex,
     },
   ], 
