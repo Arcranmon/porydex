@@ -1,6 +1,7 @@
 <template>
     <div> 
-        <div style="width:15%; float:left; padding:15px">
+        <div style="width:100%; text-align:center; padding:15px">
+            <h1>Choose a Pokemon!</h1>
             <v-select 
                 label="name"
                 :options="allPokemon"

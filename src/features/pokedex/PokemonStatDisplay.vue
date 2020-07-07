@@ -28,18 +28,8 @@
                 <v-expansion-panels>
                     <v-expansion-panel>
                         <v-expansion-panel-header expand-icon='mdi-chevron-down' class='pokemon-cell-dropdown'><h1>Roles</h1></v-expansion-panel-header>
-                        <v-expansion-panel-content class="pokemon-cell-dropdown-interior" style="display:float">                            
-                            <div class="wrapper" style="width:100%">
-                                <div class="pokemon-cell" style="width:33%; text-align: center;">
-                                    <h3 style="display:inline">{{pokemon.role1}}</h3>
-                                </div>
-                                <div class="pokemon-cell" style="width:34%; text-align: center;">
-                                    <h3 style="display:inline">{{pokemon.role2}}</h3>
-                                </div>
-                                <div class="pokemon-cell" style="width:33%; text-align: center;">
-                                    <h3 style="display:inline">{{pokemon.role3}}</h3>
-                                </div>
-                            </div>
+                        <v-expansion-panel-content class="pokemon-cell-dropdown-interior" style="display:float"> 
+                            <show-roles :roleNames='parseRoles(pokemon)'/>
                         </v-expansion-panel-content>
                     </v-expansion-panel>
                 </v-expansion-panels>
@@ -51,7 +41,7 @@
                     <v-expansion-panel>
                         <v-expansion-panel-header expand-icon='mdi-chevron-down' class='pokemon-cell-dropdown'><h1>Abilities</h1></v-expansion-panel-header>
                         <v-expansion-panel-content class="pokemon-cell-dropdown-interior">
-                            <show-abilities :abilitiesRef='parseAbilities(pokemon)'/>
+                            <show-abilities :abilityNames='parseAbilities(pokemon)'/>
                         </v-expansion-panel-content>
                     </v-expansion-panel>
                 </v-expansion-panels>
@@ -63,20 +53,19 @@
                     <v-expansion-panel>
                         <v-expansion-panel-header expand-icon='mdi-chevron-down' class='pokemon-cell-dropdown'><h1>Starting Moves</h1></v-expansion-panel-header>
                         <v-expansion-panel-content class="pokemon-cell-dropdown-interior">
-                            <show-moves :movesRef='parseMoves(pokemon, 0, false)'/>
+                            <show-moves :moveNames='parseMoves(pokemon, 0, false)'/>
                         </v-expansion-panel-content>
                     </v-expansion-panel>
                 </v-expansion-panels>
             </div>
-        </div>
-        
+        </div>        
         <div class="wrapper">
            <div class="pokemon-cell" style="width:100%; float:left; text-align: center;">
                 <v-expansion-panels>
                     <v-expansion-panel>
                         <v-expansion-panel-header expand-icon='mdi-chevron-down' class='pokemon-cell-dropdown'><h1>Natural Moves</h1></v-expansion-panel-header>
                         <v-expansion-panel-content class="pokemon-cell-dropdown-interior">      
-                                <show-moves :movesRef='parseMoves(pokemon, 1, false)'/>
+                                <show-moves :moveNames='parseMoves(pokemon, 1, false)'/>
                         </v-expansion-panel-content>
                     </v-expansion-panel>
                 </v-expansion-panels>
@@ -89,7 +78,7 @@
                     <v-expansion-panel>
                         <v-expansion-panel-header expand-icon='mdi-chevron-down' class='pokemon-cell-dropdown'><h1>Tutor Moves</h1></v-expansion-panel-header>
                         <v-expansion-panel-content class="pokemon-cell-dropdown-interior">
-                                <show-moves :movesRef='parseMoves(pokemon, 1, true)'/>
+                                <show-moves :moveNames='parseMoves(pokemon, 1, true)'/>
                         </v-expansion-panel-content>
                     </v-expansion-panel>
                 </v-expansion-panels>
@@ -100,46 +89,51 @@
 
 
 <script>
-import Vue from 'vue'
-import ShowAbilities from './ShowAbilities'
-import ShowMoves from './ShowMoves'
+    import Vue from 'vue'
+    import ShowAbilities from './ShowAbilities'
+    import ShowMoves from './ShowMoves'
+    import ShowRoles from './ShowRoles'
 
-export default Vue.extend({
-    name: 'pokemon-stat-display',
-    components: {
-        ShowAbilities,
-        ShowMoves
-    },
-    props: {
-        pokemon: {
-            type: Array,
-            required: true,
+    export default Vue.extend({
+        name: 'pokemon-stat-display',
+        components: {
+            ShowAbilities,
+            ShowMoves,
+            ShowRoles
         },
-    },
-    methods:{        
-        getPokemonImage: function(number){
-            return 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/' + number + '.png'
+        props: {
+            pokemon: {
+                type: Object,
+                required: true,
+            },
         },
-        parseAbilities: function(pokemon){
-            if (!pokemon.ability2){
-                return [pokemon.ability1]}
-            else{
-                return [pokemon.ability1, pokemon.ability2]}
-        },  
-        parseMoves: function(pokemon, tier, tutor){
-            if(tier == 0){
-                return [pokemon.smove1, pokemon.smove2, pokemon.smove3]
+        methods:{        
+            getPokemonImage: function(number){
+                return 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/' + number + '.png'
+            },
+            parseAbilities: function(pokemon){
+                if (!pokemon.ability2){
+                    return [pokemon.ability1]}
+                else{
+                    return [pokemon.ability1, pokemon.ability2]}
+            },  
+            parseMoves: function(pokemon, tier, tutor){
+                if(tier == 0){
+                    return [pokemon.smove1, pokemon.smove2, pokemon.smove3]
+                }
+                if(tier == 1 && tutor == 0){
+                    return [pokemon.t1natmove1, pokemon.t1natmove2, pokemon.t1natmove3]
+                }            
+                if(tier == 1 && tutor == 1){
+                    return [pokemon.t1tutmove1, pokemon.t1tutmove2]
+                }
+            },  
+            parseRoles: function(pokemon){
+                return [pokemon.role1, pokemon.role2, pokemon.role3]
             }
-            if(tier == 1 && tutor == 0){
-                return [pokemon.t1natmove1, pokemon.t1natmove2, pokemon.t1natmove3]
-            }            
-            if(tier == 1 && tutor == 1){
-                return [pokemon.t1tutmove1, pokemon.t1tutmove2, pokemon.t1tutmove3]
-            }
-        }
-    },      
-   
-})
+        },      
+    
+    })
 </script>
 
 <style scoped>

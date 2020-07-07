@@ -38,6 +38,7 @@
     "@vue/cli-plugin-vuex": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
     "css-loader": "^3.6.0",
+    "google-fonts-webpack-plugin": "^0.4.4",
     "material-design-icons-iconfont": "^5.0.1",
     "sass": "^1.26.9",
     "sass-loader": "^8.0.2",

@@ -22,20 +22,34 @@
 <script>
     import Vue from 'vue'
     import 'vue-simple-markdown/dist/vue-simple-markdown.css';
+    import allMoves from '@/assets/database/moves.json'
 
     export default Vue.extend({
-        name: 'move',
+        name: 'move-card',
         props: {
-            move: {
-                type: Array,
+            moveName: {
+                type: String,
                 required: true,
             },
         },  
+        data() {  
+            return {
+                allMoves,
+            }
+
+        },
         computed: {
+            move: function(){
+                for(const mv of this.allMoves){
+                    if(this.moveName == mv.name){
+                        return mv
+                    }
+                }
+            },
             tierImage: function(){
                 return require("../../assets/tier" + this.move.tier + ".png")
             }
-        }  
+        }
     })
 </script>
 
