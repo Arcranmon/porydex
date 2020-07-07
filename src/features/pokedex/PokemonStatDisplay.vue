@@ -28,7 +28,7 @@
                 <v-expansion-panels>
                     <v-expansion-panel>
                         <v-expansion-panel-header expand-icon='mdi-chevron-down' class='pokemon-cell-dropdown'><h1>Roles</h1></v-expansion-panel-header>
-                        <v-expansion-panel-content class="pokemon-cell-dropdown-interior" style="display:float"> 
+                        <v-expansion-panel-content class="pokemon-cell-dropdown-interior"> 
                             <show-roles :roleNames='parseRoles(pokemon)'/>
                         </v-expansion-panel-content>
                     </v-expansion-panel>
