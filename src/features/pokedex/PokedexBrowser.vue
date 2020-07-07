@@ -8,7 +8,7 @@
                 class='dex-scroll'>
             </v-select>
         </div>    
-        <div style="width:80%; float:right">
+        <div style="width:100%; float:right">
             <pokemon-stat-display :pokemon="selectedPokemon" />
         </div>            
     </div>
