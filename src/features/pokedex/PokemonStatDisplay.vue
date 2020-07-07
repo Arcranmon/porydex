@@ -160,7 +160,6 @@
         border: 2px solid darkslategrey;
         font-family:  "Courier New";
         font-size: 18px;
-        padding: 5px;
         box-sizing: border-box;
     }
     .wrapper {

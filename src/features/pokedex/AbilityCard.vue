@@ -7,7 +7,7 @@
         </div>
         <div class="ability-bottom"  style="width:90%;display:inline-block">
           <div v-if="(ability.trigger)"><b>Trigger:</b> {{ability.trigger}} <br> </div> 
-          <vue-simple-markdown :source="ability.effect" style="font-family:Courier New; font-size:18px"></vue-simple-markdown>
+          <vue-simple-markdown :source="ability.effect" class="ability-bottom" style="border: 0px solid black;padding: 0px;"></vue-simple-markdown>
         </div>
     </div>
 </template>
@@ -62,7 +62,7 @@
     background-color: #f0f0f0;
     border: 2px solid black;
     font-family: "Courier New";
-    font-size: 18px;
+    font-size: 14px;
     padding: 5px;
     box-sizing: border-box;
     text-align: left;

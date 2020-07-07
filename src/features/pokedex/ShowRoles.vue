@@ -1,9 +1,11 @@
 <template>
-  <div class="wrapper" style="width:100%">
-      <div v-for="rl in roleNames" :key="rl" style="width:100%">
-        <role-card :roleName='rl'/>
-      </div>
-  </div>
+  <v-container>
+    <v-row>
+       <v-col cols="12" class="d-flex justify-center" v-for="rl in roleNames" :key="rl" style="width:100%" lg=4>
+              <role-card :roleName='rl'/>     
+        </v-col>
+      </v-row>
+    </v-container>
 </template>
 
 <script>

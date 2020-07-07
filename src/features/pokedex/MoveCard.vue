@@ -73,7 +73,7 @@
     background-color: #f0f0f0;
     border: 2px solid black;
     font-family: "Courier New";
-    font-size: 18px;
+    font-size: 14px;
     padding: 5px;
     box-sizing: border-box;
     text-align: left;

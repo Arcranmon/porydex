@@ -6,8 +6,8 @@ import vSelect from "vue-select";
 import "vue-select/dist/vue-select.css";
 import router from './router'
 import App from './App.vue'
-import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
+import Vuetify from 'vuetify';
 import VueSimpleMarkdown  from 'vue-simple-markdown'
 import 'vue-simple-markdown/dist/vue-simple-markdown.css'
 
