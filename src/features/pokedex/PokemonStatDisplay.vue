@@ -28,15 +28,15 @@
                 <v-expansion-panels>
                     <v-expansion-panel>
                         <v-expansion-panel-header expand-icon='mdi-chevron-down' class='pokemon-cell-dropdown'><h1>Roles</h1></v-expansion-panel-header>
-                        <v-expansion-panel-content class="pokemon-cell" style="display:float">                            
+                        <v-expansion-panel-content class="pokemon-cell-dropdown-interior" style="display:float">                            
                             <div class="wrapper" style="width:100%">
-                                <div class="pokemon-cell-interior" style="width:33%; text-align: center;">
+                                <div class="pokemon-cell" style="width:33%; text-align: center;">
                                     <h3 style="display:inline">{{pokemon.role1}}</h3>
                                 </div>
-                                <div class="pokemon-cell-interior" style="width:34%; text-align: center;">
+                                <div class="pokemon-cell" style="width:34%; text-align: center;">
                                     <h3 style="display:inline">{{pokemon.role2}}</h3>
                                 </div>
-                                <div class="pokemon-cell-interior" style="width:33%; text-align: center;">
+                                <div class="pokemon-cell" style="width:33%; text-align: center;">
                                     <h3 style="display:inline">{{pokemon.role3}}</h3>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                 <v-expansion-panels>
                     <v-expansion-panel>
                         <v-expansion-panel-header expand-icon='mdi-chevron-down' class='pokemon-cell-dropdown'><h1>Abilities</h1></v-expansion-panel-header>
-                        <v-expansion-panel-content class="pokemon-cell">
+                        <v-expansion-panel-content class="pokemon-cell-dropdown-interior">
                             <show-abilities :abilitiesRef='parseAbilities(pokemon)'/>
                         </v-expansion-panel-content>
                     </v-expansion-panel>
@@ -62,7 +62,7 @@
                 <v-expansion-panels>
                     <v-expansion-panel>
                         <v-expansion-panel-header expand-icon='mdi-chevron-down' class='pokemon-cell-dropdown'><h1>Starting Moves</h1></v-expansion-panel-header>
-                        <v-expansion-panel-content class="pokemon-cell">
+                        <v-expansion-panel-content class="pokemon-cell-dropdown-interior">
                             <show-moves :movesRef='parseMoves(pokemon, 0, false)'/>
                         </v-expansion-panel-content>
                     </v-expansion-panel>
@@ -75,7 +75,8 @@
                 <v-expansion-panels>
                     <v-expansion-panel>
                         <v-expansion-panel-header expand-icon='mdi-chevron-down' class='pokemon-cell-dropdown'><h1>Natural Moves</h1></v-expansion-panel-header>
-                        <v-expansion-panel-content class="pokemon-cell">
+                        <v-expansion-panel-content class="pokemon-cell-dropdown-interior">      
+                                <show-moves :movesRef='parseMoves(pokemon, 1, false)'/>
                         </v-expansion-panel-content>
                     </v-expansion-panel>
                 </v-expansion-panels>
@@ -87,7 +88,8 @@
                 <v-expansion-panels>
                     <v-expansion-panel>
                         <v-expansion-panel-header expand-icon='mdi-chevron-down' class='pokemon-cell-dropdown'><h1>Tutor Moves</h1></v-expansion-panel-header>
-                        <v-expansion-panel-content class="pokemon-cell">
+                        <v-expansion-panel-content class="pokemon-cell-dropdown-interior">
+                                <show-moves :movesRef='parseMoves(pokemon, 1, true)'/>
                         </v-expansion-panel-content>
                     </v-expansion-panel>
                 </v-expansion-panels>
@@ -128,6 +130,12 @@ export default Vue.extend({
             if(tier == 0){
                 return [pokemon.smove1, pokemon.smove2, pokemon.smove3]
             }
+            if(tier == 1 && tutor == 0){
+                return [pokemon.t1natmove1, pokemon.t1natmove2, pokemon.t1natmove3]
+            }            
+            if(tier == 1 && tutor == 1){
+                return [pokemon.t1tutmove1, pokemon.t1tutmove2, pokemon.t1tutmove3]
+            }
         }
     },      
    
@@ -152,12 +160,13 @@ export default Vue.extend({
         padding: 5px;
         box-sizing: border-box;
     }
-    .pokemon-cell-interior {
+    .pokemon-cell-dropdown-interior {
         color: black;
-        background-color: rgb(31, 170, 170);
+        background-color: rgb(136, 212, 212);
         border: 2px solid darkslategrey;
         font-family:  "Courier New";
         font-size: 18px;
+        padding: 5px;
         box-sizing: border-box;
     }
     .wrapper {
