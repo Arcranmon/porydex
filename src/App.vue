@@ -32,7 +32,7 @@
     margin: 0px;
     background-color: black;
     padding: 15px;
-    font-family: "Press Start 2P";
+    font-family: "Ubuntu";
     font-size: 30px;
   }
 </style>

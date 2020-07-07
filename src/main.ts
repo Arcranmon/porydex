@@ -1,4 +1,5 @@
 import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loader
+import 'typeface-press-start-2p'
 
 import Vue from "vue";
 import vSelect from "vue-select";
