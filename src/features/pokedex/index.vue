@@ -1,6 +1,6 @@
 <template>
     <div >
-        <div style="text-align:center;font-size:80px;font-family:Press Start 2P">POKEDEX</div>
+        <div style="text-align:center;font-size:80px;font-family:typeface-press-start-2p">POKEDEX</div>
         <pokedex-brower></pokedex-brower>
     </div>
 </template>

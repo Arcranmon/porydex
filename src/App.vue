@@ -32,7 +32,7 @@
     margin: 0px;
     background-color: black;
     padding: 15px;
-    font-family: "Ubuntu";
+    font-family: "typeface-press-start-2p";
     font-size: 30px;
   }
 </style>
