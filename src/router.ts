@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import MainMenu from '@/features/main_menu/index.vue'
 import Pokedex from '@/features/pokedex/index.vue'
+import Moves from '@/features/moves/index.vue'
 
 Vue.use(Router)
 
@@ -27,6 +28,11 @@ const r = new Router({
       path: '/pokedex',
       name: 'pokedex',
       component: Pokedex,
+    },
+    {
+      path: '/moves',
+      name: 'moves',
+      component: Moves,
     },
   ], 
 })

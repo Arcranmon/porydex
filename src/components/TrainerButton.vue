@@ -42,11 +42,11 @@
     display: inline-block;
     margin: 0.5em 0;
     padding: 1em 6em;
-    background: red;
-    border: 2px solid black;
+    background: #7bc6ff;
+    border: 2px solid white;
     border-radius: 3px;
-    color: white;
-    font-family: "Quicksand", sans-serif;
+    color: black;
+    font-family: "Press Start 2P";
     font-size: 1em;
     font-weight: 700;
     letter-spacing: 0.02em;
@@ -58,7 +58,6 @@
   }
 
   .trn-btn:hover {
-    background: white;
-    color: darkred;
+    background: #ffb5a5;
   }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        Pokémon Trainer Club
+        <span style="color:#ffb5a5">Pory</span><span style="color:#7bc6ff">Dex</span>
     </div>
 </template>
 

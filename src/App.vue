@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <header>
-      <title>PoryDex</title>
       <Navbar />
     </header>
     <router-view />
