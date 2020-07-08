@@ -29,7 +29,7 @@
     box-sizing: border-box;
   }
   body {
-    background-color: darkred;
+    background-color: lightblue;
     color: white;
     font-family: "Quicksand", sans-serif;
   }

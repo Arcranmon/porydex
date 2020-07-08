@@ -1,6 +1,6 @@
 <template>
     <div>
-        <span style="color:#ffb5a5">Pory</span><span style="color:#7bc6ff">Dex</span>
+        <router-link to="/"><span style="color:#ffb5a5">Pory</span><span style="color:#7bc6ff">Dex</span></router-link>
     </div>
 </template>
 
@@ -10,5 +10,8 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+    a{
+        text-decoration: none!important;
+    }
 </style>

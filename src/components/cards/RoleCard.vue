@@ -4,8 +4,8 @@
             <v-row no-gutters>
                 <v-col cols="2" class="flex" style="flex-direction:column;">
                     <v-card height="100%" outline flat tile>
-                        <div class="role-bottom" style="height:100%;width:100%;border-top:2px solid black;border-right:0px solid black;display: flex;justify-content: center; align-items: center;">
-                            <img :src='require("../../assets/" + role.role + ".png")'/>
+                        <div class="role-bottom" v-bind:class="[role.role]" style="height:100%;width:100%;border-top:2px solid black;border-right:0px solid black;display: flex;justify-content: center; align-items: center;">
+                            <img :src='require("../../assets/" + role.role + ".png")' width=80%/>
                         </div>
                     </v-card>
                 </v-col>  
@@ -25,7 +25,7 @@
                             <b>HP:</b> {{role.hp}} <br>
                             <b>Defenses:</b> {{role.def1}}, {{role.def2}}, {{role.def3}} <br>
                             <b>Initiative Mod:</b> {{role.init}} <br><br>                            
-                            <h3 style="display:inline">{{roleName}} Abilities</h3> <br>   
+                            <h3 style="text-align:center;">{{roleName}} Abilities</h3> <br>   
                             <span v-if="numAbilities>=1"> 
                                 <b>{{role.ability1}}:</b> {{role.ability1effect}}    <br>                    
                             </span>   
@@ -121,5 +121,14 @@
   .wrapper {
     display: flex;
     text-align: center;
+  }
+  .DPS{
+      background-color: lightyellow
+  }
+  .Tank{
+      background-color: lightyellow
+  }
+  .Support{
+      background-color: lightyellow
   }
 </style>

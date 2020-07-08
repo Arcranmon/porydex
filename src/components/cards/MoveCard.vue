@@ -9,11 +9,11 @@
             <b>Targets:</b> {{move.target}} <span v-if="(move.defense)"> ✦ vs {{move.defense}}</span> <br>
             <div v-if="(move.hit)"><b>Hit:</b> {{move.hit}}</div> 
             <div v-if="(move.damage)"><b>Hit:</b> {{move.damage}} {{move.damagetype}} {{move.type}} Damage</div> 
-            <div v-if="(move.always)"><vue-simple-markdown :source="'**Always:** ' + move.always" style="font-family:Courier New; font-size:18px;white-space: normal"/></div> 
-            <div v-if="(move.miss)"><vue-simple-markdown :source="'**Miss:** ' +  move.miss" style="font-family:Courier New; font-size:18px;white-space: normal"/></div> 
-            <div v-if="(move.critical)"><vue-simple-markdown :source="'**Critical or SE:** ' + move.critical" style="font-family:Courier New; font-size:18px;white-space: normal"/></div> 
-            <div v-if="(move.boost)"><vue-simple-markdown :source="'**Boost:** ' + move.boost" style="font-family:Courier New; font-size:18px;white-space: normal;display:inline"/></div> 
-            <div v-if="(move.special)"><vue-simple-markdown :source="'**Special:** '+ move.special" style="font-family:Courier New; font-size:18px;white-space:normal;display:inline"/></div> 
+            <div v-if="(move.always)"><vue-simple-markdown class="move-format" :source="'**Always:** ' + move.always"/></div> 
+            <div v-if="(move.miss)"><vue-simple-markdown class="move-format" :source="'**Miss:** ' +  move.miss" /></div> 
+            <div v-if="(move.critical)"><vue-simple-markdown class="move-format" :source="'**Critical or SE:** ' + move.critical" /></div> 
+            <div v-if="(move.boost)"><vue-simple-markdown class="move-format" :source="'**Boost:** ' + move.boost" /></div> 
+            <div v-if="(move.special)"><vue-simple-markdown class="move-format" :source="'**Special:** '+ move.special"/></div> 
         </div>
     </div>
 </template>
@@ -62,7 +62,7 @@
   .move-top {
     background-color: #9dc1b7;
     border: 2px solid black;
-    border: 2px solid black;
+    color: black;
     font-family: "Courier New";
     text-align: left;
     font-size: 18px;
@@ -72,11 +72,19 @@
   .move-bottom {
     background-color: #f0f0f0;
     border: 2px solid black;
+    color: black;
     font-family: "Courier New";
-    font-size: 14px;
+    font-size: 14px!important;
+    white-space: normal!important;
     padding: 5px;
     box-sizing: border-box;
     text-align: left;
+  }
+  .move-format {
+    font-family: "Courier New";
+    font-size: 14px!important;
+    white-space: normal!important;
+    color: black;
   }
   .Normal{
     background-color: #C6C6A7;

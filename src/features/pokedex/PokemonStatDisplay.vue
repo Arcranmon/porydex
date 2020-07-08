@@ -29,7 +29,7 @@
                     <v-expansion-panel>
                         <v-expansion-panel-header expand-icon='mdi-chevron-down' class='pokemon-cell-dropdown'><h1>Roles</h1></v-expansion-panel-header>
                         <v-expansion-panel-content class="pokemon-cell-dropdown-interior"> 
-                            <show-roles :roleNames='parseRoles(pokemon)'/>
+                            <show-cards :names='parseRoles(pokemon)' job="Role"/>
                         </v-expansion-panel-content>
                     </v-expansion-panel>
                 </v-expansion-panels>
@@ -41,7 +41,7 @@
                     <v-expansion-panel>
                         <v-expansion-panel-header expand-icon='mdi-chevron-down' class='pokemon-cell-dropdown'><h1>Abilities</h1></v-expansion-panel-header>
                         <v-expansion-panel-content class="pokemon-cell-dropdown-interior">
-                            <show-abilities :abilityNames='parseAbilities(pokemon)'/>
+                            <show-cards :names='parseAbilities(pokemon)' job="Ability"/>
                         </v-expansion-panel-content>
                     </v-expansion-panel>
                 </v-expansion-panels>
@@ -53,7 +53,7 @@
                     <v-expansion-panel>
                         <v-expansion-panel-header expand-icon='mdi-chevron-down' class='pokemon-cell-dropdown'><h1>Starting Moves</h1></v-expansion-panel-header>
                         <v-expansion-panel-content class="pokemon-cell-dropdown-interior">
-                            <show-moves :moveNames='parseMoves(pokemon, 0, false)'/>
+                            <show-cards :names='parseMoves(pokemon, 0, false)' job="Move"/>
                         </v-expansion-panel-content>
                     </v-expansion-panel>
                 </v-expansion-panels>
@@ -65,7 +65,7 @@
                     <v-expansion-panel>
                         <v-expansion-panel-header expand-icon='mdi-chevron-down' class='pokemon-cell-dropdown'><h1>Natural Moves</h1></v-expansion-panel-header>
                         <v-expansion-panel-content class="pokemon-cell-dropdown-interior">      
-                                <show-moves :moveNames='parseMoves(pokemon, 1, false)'/>
+                                <show-cards :names='parseMoves(pokemon, 1, false)' job="Move"/>
                         </v-expansion-panel-content>
                     </v-expansion-panel>
                 </v-expansion-panels>
@@ -78,7 +78,7 @@
                     <v-expansion-panel>
                         <v-expansion-panel-header expand-icon='mdi-chevron-down' class='pokemon-cell-dropdown'><h1>Tutor Moves</h1></v-expansion-panel-header>
                         <v-expansion-panel-content class="pokemon-cell-dropdown-interior">
-                                <show-moves :moveNames='parseMoves(pokemon, 1, true)'/>
+                                <show-cards :names='parseMoves(pokemon, 1, true)' job="Move"/>
                         </v-expansion-panel-content>
                     </v-expansion-panel>
                 </v-expansion-panels>
@@ -90,16 +90,12 @@
 
 <script>
     import Vue from 'vue'
-    import ShowAbilities from './ShowAbilities'
-    import ShowMoves from './ShowMoves'
-    import ShowRoles from './ShowRoles'
+    import ShowCards from '@/components/cards/ShowCards'
 
     export default Vue.extend({
         name: 'pokemon-stat-display',
         components: {
-            ShowAbilities,
-            ShowMoves,
-            ShowRoles
+            ShowCards
         },
         props: {
             pokemon: {
