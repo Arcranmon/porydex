@@ -46,6 +46,7 @@
   .top {
     background-color: lightgrey;
     border: 2px solid black;
+    white-space: normal;
     border-top: 0px solid black;
     color: black;
     font-family: "Courier New";
