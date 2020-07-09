@@ -2,7 +2,7 @@
     <div>  
          <br>
         <div style="text-align:center;font-size:50px;font-family:'Press Start 2P';color:black">ABILITYDEX</div>
-        <show-cards :names="abilitylist" job="Ability" />  
+        <show-cards :names="abilitylist" job="Ability" :showA="true"/>  
     </div>
 </template>
 

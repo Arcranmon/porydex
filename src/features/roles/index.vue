@@ -10,7 +10,7 @@
                 class="scroll"                
                 style="width:95%;  margin-left: auto; margin-right: auto;">>
          </v-select>
-        <show-cards :names="rolelist" job="Role" />  
+        <show-cards :names="rolelist" job="Role" :showA='true' />  
     </div>
 </template>
 
