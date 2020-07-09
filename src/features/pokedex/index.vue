@@ -1,6 +1,5 @@
 <template>
     <div >
-        <div style="text-align:center;font-size:80px;">POKEDEX</div>
         <pokedex-brower></pokedex-brower>
     </div>
 </template>

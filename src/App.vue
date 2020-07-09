@@ -35,7 +35,7 @@
   }
   header{
     margin: 0px;
-    background-color: black;
+    background-color: darkslategray;
     padding: 15px;
     font-family: 'Press Start 2P';
     font-size: 30px;

@@ -1,11 +1,10 @@
 <template>
     <div>        
-        <v-container>
             <v-row no-gutters>
                 <v-col cols="2" class="flex" style="flex-direction:column;">
                     <v-card height="100%" outline flat tile>
                         <div class="role-bottom" v-bind:class="[role.role]" style="height:100%;width:100%;border-top:2px solid black;border-right:0px solid black;display: flex;justify-content: center; align-items: center;">
-                            <img :src='require("../../assets/" + role.role + ".png")' width=80%/>
+                            <img :src='require("../../assets/" + role.role + ".png")' max-width=80%/>
                         </div>
                     </v-card>
                 </v-col>  
@@ -42,7 +41,6 @@
                     </v-card>
                 </v-col>
             </v-row>
-        </v-container> 
     </div>
 </template>
 

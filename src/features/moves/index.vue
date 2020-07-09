@@ -1,11 +1,14 @@
 <template>  
     <div>  
          <br>
+        <div style="text-align:center;font-size:50px;font-family:'Press Start 2P';color:black">MOVEDEX</div>
+        <h1 style="text-align:center;font-family:'Press Start 2P';color:black">Choose a Type!</h1><br>
         <v-select 
                 label="name"
                 :options="allTypes"
                 v-model="moveType"
-                class="dex-scroll">
+                class="scroll"
+                style="width:95%;  margin-left: auto; margin-right: auto;">
          </v-select>
         <show-cards :names="movelist" job="Move" />  
     </div>
@@ -24,8 +27,9 @@
     data() {
         return {
             allMoves,
-            moveType: 'Bug',
-            allTypes: ['Bug',
+            moveType: 'All',
+            allTypes: ['All',
+                       'Bug',
                        'Dark',
                        'Dragon',
                        'Electric',
@@ -49,7 +53,7 @@
         movelist: function(){
             var mvlist = []
             for(const mv of this.allMoves){
-                if(this.moveType == mv.type){
+                if(this.moveType == mv.type || this.moveType == 'All'){
                     mvlist.push(mv.name)
                 }
             }
@@ -60,14 +64,3 @@
 
     
 </script>
-
-
-<style>
-    .dex-scroll {
-        background-color: lightgrey;
-    }
-
-    .dex-scroll .vs__dropdown-menu {
-        background-color: lightgrey;
-    }
-</style>

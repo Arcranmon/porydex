@@ -1,21 +1,25 @@
 <template>
-    <div>
-        <div class="move-top" v-bind:class="[move.type, move.category]" style="width:95%;display: inline-block">
-          <inline style="float:right;"><img :src='tierImage' width="46px"/></inline>
-          <b>{{move.name}} </b> ✦ {{move.type}}<br>
-          {{move.action}} ✦ {{move.category}} <span v-if="(move.keywords)"> ✦ {{move.keywords}}</span>
-        </div>
-        <div class="move-bottom" v-bind:class="[move.category]" style="width:95%;display: inline-block">
-            <b>Targets:</b> {{move.target}} <span v-if="(move.defense)"> ✦ vs {{move.defense}}</span> <br>
-            <div v-if="(move.hit)"><b>Hit:</b> {{move.hit}}</div> 
-            <div v-if="(move.damage)"><b>Hit:</b> {{move.damage}} {{move.damagetype}} {{move.type}} Damage</div> 
-            <div v-if="(move.always)"><vue-simple-markdown class="move-format" :source="'**Always:** ' + move.always"/></div> 
-            <div v-if="(move.miss)"><vue-simple-markdown class="move-format" :source="'**Miss:** ' +  move.miss" /></div> 
-            <div v-if="(move.critical)"><vue-simple-markdown class="move-format" :source="'**Critical or SE:** ' + move.critical" /></div> 
-            <div v-if="(move.boost)"><vue-simple-markdown class="move-format" :source="'**Boost:** ' + move.boost" /></div> 
-            <div v-if="(move.special)"><vue-simple-markdown class="move-format" :source="'**Special:** '+ move.special"/></div> 
-        </div>
-    </div>
+        <v-row no-gutters >
+          <v-col cols=12 class="move-top" v-bind:class="[move.type, move.category]">
+            <div style="padding:5px">
+            <inline style="float:right;"><img :src='tierImage' width="46px"/></inline>
+            <b>{{move.name}} </b> ✦ {{move.type}}<br>
+            {{move.action}} ✦ {{move.category}} <span v-if="(move.keywords)"> ✦ {{move.keywords}}</span>
+            </div>
+          </v-col>
+          <v-col cols=12 class="move-bottom" v-bind:class="[move.category]">
+              <div style="padding:5px">
+                <b>Targets:</b> {{move.target}} <span v-if="(move.defense)"> ✦ vs {{move.defense}}</span> <br>
+                <div v-if="(move.hit)"><b>Hit:</b> {{move.hit}}</div> 
+                <div v-if="(move.damage)"><b>Hit:</b> {{move.damage}} {{move.damagetype}} {{move.type}} Damage</div> 
+                <div v-if="(move.always)"><vue-simple-markdown class="move-format" :source="'**Always:** ' + move.always"/></div> 
+                <div v-if="(move.miss)"><vue-simple-markdown class="move-format" :source="'**Miss:** ' +  move.miss" /></div> 
+                <div v-if="(move.critical)"><vue-simple-markdown class="move-format" :source="'**Critical or SE:** ' + move.critical" /></div> 
+                <div v-if="(move.boost)"><vue-simple-markdown class="move-format" :source="'**Boost:** ' + move.boost" /></div> 
+                <div v-if="(move.special)"><vue-simple-markdown class="move-format" :source="'**Special:** '+ move.special"/></div> 
+              </div>
+          </v-col>
+        </v-row>
 </template>
 
 

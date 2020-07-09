@@ -41,10 +41,9 @@
   .trn-btn {
     display: inline-block;
     margin: 0.5em 0;
-    padding: 1em 6em;
-    background: #7bc6ff;
-    border: 2px solid white;
-    border-radius: 3px;
+    background: white;
+    border: 5px double black;
+    border-radius: 10px;
     color: black;
     font-family: "Press Start 2P";
     font-size: 1em;
@@ -53,8 +52,13 @@
     line-height: 1;
     text-decoration: none;
     text-transform: uppercase;
+    text-align: center;
     cursor: pointer;
     transition: 0.3s;
+    padding: 5px;
+    min-width: 20%;
+    width: auto;
+    height: auto
   }
 
   .trn-btn:hover {

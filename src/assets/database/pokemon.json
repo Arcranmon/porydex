@@ -69,7 +69,7 @@
     {
         "timestamp": "2020-06-30T05:20:34.116Z",
         "name": "Vulpix (Alolan)",
-        "dexnumber": "037_f2",
+        "dexnumber": "037-A",
         "type1": "Ice",
         "skill1": "Covertness",
         "skill2": "Sway",
@@ -499,7 +499,7 @@
     {
         "timestamp": "2020-06-30T07:33:23.530Z",
         "name": "Yamask (Galarian)",
-        "dexnumber": "562_f2",
+        "dexnumber": "562-G",
         "type1": "Ground",
         "type2": "Ghost",
         "skill1": "Survival",

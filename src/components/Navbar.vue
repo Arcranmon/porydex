@@ -14,4 +14,7 @@ export default {
     a{
         text-decoration: none!important;
     }
+    .background{
+        background-color: lightgrey
+    }
 </style>
