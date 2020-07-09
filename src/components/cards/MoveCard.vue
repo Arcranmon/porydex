@@ -114,6 +114,9 @@
   .Psychic{
     background-color: #FA92B2;
   }
+  .Poison{
+    background-color: #C183C1;
+  }
   .Fairy{
     background-color: #F4BDC9;
   }
