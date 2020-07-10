@@ -17,9 +17,9 @@
         <v-card>
           <v-card-title>About</v-card-title>
           <v-card-text style="text-align:left">
-            Welcome to the PoryDex, a free tool designed to make it easier to play Pokemon Tabletop Odyssey! Click on one of the buttons on the main page to get started!
+            Welcome to the PoryDex, a free tool designed to make it easier to play Pokemon  Odyssey! Click on one of the buttons on the main page to get started!
 
-            Big thanks to the developers of the Pokemon Tabletop United system for makign the system, and to the developers of COMP/CON, the digital sheet for Lancer, for inspiration and guidance!
+            Big thanks to the developers of the Pokemon Odyssey system for makign the system, and to the developers of COMP/CON, the digital sheet for Lancer, for inspiration and guidance!
             <br> <br>
             <a href="https://github.com/Arcranmon/porydex">Click here for more information and the source!</a>
           </v-card-text>

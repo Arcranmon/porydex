@@ -2,7 +2,7 @@
 
 # PoryDex
 
-Welcome to the PoryDex, a tool made to help play Pokemon Tabletop Odyssey! Just hop on over to <a href="https://porydex.app">the PoryDex site!</a>
+Welcome to the PoryDex, a tool made to help play Pokemon Odyssey! Just hop on over to <a href="https://porydex.app">the PoryDex site!</a>
 
 # Features
 - Compendium of Moves, Abilities, Roles, and Pokemon!
@@ -17,7 +17,7 @@ Welcome to the PoryDex, a tool made to help play Pokemon Tabletop Odyssey! Just 
 If you have a feature request or found a bug, <a href="https://docs.google.com/forms/d/e/1FAIpQLSdCjN1-cftS0RHxnauCORvX6CzK1n5ICugoB0x9V8ldWMntOw/viewform?usp=sf_link">please fill out this form!</a>
 
 # Thanks to...
-- The developers of Pokemon Tabletop Odyssey, for deciding to store the system information in .json files!
+- The developers of Pokemon Odyssey, for deciding to store the system information in .json files!
 - The creators of COMP/CON, a tool made to play the Lancer TTRPG system, for providing guidance and pointing me in the right direction!
 - Everybody that has helped find bugs!
   - Moriya
