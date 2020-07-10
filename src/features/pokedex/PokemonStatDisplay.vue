@@ -17,16 +17,14 @@
                         <div v-else><b>Type:</b> {{pokemon.type1}} / {{pokemon.type2}}</div>
                         <b>Favored Skills:</b> {{pokemon.skill1}}, {{pokemon.skill2}}     <br>
                         <b>Deficient Skill:</b> {{pokemon.badskill}} <br>
-                        <b>Home Turf:</b> {{pokemon.turflist}}<br>           
-                        <div v-if="!(pokemon.gift1)"></div>  
-                        <div v-else-if="!(pokemon.gift2)"><b>Gift:</b> {{pokemon.gift1}}</div>
-                        <div v-else><b>Gifts:</b> {{pokemon.gift1}},{{pokemon.gift2}}</div>
+                        <b>Home Turf:</b> <span v-for="i in turflist" :key="i">{{i}}<span v-if="i != turflist[turflist.length-1]">, </span></span><br>
+                        <b>Gifts:</b> <span v-for="i in giftlist" :key="i">{{i}}<span v-if="i != giftlist[giftlist.length-1]">, </span></span><br>    
                         <b>Initiative:</b> {{pokemon.initiative}} <br>
                         <b>Movement:</b> {{pokemon.movement}} <span v-if="(pokemon.movementtypes)">{{pokemon.movementtypes}}</span> <br>
                         <b>Size:</b> {{pokemon.size}} <br> <br>
                         <b>Traits:</b>  {{pokemon.trait1}}, {{pokemon.trait2}} <br>
                         <b>Defense Priority:</b> {{pokemon.def1}} > {{pokemon.def2}} > {{pokemon.def3}} <br>
-                        <b>Basic Attack:</b> {{pokemon.basicattacks}}<br>
+                        <b>Basic Attack:</b> <span v-for="i in attacklist" :key="i">{{i}}<span v-if="i != attacklist[attacklist.length-1]">, </span></span><br> 
                     </div>                    
                 </v-col>    
             </v-row>
@@ -131,7 +129,33 @@
             parseRoles: function(pokemon){
                 return [pokemon.role1, pokemon.role2, pokemon.role3]
             }
-        },    
+        },  
+        computed:{
+            turflist: function() {
+               if('turf2' in this.pokemon){
+                   return [this.pokemon.turf1, this.pokemon.turf2]
+               } 
+               else{
+                   return [this.pokemon.turf1]
+               }
+            },            
+            giftlist: function() {
+               if('gift2' in this.pokemon){
+                   return [this.pokemon.gift1, this.pokemon.gift2]
+               } 
+               else{
+                   return [this.pokemon.gift1]
+               }
+            },            
+            attacklist: function() {
+               if('basicattack2' in this.pokemon){
+                   return [this.pokemon.basicattack1, this.pokemon.basicattack2]
+               } 
+               else{
+                   return [this.pokemon.basicattack1]
+               }
+            }
+        }  
     
     })
 </script>
@@ -151,7 +175,7 @@
         border: 2px solid darkslategrey;
         font-family:  "Courier New";
         font-size: 18px;
-        padding: 0px;
+        padding: 5px;
         box-sizing: border-box;
     }
     .pokemon-cell-dropdown-interior {
