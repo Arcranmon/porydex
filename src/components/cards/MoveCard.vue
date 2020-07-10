@@ -2,7 +2,7 @@
         <v-row no-gutters >
           <v-col cols=12 class="move-top" v-bind:class="[move.type, move.category]">
             <div style="padding:5px">
-            <inline style="float:right;"><img :src='tierImage' width="46px"/></inline>
+            <span style="float:right;"><img :src='tierImage' width="46px"/></span>
             <b>{{move.name}} </b> ✦ {{move.type}}<br>
             {{move.action}} ✦ {{move.category}} <span v-if="(move.keywords)"> ✦ {{move.keywords}}</span>
             </div>

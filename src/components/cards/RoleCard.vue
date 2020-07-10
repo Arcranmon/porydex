@@ -106,7 +106,7 @@
     border-radius:0px!important;
   }
   .role-bottom {
-    background-color: lightgrey;
+    background-color: #f0f0f0;
     border: 2px solid black;
     border-top: 0px solid black;
     font-family: "Courier New";

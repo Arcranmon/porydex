@@ -1,5 +1,19 @@
 [
     {
+        "timestamp": "2020-07-10T03:12:19.377Z",
+        "name": "Bug Bite",
+        "type": "Bug",
+        "category": "Strike",
+        "tier": 1,
+        "action": "1 AP",
+        "frequency": "At-Will",
+        "target": "Melee, 1 Target",
+        "defense": "Evasion",
+        "hit": "Choose a Buff the target has. They lose that Buff, and you gain it. If the Buff has multiple Charges you only steal one Charge. ",
+        "damage": "2d6",
+        "damagetype": "Physical"
+    },
+    {
         "timestamp": "2020-06-29T21:54:24.054Z",
         "name": "Lunge",
         "type": "Bug",
@@ -1517,6 +1531,20 @@
         "frequency": "Daily x2",
         "target": "Self",
         "always": "You gain two Light Screen Blessings. While you have Light Screen Blessings, you have +1 to all Defenses against ranged and area of effect Special attacks. Whenever you or an ally within 2 squares is hit by a damaging Special Attack, you may expend one Light Screen Blessing and the damage is Resisted one step further."
+    },
+    {
+        "timestamp": "2020-07-10T04:41:28.036Z",
+        "name": "Mind Blast",
+        "type": "Psychic",
+        "category": "Strike",
+        "tier": 1,
+        "action": "1 AP",
+        "frequency": "At-Will",
+        "target": "Range 4, Blast 2",
+        "defense": "Resolve",
+        "hit": "Deals +1d6 damage to targets suffering from a Mental Status Condition.",
+        "damage": "1d6",
+        "damagetype": "Special"
     },
     {
         "timestamp": "2020-06-29T20:35:45.336Z",

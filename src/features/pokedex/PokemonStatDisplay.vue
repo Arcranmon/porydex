@@ -5,7 +5,7 @@
             <v-row flex fluid fill-height no-gutters class="pokemon-cell"> 
                 <v-col cols="12" class="flex flex-column" style="flex-direction:column;" lg="4">
                         <div style="text-align: center;">
-                            <h1 style="display:inline"> {{pokemon.name}} </h1> <br>
+                            <h1 style="display:inline"> {{pokemon.name}} - #{{pokemon.dexnumber}} </h1> <br>
                             <img :src='require("../../assets/pokemon/" + pokemon.dexnumber + ".png")' style="max-width:60%; width: auto; height: auto;"/>
                         </div>
                 </v-col>                

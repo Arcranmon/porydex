@@ -48,7 +48,7 @@
     color: black;
     font-family: "Courier New";  
     border-radius: 0px;
-    font-size: 14px;
+    font-size: 16px;
     border:2px solid black;
     border-top:0px solid black;
     padding: 2px;
