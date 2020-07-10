@@ -1,35 +1,17 @@
 <template>
-  <div>
-    <a v-if="href" :href="href" class="trn-btn">
+  <div class="trn-btn" @click="$router.push(to)">
       <slot/>
-    </a>
-    <button v-else class="trn-btn">
-      <slot/>
-    </button>
   </div>
 </template>
 
 <script>
   export default {
     props: {
-      href: {
-        type: String,
-        default: null
-      },
       to: {
         type: String,
         default: null
       }
     },
-    computed: {
-      type() {
-        if (this.href) {
-          return 'a'
-        } else {
-          return 'button'
-        }
-      }
-    }
   }
 </script>
 

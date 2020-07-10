@@ -1,9 +1,9 @@
 <template>    
     <div style="text-align: center;">
-            <trainer-button><router-link to="/pokedex" style="color:black">Pokedex</router-link></trainer-button>      
-            <trainer-button><router-link to="/abilities" style="color:black">Abilities</router-link></trainer-button>     
-            <trainer-button><router-link to="/moves" style="color:black">Moves</router-link></trainer-button> 
-            <trainer-button><router-link to="/roles" style="color:black">Roles</router-link></trainer-button>    
+            <trainer-button to="/pokedex">Pokedex</trainer-button> <br>
+            <trainer-button to="/abilities">Abilities</trainer-button> <br>
+            <trainer-button to="/moves">Moves</trainer-button> <br>
+            <trainer-button to="/roles">Roles</trainer-button> <br>
     </div>
 </template>
 
