@@ -19,6 +19,9 @@
                 <div v-if="(move.special)"><vue-simple-markdown class="move-format" :source="'**Special:** '+ move.special"/></div> 
               </div>
           </v-col>
+          <v-col v-if="showA == true" cols=12>
+            <available :name="moveName" />
+          </v-col>
         </v-row>
 </template>
 
@@ -27,6 +30,7 @@
     import Vue from 'vue'
     import 'vue-simple-markdown/dist/vue-simple-markdown.css';
     import allMoves from '@/assets/database/moves.json'
+    import Available from './Available.vue'
 
     export default Vue.extend({
         name: 'move-card',
@@ -35,6 +39,11 @@
                 type: String,
                 required: true,
             },
+            showA: {
+              type: Boolean,
+              required: false,
+              default: false
+            }
         },  
         data() {  
             return {
@@ -53,6 +62,9 @@
             tierImage: function(){
                 return require("../../assets/tier" + this.move.tier + ".png")
             }
+        },
+        components: {
+          Available
         }
     })
 </script>

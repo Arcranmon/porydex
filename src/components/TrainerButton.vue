@@ -35,8 +35,8 @@
 
 <style scoped>
   a {
-    color: inherit;
      text-decoration: none;
+    color: black;
   }
   .trn-btn {
     display: inline-block;
@@ -44,7 +44,7 @@
     background: white;
     border: 5px double black;
     border-radius: 10px;
-    color: black;
+    color: black!important;
     font-family: "Press Start 2P";
     font-size: 1em;
     font-weight: 700;

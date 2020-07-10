@@ -4,11 +4,13 @@
         <div style="text-align:center;font-size:50px;font-family:'Press Start 2P';color:black">MOVEDEX</div>
         <h1 style="text-align:center;font-family:'Press Start 2P';color:black">Choose a Type!</h1><br>
         <v-select 
-                label="name"
-                :options="allTypes"
+                label="Choose a Move Type"
+                :items="allTypes"                
+                hide-details
                 v-model="moveType"
-                class="scroll"
-                style="width:95%;  margin-left: auto; margin-right: auto;">
+                class="scroll"     
+                outlined        
+                style="width:95%;  margin-left: auto; margin-right: auto;background:lightcyan">
          </v-select>
         <show-cards :names="movelist" job="Move" :showA='true' />  
     </div>

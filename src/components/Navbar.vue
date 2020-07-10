@@ -1,7 +1,7 @@
 <template>
     <div>
-        <router-link to="/"><span style="color:#ffb5a5">Pory</span><span style="color:#7bc6ff">Dex</span></router-link>
-        <div style="float:right">
+        <router-link to="/"><span style="color:#ffb5a5;font-size:30px">Pory</span><span style="color:#7bc6ff;font-size:30px">Dex</span></router-link>
+        <div style="float:right;margin:10px">
             <about />
         </div>
         
@@ -30,7 +30,8 @@ export default {
     a{
         text-decoration: none!important;
     }
-    .background{
-        background-color: lightgrey
+    *{
+        background-color: darkslategrey;
+        font-family: "Press Start 2P";
     }
 </style>

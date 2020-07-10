@@ -12,6 +12,9 @@
                 <span v-if="(ability.trigger)"><b>Trigger:</b> {{ability.trigger}} <br> <br></span> 
                 <vue-simple-markdown :source='ability.effect' class="ability-bottom" style="border: 0px solid black;padding: 0px;"></vue-simple-markdown>
               </div>
+            </v-col>            
+            <v-col v-if="showA == true" cols=12>
+              <available :name="abilityName" />
             </v-col>
         </v-row>
 </template>
@@ -20,6 +23,7 @@
 <script>
     import Vue from 'vue'
     import allAbilities from '@/assets/database/abilities.json'
+    import Available from './Available'
 
     export default Vue.extend({
         name: 'ability-card',
@@ -28,6 +32,11 @@
                 type: String,
                 required: true,
             },
+            showA: {
+              type: Boolean,
+              required: false,
+              default: false
+            }
         },
         data() {  
             return {
@@ -45,6 +54,9 @@
                 }
             }
         },
+        components:{
+          Available
+        }
     
     })
 </script>

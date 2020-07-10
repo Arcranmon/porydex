@@ -4,11 +4,14 @@
         <div style="text-align:center;font-size:50px;font-family:'Press Start 2P';color:black">POKEDEX</div>
             <h1 style="font-family:'Press Start 2P';color:black">Choose a Pokemon!</h1><br>
             <v-select 
-                label="name"
-                :options="allPokemon"
-                v-model="selectedPokemon"
-                class='scroll'                
-                style="width:95%;  margin-left: auto; margin-right: auto;">>
+                label="Choose a Pokemon"
+                :items="allPokemon"
+                hide-details
+                item-text="name"  
+                v-model="selectedPokemon"      
+                outlined        
+                return-object
+                style="width:95%;  margin-left: auto; margin-right: auto; background:lightcyan">>
             </v-select>
         </div>    
         <div style="width:100%; float:right">
@@ -25,12 +28,12 @@
 
     export default Vue.extend({
     components: {
-        PokemonStatDisplay
+        PokemonStatDisplay,
     },
     data(){
         return {
             allPokemon,
-            selectedPokemon: allPokemon[0]
+            selectedPokemon:allPokemon[0]
         }
     },
     })

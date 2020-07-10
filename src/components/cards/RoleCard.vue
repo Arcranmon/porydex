@@ -40,6 +40,9 @@
                         </div>
                     </v-card>
                 </v-col>
+                <v-col v-if="showA == true" cols=12>
+                    <available :name="roleName" />
+                </v-col>
             </v-row>
     </div>
 </template>
@@ -48,6 +51,7 @@
 <script>
     import Vue from 'vue'
     import allRoles from '@/assets/database/roles.json'
+    import Available from './Available'
 
     export default Vue.extend({
         name: 'role-card',
@@ -56,6 +60,11 @@
                 type: String,
                 required: true,
             },
+            showA: {
+              type: Boolean,
+              required: false,
+              default: false
+            }
         },
         data() {  
             return {
@@ -86,6 +95,9 @@
                     return 1
                 }
             }
+        },
+        components: {
+            Available
         }
     
     })

@@ -4,11 +4,13 @@
         <div style="text-align:center;font-size:50px;font-family:'Press Start 2P';color:black">ROLEDEX</div>
         <h1 style="text-align:center;font-family:'Press Start 2P';color:black">Choose a class of Role!</h1><br>
         <v-select 
-                label="name"
-                :options="roleTypes"
+                label="Choose a Role type"
+                :items="roleTypes"              
+                hide-details
                 v-model="roleRole"
-                class="scroll"                
-                style="width:95%;  margin-left: auto; margin-right: auto;">>
+                class="scroll"       
+                outlined         
+                style="width:95%;  margin-left: auto; margin-right: auto; background:lightcyan">>
          </v-select>
         <show-cards :names="rolelist" job="Role" :showA='true' />  
     </div>
