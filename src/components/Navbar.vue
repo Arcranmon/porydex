@@ -1,6 +1,6 @@
 <template>
     <div>
-        <router-link to="/"><span style="color:#ffb5a5;font-size:30px">Pory</span><span style="color:#7bc6ff;font-size:30px">Dex</span></router-link>
+        <router-link to="/" style="margin:10px"><span style="color:#ffb5a5;font-size:35px">Pory</span><span style="color:#7bc6ff;font-size:35px">Dex</span></router-link>
         <div style="float:right;margin:10px">
             <about />
         </div>
