@@ -1,4 +1,4 @@
-= <img src="https://raw.githubusercontent.com/Arcranmon/porydex/master/src/assets/pokemon/474.png" title="Welcome!" alt="Welcome!">
+<img src="https://raw.githubusercontent.com/Arcranmon/porydex/master/src/assets/pokemon/474.png" title="Welcome!" alt="Welcome!">
 
 # PoryDex
 
