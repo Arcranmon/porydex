@@ -88,6 +88,7 @@
   .move-bottom {
     background-color: #f0f0f0;
     border: 2px solid black;
+    border-top: 0px solid black;
     color: black;
     font-family: "Courier New";
     font-size: 14px!important;

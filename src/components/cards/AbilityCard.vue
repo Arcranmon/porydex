@@ -79,6 +79,7 @@
     background-color: #f0f0f0;
     color: black;
     border: 2px solid black;
+    border-top: 0px solid black;
     font-family: "Courier New";
     font-size: 14px;
     padding: 5px;
