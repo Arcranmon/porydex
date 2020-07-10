@@ -9,8 +9,8 @@
             </v-col>            
             <v-col cols=12 class="ability-bottom" >
               <div style="padding:5px">
-                <span v-if="(ability.trigger)"><b>Trigger:</b> {{ability.trigger}} <br> </span> 
-                <vue-simple-markdown :source="ability.effect" class="ability-bottom" style="border: 0px solid black;padding: 0px;"></vue-simple-markdown>
+                <span v-if="(ability.trigger)"><b>Trigger:</b> {{ability.trigger}} <br> <br></span> 
+                <vue-simple-markdown :source='ability.effect' class="ability-bottom" style="border: 0px solid black;padding: 0px;"></vue-simple-markdown>
               </div>
             </v-col>
         </v-row>
@@ -72,6 +72,8 @@
     padding: 5px;
     box-sizing: border-box;
     text-align: left;
+    display: inline;
+    white-space: normal;
   }
   .wrapper {
     display: flex;
