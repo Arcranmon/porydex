@@ -19,3 +19,5 @@ If you have a feature request or found a bug, <a href="https://docs.google.com/f
 # Thanks to...
 - The developers of Pokemon Tabletop Odyssey, for deciding to store the system information in .json files!
 - The creators of COMP/CON, a tool made to play the Lancer TTRPG system, for providing guidance and pointing me in the right direction!
+- Everybody that has helped find bugs!
+  - Moriya
