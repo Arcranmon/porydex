@@ -49,7 +49,8 @@
     font-family: "Courier New";  
     border-radius: 0px;
     font-size: 14px;
-    border:1px solid black;
+    border:2px solid black;
+    border-top:0px solid black;
     padding: 2px;
     box-sizing: border-box;
     text-align: left;
@@ -60,7 +61,7 @@
     border-radius: 0px;
     color: black;
     font-family: "Courier New";    
-    border:1px solid black;
+    border:2px solid black;
     border-top:0px solid black;
     font-size: 14px;
     padding: 0px;
