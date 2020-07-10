@@ -3,7 +3,7 @@
             <v-col cols=12 class="top">
                 <v-expansion-panels flat>
                     <v-expansion-panel>                            
-                        <v-expansion-panel-header expand-icon='mdi-chevron-down' class='top'><b>Available To:</b></v-expansion-panel-header>
+                        <v-expansion-panel-header expand-icon='mdi-chevron-down' class="top"><b>Available To:</b></v-expansion-panel-header>
                             <v-expansion-panel-content class="bottom">  <span v-for="n in namelist" :key="n">{{n}}<span v-if="n != namelist[namelist.length-1]">, </span></span>  </v-expansion-panel-content>
                     </v-expansion-panel>
                 </v-expansion-panels>
@@ -48,10 +48,7 @@
 <style scoped>
   .top {
     background-color: lightgrey;
-    border: 1px solid black;
     white-space: normal!important;
-    border-top: 0px solid black;
-    border-radius: 0px;
     color: black;
     font-family: "Courier New";
     font-size: 14px;
