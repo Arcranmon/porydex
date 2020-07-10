@@ -1,8 +1,8 @@
 <template>
         <v-row no-gutters >
-            <v-col cols=12 class="top">
-                <v-expansion-panels flat>
-                    <v-expansion-panel style="border:1px solid black; border-radius:0">                            
+            <v-col cols=12 class="top" style="border:1px solid black; border-radius:0">
+                <v-expansion-panels flat accordion>
+                    <v-expansion-panel >                            
                         <v-expansion-panel-header expand-icon='mdi-chevron-down' class="top"><b>Available To:</b></v-expansion-panel-header>
                             <v-expansion-panel-content class="bottom"><span v-for="n in namelist" :key="n">{{n}}<span v-if="n != namelist[namelist.length-1]">, </span></span>  </v-expansion-panel-content>
                     </v-expansion-panel>
