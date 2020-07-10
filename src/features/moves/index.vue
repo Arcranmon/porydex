@@ -1,17 +1,53 @@
 <template>  
     <div>  
          <br>
-        <div style="text-align:center;font-size:50px;font-family:'Press Start 2P';color:black">MOVEDEX</div>
-        <h1 style="text-align:center;font-family:'Press Start 2P';color:black">Choose a Type!</h1><br>
-        <v-select 
-                label="Choose a Move Type"
-                :items="allTypes"                
-                hide-details
-                v-model="moveType"
-                class="scroll"     
-                outlined        
-                style="width:95%;  margin-left: auto; margin-right: auto;background:lightcyan">
-         </v-select>
+        <div style="text-align:center;font-size:50px;font-family:'Press Start 2P';color:white;-webkit-text-stroke-width: 2px;-webkit-text-stroke-color: black;">MOVEDEX</div>
+        <v-row align="center"> 
+            <v-col cols="12" lg="3">
+                <v-select 
+                        label="Move Type"
+                        :items="allTypes"                
+                        hide-details
+                        v-model="moveType"
+                        class="scroll"     
+                        outlined        
+                        style="margin-left: 5px; margin-right: 5px;background:lightcyan">
+                </v-select>
+            </v-col>
+            <v-col cols="12" lg="3">
+                <v-select 
+                        label="Move Category"
+                        :items="allCategories"                
+                        hide-details
+                        v-model="moveCategory"
+                        class="scroll"     
+                        outlined        
+                        style="margin-left: 5px; margin-right: 5px;background:lightcyan">
+                </v-select>
+            </v-col>
+            <v-col cols="12" lg="3">
+                <v-select 
+                        label="Move AP Cost"
+                        :items="allAP"                
+                        hide-details
+                        v-model="moveAP"
+                        class="scroll"     
+                        outlined        
+                        style="margin-left: 5px; margin-right: 5px;background:lightcyan">
+                </v-select>
+            </v-col>
+            <v-col cols="12" lg="3">
+                <v-select 
+                        label="Defense"
+                        :items="allDefense"                
+                        hide-details
+                        v-model="moveDefense"
+                        class="scroll"     
+                        outlined        
+                        style="margin-left: 5px; margin-right: 5px;background:lightcyan">
+                </v-select>
+            </v-col>
+        </v-row>    
         <show-cards :names="movelist" job="Move" :showA='true' />  
     </div>
 </template>
@@ -48,14 +84,32 @@
                        'Psychic',
                        'Rock',
                        'Steel',
-                       'Water']
+                       'Water'],
+            moveCategory: 'All',
+            allCategories: ['All',
+                            'Maneuver',
+                            'Strike',
+                            'Trick'],
+            moveAP: 'All',
+            allAP: ['All',
+                    '1 AP',
+                    '2 AP'],
+            moveDefense: 'All',
+            allDefense: ['All',
+                        'Evasion',
+                        'Resolve',
+                        'Vigor']
         }
     },
     computed: {
         movelist: function(){
             var mvlist = []
             for(const mv of this.allMoves){
-                if(this.moveType == mv.type || this.moveType == 'All'){
+                if(
+                    (this.moveType == mv.type || this.moveType == 'All') &&
+                    (this.moveCategory == mv.category || this.moveCategory == 'All') &&
+                    (this.moveAP == mv.action || this.moveAP == 'All') &&
+                    (this.moveDefense == 'All' || (this.moveCategory != 'Manuever' && this.moveDefense == mv.defense ))) {
                     mvlist.push(mv.name)
                 }
             }

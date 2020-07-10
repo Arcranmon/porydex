@@ -1,7 +1,7 @@
 <template>  
     <div>  
          <br>
-        <div style="text-align:center;font-size:50px;font-family:'Press Start 2P';color:black">ABILITYDEX</div>
+        <div style="text-align:center;font-size:50px;font-family:'Press Start 2P';color:white;-webkit-text-stroke-width: 2px;-webkit-text-stroke-color: black;">ABILITYDEX</div>
         <show-cards :names="abilitylist" job="Ability" :showA="true"/>  
     </div>
 </template>

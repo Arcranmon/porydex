@@ -1,17 +1,21 @@
 <template>  
     <div>  
          <br>
-        <div style="text-align:center;font-size:50px;font-family:'Press Start 2P';color:black">ROLEDEX</div>
+        <div style="text-align:center;font-size:50px;font-family:'Press Start 2P';color:white;-webkit-text-stroke-width: 2px;-webkit-text-stroke-color: black;">ROLEDEX</div>
         <h1 style="text-align:center;font-family:'Press Start 2P';color:black">Choose a class of Role!</h1><br>
-        <v-select 
-                label="Choose a Role type"
-                :items="roleTypes"              
-                hide-details
-                v-model="roleRole"
-                class="scroll"       
-                outlined         
-                style="width:95%;  margin-left: auto; margin-right: auto; background:lightcyan">>
-         </v-select>
+         <v-row align="center"> 
+            <v-col cols="12">
+                <v-select 
+                        label="Role Type"
+                        :items="roleTypes"                
+                        hide-details
+                        v-model="roleRole"
+                        class="scroll"     
+                        outlined        
+                        style="margin-left: 5px; margin-right: 5px;background:lightcyan">
+                </v-select>
+            </v-col>
+         </v-row>
         <show-cards :names="rolelist" job="Role" :showA='true' />  
     </div>
 </template>
