@@ -2,7 +2,7 @@
 
 # PoryDex
 
-> Welcome to the PoryDex, a tool made to help play Pokemon Tabletop Odyssey! Just hop on over to <a href="porydex.app">the PoryDex site!</a>
+Welcome to the PoryDex, a tool made to help play Pokemon Tabletop Odyssey! Just hop on over to <a href="porydex.app">the PoryDex site!</a>
 
 # Features
 - Compendium of Moves, Abilities, Roles, and Pokemon!
