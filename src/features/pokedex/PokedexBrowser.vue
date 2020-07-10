@@ -53,6 +53,9 @@
                     outlined        
                     return-object
                     style="margin-left: 5px; margin-right: 5px; background:lightcyan">>
+                      <template slot='item' slot-scope='{ item }'>
+                        #{{ item.dexnumber }} - {{ item.name }}
+                    </template>
                 </v-select>
             </v-col>
         </v-row>
