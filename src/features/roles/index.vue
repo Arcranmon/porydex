@@ -2,7 +2,6 @@
     <div>  
          <br>
         <div style="text-align:center;font-size:50px;font-family:'Press Start 2P';color:white;-webkit-text-stroke-width: 2px;-webkit-text-stroke-color: black;">ROLEDEX</div>
-        <h1 style="text-align:center;font-family:'Press Start 2P';color:black">Choose a class of Role!</h1><br>
          <v-row align="center"> 
             <v-col cols="12">
                 <v-select 
