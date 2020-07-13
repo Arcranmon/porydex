@@ -48,12 +48,14 @@
                     label="Choose a Pokemon (Or Type Their Name)!"
                     :items="filtermon"
                     hide-details
-                    item-text="name"  
                     v-model="selectedPokemon"      
                     outlined        
                     return-object
                     style="margin-left: 5px; margin-right: 5px; background:lightcyan">>
-                      <template slot='item' slot-scope='{ item }'>
+                      <template slot='item' slot-scope='{ item}'>
+                        #{{ item.dexnumber }} - {{ item.name }}
+                    </template>
+                      <template slot='selection' slot-scope='{ item}'>
                         #{{ item.dexnumber }} - {{ item.name }}
                     </template>
                 </v-select>
