@@ -4,6 +4,7 @@
             <trainer-button to="/abilities">Abilities</trainer-button> <br>
             <trainer-button to="/moves">Moves</trainer-button> <br>
             <trainer-button to="/roles">Roles</trainer-button> <br>
+            <trainer-button to="/pokemon">Pokemon Builder (WIP)</trainer-button> <br>
     </div>
 </template>
 
