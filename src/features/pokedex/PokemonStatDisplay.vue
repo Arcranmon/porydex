@@ -6,6 +6,11 @@
                 <v-col cols="12" class="flex flex-column" style="flex-direction:column;" lg="4">
                         <div style="text-align: center;">
                             <h1 style="display:inline"> {{pokemon.name}} - #{{pokemon.dexnumber}} </h1> <br>
+                            <div style="margin: auto; width:min-fit">
+                                <span>
+                                <span class="Type" :class="pokemon.type1">{{pokemon.type1}}</span>
+                                <span v-if="pokemon.type2" class="Type" :class="pokemon.type2">{{pokemon.type2}}</span></span><br>
+                            </div>
                             <img :src='require("../../assets/pokemon/" + pokemon.dexnumber + ".png")' style="max-width:60%; width: auto; height: auto;"/>
                         </div>
                 </v-col>                
@@ -13,8 +18,6 @@
                 </v-col>                
                 <v-col cols="12" class="flex flex-column" style="flex-direction:column;" lg="7" >
                     <div style="text-align: left;height=100%" >
-                        <div v-if="!(pokemon.type2)">  <b>Type:</b> {{pokemon.type1}}</div>  
-                        <div v-else><b>Type:</b> {{pokemon.type1}} / {{pokemon.type2}}</div>
                         <b>Favored Skills:</b> {{pokemon.skill1}}, {{pokemon.skill2}}     <br>
                         <b>Deficient Skill:</b> {{pokemon.badskill}} <br>
                         <b>Home Turf:</b> <span v-for="i in turflist" :key="i">{{i}}<span v-if="i != turflist[turflist.length-1]">, </span></span><br>

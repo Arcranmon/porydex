@@ -17,11 +17,11 @@
                                 <b>Gifts:</b> <br>    
                             </v-col>
                             <v-col cols="6" style="text-align: center">    
-                            <div v-if="!(pokemon.type2)">{{pokemon.type1}}</div> 
-                            <div v-else>{{pokemon.type1}} / {{pokemon.type2}}</div>
-                            {{pokemon.size}} <br>
-                            <div v-for="i in turflist" :key="i">{{i}}<span v-if="i != turflist[turflist.length-1]">, </span></div>
-                            <div v-for="i in giftlist" :key="i">{{i}}<span v-if="i != giftlist[giftlist.length-1]">, </span></div> 
+                                <span class="Type" :class="pokemon.type1">{{pokemon.type1}}</span>
+                                <span v-if="pokemon.type2" class="Type" :class="pokemon.type2">{{pokemon.type2}}</span>
+                                {{pokemon.size}} <br>
+                                <div v-for="i in turflist" :key="i">{{i}}<span v-if="i != turflist[turflist.length-1]">, </span></div>
+                                <div v-for="i in giftlist" :key="i">{{i}}<span v-if="i != giftlist[giftlist.length-1]">, </span></div> 
                             </v-col> 
                         </v-row>
                 </v-col>                 
@@ -82,6 +82,9 @@
                 <v-col cols="12" class="flex flex-column pokemon-cell-bottom" style="flex-direction:column;" lg="3" >
                     <div style="text-align: left;height=100%" >                        
                         <div class='pokemon-cell'><h2 style="text-align:center;">  Traits </h2></div>
+                        <div v-for="trait in traitlist" :key="trait" style="padding:10px">
+                            <b>{{trait}}:</b>
+                        </div>
                     </div>                    
                 </v-col>                         
             </v-row>
@@ -169,6 +172,14 @@
                } 
                else{
                    return [this.pokemon.turf1]
+               }
+            },      
+            traitlist: function() {
+               if('trait2' in this.pokemon){
+                   return [this.pokemon.trait1, this.pokemon.trait2]
+               } 
+               else{
+                   return [this.pokemon.trait2]
                }
             },            
             giftlist: function() {
