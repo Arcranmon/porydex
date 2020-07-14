@@ -1,49 +1,35 @@
 <template>
-    <div>        
-            <v-row no-gutters>
-                <v-col cols="2" class="flex" style="flex-direction:column;">
-                    <v-card height="100%" outline flat tile>
-                        <div class="role-bottom" v-bind:class="[role.role]" style="height:100%;width:100%;border-top:2px solid black;border-right:0px solid black;display: flex;justify-content: center; align-items: center;">
-                            <img :src='require("../../assets/" + role.role + ".png")' max-width=80%/>
-                        </div>
-                    </v-card>
-                </v-col>  
-                <v-col cols="10">
-                    <v-card outline flat tile>
-                        <div class="role-top" style="display:block">
-                            <h3 style="display:inline">{{roleName}}</h3>
-                            </div>
-                        <div class="role-bottom" style="text-align:center;display:block"><i>{{role.summary}}</i></div>
-                    </v-card>
-                </v-col>
-            </v-row>
-            <v-row no-gutters>
-                <v-col cols="12">
-                    <v-card outline flat tile>
-                        <div class="role-bottom" style="display:block">
-                            <b>HP:</b> {{role.hp}} <br>
-                            <b>Defenses:</b> {{role.def1}}, {{role.def2}}, {{role.def3}} <br>
-                            <b>Initiative Mod:</b> {{role.init}} <br><br>                            
-                            <h3 style="text-align:center;">{{roleName}} Abilities</h3> <br>   
-                            <span v-if="numAbilities>=1"> 
-                                <b>{{role.ability1}}:</b> {{role.ability1effect}}    <br>                    
-                            </span>   
-                            <span v-if="numAbilities>=2"> 
-                                <b>{{role.ability2}}:</b> {{role.ability2effect}}     <br>                   
-                            </span>   
-                            <span v-if="numAbilities>=3"> 
-                                <b>{{role.ability3}}:</b> {{role.ability3effect}}   <br>                     
-                            </span>   
-                            <span v-if="numAbilities>=4"> 
-                                <b>{{role.ability4}}:</b> {{role.ability4effect}}    <br>                    
-                            </span>
-                        </div>
-                    </v-card>
-                </v-col>
-                <v-col v-if="showA == true" cols=12>
-                    <available :name="roleName" />
-                </v-col>
-            </v-row>
+    <div class="role--wrapper">
+        <div class="d-flex flex-row">   
+            <v-card height="100%" outline flat tile>
+                <div class="role--icon" v-bind:class="[role.role]">
+                    <img :src='require("../../assets/" + role.role + ".png")' max-width=80%/>
+                </div>
+            </v-card>
+            <h3 class="role--header">{{roleName}}</h3>  
+        </div>
+        <div class="role--content text-center font-italic">{{role.summary}}</div>
+            <v-card outline flat tile>
+                <div class="role--content">
+                    <b>HP:</b> {{role.hp}} <br>
+                    <b>Defenses:</b> {{role.def1}}, {{role.def2}}, {{role.def3}} <br>
+                    <b>Initiative Mod:</b> {{role.init}} <br><br>                            
+                    <h3 class="text-center">{{roleName}} Abilities</h3> <br>   
+                    <span v-if="numAbilities>=1"> 
+                        <b>{{role.ability1}}:</b> {{role.ability1effect}}    <br>                    
+                    </span>   
+                    <span v-if="numAbilities>=2"> 
+                        <b>{{role.ability2}}:</b> {{role.ability2effect}}     <br>                   
+                    </span>   
+                    <span v-if="numAbilities>=3"> 
+                        <b>{{role.ability3}}:</b> {{role.ability3effect}}   <br>                     
+                    </span>   
+                    <span v-if="numAbilities>=4"> 
+                        <b>{{role.ability4}}:</b> {{role.ability4effect}}    <br>                    
+                    </span>
+                </div>
+            </v-card>
+        <available :name="roleName" />  
     </div>
 </template>
 
@@ -103,42 +89,43 @@
     })
 </script>
 
-<style scoped>
-  *{    
-    font-family: "Courier New";
-    font-size: 18;
+<style scoped lang="scss">
+  .role--wrapper {
+    font-family: $font--standard;
   }
-  .role-top {
+
+  .role--header {
+    align-items: center;
     background-color: grey;
     border: 2px solid black;
-    font-family: "Courier New";
-    font-size: 18px;
-    padding: 10px;
-    box-sizing: border-box;
-    border-radius:0px!important;
+    display: flex;
+    font-size: $font-size--l;
+    padding: $space--m;
+    width: 100%;
   }
-  .role-bottom {
-    background-color: #f0f0f0;
+  .role--content {
+    background-color: $color--grey-light;
     border: 2px solid black;
     border-top: 0px solid black;
-    font-family: "Courier New";
-    font-size: 14px;
-    padding: 5px;
-    box-sizing: border-box;
+    padding: $space--xs;
     text-align: left;
-    border-radius:0px!important;
   }
-  .wrapper {
+  .role--icon {
+    align-items: center;
+    border:2px solid black;
+    border-right: 0;
     display: flex;
-    text-align: center;
+    height: 6em;
+    justify-content: center; 
+    width: 6em;
   }
   .DPS{
-      background-color: lightyellow
+      background-color: $color--dps;
   }
   .Tank{
-      background-color: lightyellow
-  }
+      background-color: $color--tank
+      }
   .Support{
-      background-color: lightyellow
+      background-color: $color--support
   }
 </style>
