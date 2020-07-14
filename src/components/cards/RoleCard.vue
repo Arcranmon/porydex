@@ -1,14 +1,12 @@
 <template>
-    <div>
+    <div class="role--wrapper">
         <div class="d-flex flex-row">   
             <v-card height="100%" outline flat tile>
                 <div class="role--icon" v-bind:class="[role.role]">
                     <img :src='require("../../assets/" + role.role + ".png")' max-width=80%/>
                 </div>
             </v-card>
-            <h3 class="role--header">
-                {{roleName}}
-            </h3>  
+            <h3 class="role--header">{{roleName}}</h3>  
         </div>
         <div class="role--content text-center font-italic">{{role.summary}}</div>
             <v-card outline flat tile>
@@ -92,6 +90,10 @@
 </script>
 
 <style scoped lang="scss">
+  .role--wrapper {
+    font-family: $font--standard;
+  }
+
   .role--header {
     align-items: center;
     background-color: grey;
