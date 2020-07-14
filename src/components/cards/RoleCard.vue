@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="role--wrapper">
         <div class="d-flex flex-row">   
             <v-card height="100%" outline flat tile>
                 <div class="role--icon" v-bind:class="[role.role]">
@@ -92,6 +92,10 @@
 </script>
 
 <style scoped lang="scss">
+  .role--wrapper {
+    font-family: $font--standard;
+  }
+
   .role--header {
     align-items: center;
     background-color: grey;
