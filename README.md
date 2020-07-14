@@ -7,6 +7,11 @@ Welcome to the PoryDex, a tool made to help play Pokemon Odyssey! Just hop on ov
 # Features
 - Compendium of Moves, Abilities, Roles, and Pokemon!
 
+# Setup
+- Install nodejs + yarn
+- run `yarn install`
+- run `yarn start`
+
 # In-Development Features
 - Make the site prettier (always)
 - More filters and sorting options for moves/abilities
