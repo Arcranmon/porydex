@@ -24,3 +24,4 @@ If you have a feature request or found a bug, <a href="https://docs.google.com/f
 - The creators of COMP/CON, a tool made to play the Lancer TTRPG system, for providing guidance and pointing me in the right direction!
 - Everybody that has helped find bugs!
   - Moriya
+  - zoofman, for being a style and web dev guru that gave me a ton of QOL fixes
