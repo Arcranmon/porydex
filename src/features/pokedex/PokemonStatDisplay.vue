@@ -99,6 +99,7 @@
 <script>
     import Vue from 'vue'
     import ShowCards from '@/components/cards/ShowCards'
+    import '@/styles/types.scss'
 
     export default Vue.extend({
         name: 'pokemon-stat-display',

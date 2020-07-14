@@ -13,8 +13,8 @@
                 <div class="role--content">
                     <b>HP:</b> {{role.hp}} <br>
                     <b>Defenses:</b> {{role.def1}}, {{role.def2}}, {{role.def3}} <br>
-                    <b>Initiative Mod:</b> {{role.init}} <br><br>                            
-                    <h3 class="text-center">{{roleName}} Abilities</h3> <br>   
+                    <b>Initiative Mod:</b> {{role.init}} <br>                         
+                    <h4 class="text-center">{{roleName}} Abilities</h4> 
                     <span v-if="numAbilities>=1"> 
                         <b>{{role.ability1}}:</b> {{role.ability1effect}}    <br>                    
                     </span>   
