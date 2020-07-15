@@ -1,0 +1,133 @@
+[
+    {
+        "timestamp": "2020-07-14T04:39:34.474Z",
+        "name": "Anticipation",
+        "effect": "The first time each Round you are targeted by an attack that would deal Super-Effective damage, that attack gains +1 Bane to its Accuracy Roll."
+    },
+    {
+        "timestamp": "2020-07-14T04:39:58.814Z",
+        "name": "Battle Armor",
+        "effect": "You take normal damage from Critical Hits."
+    },
+    {
+        "timestamp": "2020-07-14T04:41:36.061Z",
+        "name": "Hustle",
+        "effect": "+6/8/10 Damage and +1 Bane to Accuracy for all Physical Melee Strikes. ",
+        "physical": true,
+        "damage": true,
+        "melee": true,
+        "value": 6,
+        "increment": 2
+    },
+    {
+        "timestamp": "2020-07-14T04:41:58.416Z",
+        "name": "Impudent",
+        "effect": "Moves with the Social Keyword have +1 Bane on Accuracy Rolls against you. "
+    },
+    {
+        "timestamp": "2020-07-14T04:42:22.629Z",
+        "name": "Keen Eye",
+        "effect": "You ignore any Banes to Accuracy caused by Moves, Abilities, or Talents. "
+    },
+    {
+        "timestamp": "2020-07-14T04:42:44.153Z",
+        "name": "Leek Wielder",
+        "effect": "Your attacks gain a +2 bonus to Critical Hit Range."
+    },
+    {
+        "timestamp": "2020-07-14T04:43:08.877Z",
+        "name": "Limber",
+        "effect": "You are immune to paralysis."
+    },
+    {
+        "timestamp": "2020-07-14T04:43:23.426Z",
+        "name": "Long Limbs",
+        "effect": "You gain +1 Reach. "
+    },
+    {
+        "timestamp": "2020-07-14T04:43:51.739Z",
+        "name": "Natural Cure",
+        "effect": "Once per Scene, when recalled into a Poke Ball, you may cure yourself of one Mental or Physical Status Condition. "
+    },
+    {
+        "timestamp": "2020-07-14T04:44:17.114Z",
+        "name": "Physical Armor",
+        "effect": "+3/4/5 Armor vs Physical Damage. ",
+        "physical": true,
+        "armor": true,
+        "value": 3,
+        "increment": 1
+    },
+    {
+        "timestamp": "2020-07-14T04:44:49.556Z",
+        "name": "Physical Attacker",
+        "effect": "You deal +3/4/5 Damage with Physical Strikes. ",
+        "physical": true,
+        "damage": true,
+        "value": 3,
+        "increment": 1
+    },
+    {
+        "timestamp": "2020-07-14T04:45:08.450Z",
+        "name": "Poison Skin",
+        "effect": "Once a Scene, when a foe hits you with a Melee attack, you can cause them to gain Ongoing Damage 5/8/10 (Poison, Save Ends). "
+    },
+    {
+        "timestamp": "2020-07-14T04:45:34.557Z",
+        "name": "Quick Feet",
+        "effect": "You may Sprint for 1 AP instead of 2 AP. "
+    },
+    {
+        "timestamp": "2020-07-14T04:45:50.627Z",
+        "name": "Run Away",
+        "effect": "Whenever you would become Slowed or Stuck, roll a Save. On a success, remove the triggering condition."
+    },
+    {
+        "timestamp": "2020-07-14T04:46:16.920Z",
+        "name": "Sap Sipper",
+        "effect": "You are Immune to Grass-type attacks, and when hit by a Grass-type Attack, your next Physical Strike deals +1d6 Damage. "
+    },
+    {
+        "timestamp": "2020-07-14T04:46:42.452Z",
+        "name": "Shield Dust",
+        "effect": "You are Immune to effects that activate on Critical or Super-Effective Hit. "
+    },
+    {
+        "timestamp": "2020-07-14T04:46:58.166Z",
+        "name": "Soundproof",
+        "effect": "You are Immune to all effects and damage from Moves with the Sonic Keyword. "
+    },
+    {
+        "timestamp": "2020-07-14T04:47:16.438Z",
+        "name": "Special Armor",
+        "effect": "You have +3/4/5 Armor vs Special Damage. ",
+        "special": true,
+        "armor": true,
+        "value": 3,
+        "increment": 1
+    },
+    {
+        "timestamp": "2020-07-14T04:47:39.455Z",
+        "name": "Special Attacker",
+        "effect": "You deal +3/4/5 Damage with Special Strikes. ",
+        "special": true,
+        "damage": true,
+        "value": 3,
+        "increment": 1
+    },
+    {
+        "timestamp": "2020-07-14T04:47:53.090Z",
+        "name": "Spinning Dance",
+        "effect": "Once a Round when you are missed by an attack, you may gain +2 to all Defenses for one full round, then Disengage 1. "
+    },
+    {
+        "timestamp": "2020-07-14T04:48:06.191Z",
+        "name": "Static",
+        "effect": "Once a Scene, when a foe hits you with a Melee attack, you can cause them to become Paralyzed (save ends). "
+    },
+    {
+        "timestamp": "2020-07-14T04:48:34.672Z",
+        "name": "Two-Faced",
+        "effect": "While you have uses left of Ice Face, you have +3/4/5 Armor vs Physical Damage. While you have no uses left of Ice Face, you have +3 Initiative and +2 Movement. "
+    }
+]

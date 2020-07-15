@@ -49,7 +49,7 @@
 
 <style scoped lang="scss">
   .card--box{
-    display: inline;
+    display: flexbox;
     width:100%;
   }
 </style>
