@@ -8,9 +8,9 @@ Welcome to the PoryDex, a tool made to help play Pokemon Odyssey! Just hop on ov
 - Compendium of Moves, Abilities, Roles, and Pokemon!
 
 # Setup
-- Install nodejs + yarn
-- run `yarn install`
-- run `yarn start`
+- Install nodejs + npm
+- run `npm install`
+- run `npm start`
 
 # In-Development Features
 - Make the site prettier (always)
@@ -29,4 +29,4 @@ If you have a feature request or found a bug, <a href="https://docs.google.com/f
 - The creators of COMP/CON, a tool made to play the Lancer TTRPG system, for providing guidance and pointing me in the right direction!
 - Everybody that has helped find bugs!
   - Moriya
-  - zoofman, for being a style and web dev guru that gave me a ton of QOL fixes
+  - jardavies89, for being a style and web dev guru that gave me a ton of QOL fixes
