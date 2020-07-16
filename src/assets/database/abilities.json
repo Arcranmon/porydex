@@ -1,289 +1,303 @@
 [
-    {
-        "timestamp": "2020-07-10T03:10:14.290Z",
-        "name": "Ambush",
-        "action": "Free Action",
-        "frequency": "Scene x1",
-        "effect": "Hide as a Free Action (you must still meet all requirements). The next time this Scene you hit with a damaging attack while Hidden, choose one of the following effects:\n* Choose a hit target. It falls Prone and all allies have +3 to Critical Hit Range against the target while it is Prone.\n* Choose a hit target. They take their next turn as if their Initiative was 0, and they are Vulnerable until the end of that turn."
-    },
-    {
-        "timestamp": "2020-06-30T01:13:38.347Z",
-        "name": "Aroma Veil",
-        "frequency": "Static",
-        "effect": "You have a Burst 2 Aura around you. You and all allies in the Aura are immune to being Disabled, Confused, and Enraged."
-    },
-    {
-        "timestamp": "2020-06-30T04:57:07.391Z",
-        "name": "Cry Baby",
-        "action": "Free Action",
-        "frequency": "At-Will",
-        "trigger": "You are hit by a damaging attack.",
-        "effect": "The enemy that hit you takes a bane to accuracy to hit you again until the end of their next turn."
-    },
-    {
-        "timestamp": "2020-06-30T04:52:31.959Z",
-        "name": "Cursed Body",
-        "action": "Free Action",
-        "frequency": "Scene x1",
-        "trigger": "You are hit by a Move.",
-        "effect": "Disable (Persistent) the Triggering Move. "
-    },
-    {
-        "timestamp": "2020-06-10T03:42:10.881Z",
-        "name": "Cute Charm",
-        "action": "Free Action",
-        "frequency": "Scene x2",
-        "keywords": "Limited",
-        "trigger": "You are hit by a Strike.",
-        "effect": "Your attacker takes a Bane to all Accuracy Rolls on Strikes until the end of their next turn. If they target you with a Strike before that time, they then become Weakened until the end of their next turn. Weakened applies before resolving any damage from the attack. "
-    },
-    {
-        "timestamp": "2020-06-30T04:58:07.593Z",
-        "name": "Fetch!",
-        "action": "Free Action",
-        "frequency": "At-Will",
-        "trigger": "An ally adjacent to you uses a Ranged, 1 Target attack.",
-        "effect": "As a free action, you may move up to your Movement speed toward the target of the attack."
-    },
-    {
-        "timestamp": "2020-06-30T04:45:14.670Z",
-        "name": "Fluffy",
-        "frequency": "Static",
-        "effect": "You resist all physical damage one step, but are weak to Fire damage (Physical Fire attacks deal regular damage)."
-    },
-    {
-        "timestamp": "2020-05-20T07:50:47.474Z",
-        "name": "Frost Spikes",
-        "action": "Free Action",
-        "frequency": "At-Will",
-        "trigger": "You use an Ice-Type Move",
-        "effect": "For one full round, foes who attack you with a melee attack lose a Tick of Hit Points after their attack is resolved. When this effect ends, set up to three squares of Spikes Hazard adjacent to you. Frost Spikes can only be used once per round."
-    },
-    {
-        "timestamp": "2020-05-20T07:46:16.927Z",
-        "name": "Frost Threads",
-        "frequency": "Static",
-        "effect": "Once a round, when you use your Threaded Gift targeting a character or you move through a character’s square using your Threaded Gift  you may force them to make a Save or else become Chilled for one full round."
-    },
-    {
-        "timestamp": "2020-06-30T04:48:28.179Z",
-        "name": "Gallant Charge",
-        "action": "Free Action",
-        "frequency": "Scene x2",
-        "keywords": "Limited",
-        "trigger": "You begin your turn",
-        "effect": "Choose a foe within your movement. You and that foe become Marked by each other until the end of your next turn, and you may immediately Move adjacent to them, ignoring Slow Terrain. While the target is Marked this way, your 1-target Melee attacks deal +1D damage against them. "
-    },
-    {
-        "timestamp": "2020-06-30T04:54:28.213Z",
-        "name": "Gremlin",
-        "action": "Free Action",
-        "frequency": "At-Will",
-        "trigger": "You hit a foe with an attack.",
-        "effect": "You may spend 1 AP to gain one Charge of the Gremlin Buff. You may have a maximum of 3 Charges of the Gremlin Buff at any time. While you have any Charges of the Gremlin Buff, Tricks have +1 Bane to Accuracy Rolls against you. Once per Scene on your turn, you may spend all Charges of the Gremlin Buff as a free Action. When you do, you gain X AP that only you can spend, where X is equal to twice the number of Charges spent. You may use that AP only to use Tricks, and you may Disengage 2 between each different Trick you use."
-    },
-    {
-        "timestamp": "2020-06-30T04:53:39.926Z",
-        "name": "Ice Body",
-        "action": "Free Action",
-        "frequency": "Daily x5",
-        "effect": "Gain 1 Tick of Temporary Hit Points. Ice Body may only be used if the user is in Hail Weather, is standing on ice or snow terrain, or is Shaken. Ice Body may only be used once per round."
-    },
-    {
-        "timestamp": "2020-06-30T01:15:51.646Z",
-        "name": "Ice Face",
-        "action": "Free Action",
-        "frequency": "Scene x1",
-        "trigger": "You are hit by a damaging attack.",
-        "effect": "You take the damage as if Resisted one step further. Once a Scene, you can restore the Frequency of Ice Face in one of the following ways:\n* As a Free Action when you are in Hail\n* As a Move Action when you are standing on or adjacent to icy or snowy terrain"
-    },
-    {
-        "timestamp": "2020-06-30T04:53:01.813Z",
-        "name": "Inner Focus",
-        "frequency": "Static",
-        "effect": "The user cannot be Flinched, their Initiative cannot be unwillingly lowered by any effects, and they get a +3 bonus to all Save Checks. "
-    },
-    {
-        "timestamp": "2020-07-10T03:09:07.327Z",
-        "name": "Intimidate",
-        "action": "Free Action",
-        "frequency": "Scene x1",
-        "trigger": "You hit with a Strike or a Move with the Social Keyword ",
-        "effect": "Choose one hit Target. That target deals Physical Damage as if Resisted one step further until the end of their next turn. The Frequency of this Ability refreshes any time your Strike causes a foe to be Shaken or Defeated. "
-    },
-    {
-        "timestamp": "2020-06-30T04:55:56.273Z",
-        "name": "Keep The Beat",
-        "frequency": "At-Will",
-        "trigger": "You use a Strike against a foe that has been hit by you or your partner’s attack since the start of the previous round.",
-        "effect": "The triggering attack gains +1 Boon to Accuracy."
-    },
-    {
-        "timestamp": "2020-06-30T04:50:51.900Z",
-        "name": "Lead Astray",
-        "action": "Free Action",
-        "frequency": "Scene x2",
-        "keywords": "Limited",
-        "trigger": "You hit a foe with a Trick while Hidden.",
-        "effect": "Immediately Disengage 3. At the start of the foe's next turn, they must choose whether to become Stuck until the end of the Round or to immediately spend their Movement Action to Move as close to you as possible. "
-    },
-    {
-        "timestamp": "2020-06-30T04:55:05.521Z",
-        "name": "Leek Parry",
-        "action": "Free Action",
-        "frequency": "At-Will",
-        "trigger": "An enemy misses you with a ranged attack.",
-        "effect": "You Push the target 1 Square, and they are knocked Prone. Leek Parry may be used once per Round.",
-        "targets": "The triggering enemy or an enemy within 5 squares of you."
-    },
-    {
-        "timestamp": "2020-06-30T04:55:28.297Z",
-        "name": "Lightning Kicks",
-        "frequency": "Static",
-        "effect": "You can use Moves with “Kick” in the name as Priority Moves. When you use Moves with “Kick” in the name on your turn, they gain the Accurate Keyword. "
-    },
-    {
-        "timestamp": "2020-06-30T04:46:11.030Z",
-        "name": "Malicious Giggles",
-        "frequency": "Static",
-        "effect": "Whenever you roll a Critical Hit with a Trick, the target gains ongoing Dark damage equal to their Tick value (Save ends)."
-    },
-    {
-        "timestamp": "2020-06-09T05:45:22.638Z",
-        "name": "Poison Membrane",
-        "action": "Free Action",
-        "frequency": "Scene x2",
-        "trigger": "You become Wet or use a Water-Type Attack, Poison-Type Attack, or Attack with “Mud” or “Muddy” in the name",
-        "effect": "Refresh the Frequency of your Poison Skin Trait."
-    },
-    {
-        "timestamp": "2020-06-30T04:47:13.763Z",
-        "name": "Power Spot",
-        "frequency": "Static",
-        "effect": "Your allies gain a +3/4/5 bonus to damage rolls while adjacent to you."
-    },
-    {
-        "timestamp": "2020-06-30T04:45:49.507Z",
-        "name": "Prankster",
-        "frequency": "Static",
-        "effect": "You may use Tricks and Maneuvers with Priority."
-    },
-    {
-        "timestamp": "2020-06-10T03:43:28.017Z",
-        "name": "Pride",
-        "frequency": "Static",
-        "effect": "While afflicted with Ongoing Damage, Paralysis, or Chilled, you deal +6/8/10 more Damage with all Special Attacks."
-    },
-    {
-        "timestamp": "2020-06-30T04:45:34.088Z",
-        "name": "Rock Head",
-        "frequency": "Static",
-        "effect": "When using a Move with the Recoil keyword, you may remove the Recoil keyword from that move. If you don’t, you gain a +3/4/5 damage bonus with that attack."
-    },
-    {
-        "timestamp": "2020-06-09T05:48:05.525Z",
-        "name": "Slippery Skin",
-        "action": "Free Action",
-        "frequency": "Scene x2",
-        "trigger": "You become Wet or use a Water-Type Attack, Poison-Type Attack, or Attack with “Mud” or “Muddy” in the name",
-        "effect": "Gain the following benefits until you are next hit by a Strike:\n* Melee attacks targeting you are made with +1 Bane to the Accuracy Roll\n* You may Disengage in a straight line up to your Move speed as a Movement Action"
-    },
-    {
-        "timestamp": "2020-06-29T18:49:15.813Z",
-        "name": "Snow Cloak",
-        "frequency": "Static",
-        "effect": "While in Hailing weather or on icy or snowy terrain, you have a +2 bonus to all Defenses. Additionally, the first time each round you use an Ice-Type attack or Move, gain this bonus until the start of your next turn if you don’t already have it. "
-    },
-    {
-        "timestamp": "2020-06-30T01:11:27.338Z",
-        "name": "Soothing Melody",
-        "action": "Free Action",
-        "frequency": "Scene x2",
-        "trigger": "You use a Move that targets only allies or that has the Sonic Keyword",
-        "effect": "The targeted allies and all allies in a Burst 1 may make a Save Check against any one Status Condition affecting them. Any ally that is cured of a Status Condition this way gains a Tick of Temporary HP. This stacks with any Temp HP granted by the triggering Move."
-    },
-    {
-        "timestamp": "2020-06-30T04:46:52.441Z",
-        "name": "Squad Formation",
-        "frequency": "Static",
-        "effect": "Each time Falinks finishes a Move or Disengages, they must choose one of the Formation effects below. The benefits last until they choose another Formation. Each formation changes the Falink’s Defense priority.\n* Blockade: The Falink occupy a Blast 2 (as normal for a Large sized Pokemon). Defenses: Evasion > Vigor > Resolve\n* Line: The Falink occupy a Line 4. Defenses: Vigor > Resolve > Evasion\n* Stack: The Falink stack together to occupy one square. Defenses: Resolve > Evasion > Vigor\n"
-    },
-    {
-        "timestamp": "2020-06-30T04:51:25.109Z",
-        "name": "Startle",
-        "action": "Free Action",
-        "frequency": "Scene x2",
-        "trigger": "You hit a foe with a Strike while Hidden.",
-        "effect": "The foe must immediately take their next Movement Action as if Slowed. This movement does not provoke Punish Attacks from Startle’s user."
-    },
-    {
-        "timestamp": "2020-06-30T01:15:03.746Z",
-        "name": "Sweet Veil",
-        "frequency": "Static",
-        "effect": "You have a Close Burst 2 Aura around you. You and all allies in the Aura are immune to Sleep."
-    },
-    {
-        "timestamp": "2020-06-30T01:13:00.553Z",
-        "name": "Toxicitea",
-        "frequency": "Static",
-        "effect": "You begin each Scene with one Charge of the Toxicitea Buff, and while you have at least one Charge of this Buff you have the following benefits:\n* When you are hit by an attack with the Drain keyword, the attacker loses HP instead of gaining Temporary HP\n* When you Critically Hit with an attack, your target gains Ongoing Damage 5/8/10 (Poison, Save Ends)\nYou can expend the Toxicitea Buff when you are hit by a Move to cause that Move to become Disabled (Persistent)."
-    },
-    {
-        "timestamp": "2020-06-30T04:44:54.818Z",
-        "name": "Vibe Check",
-        "action": "Free Action",
-        "frequency": "Scene x1",
-        "trigger": "You use a move that targets a character besides yourself.",
-        "effect": "The target chooses to grant you either the Positive Vibe or Negative Vibe status.  You gain the following effects depending on your Vibe:\n* Positive: You gain +1 Resolve while you have a Positive Vibe.  You may expend the Positive Vibe Status when using a Maneuver on an ally to give them a Tick of Temporary HP (this stacks with any Temporary HP you might already be giving with Healer’s Touch or the Maneuver).\n* Negative: You gain a +3/4/5 damage bonus to Special attacks while you have this status.  You may Expend the Negative Vibe status when hitting with a Strike to make one of the targets Vulnerable for one full Round.",
-        "targets": "One of the targets of the triggering Move"
-    },
-    {
-        "timestamp": "2020-06-30T01:16:21.062Z",
-        "name": "Wallmaster",
-        "action": "Movement Action",
-        "frequency": "At-Will",
-        "effect": "Create a 3x1 section of Barrier Hazard as a Maneuver. At least one square must be adjacent to you, and you may only place this terrain in unoccupied squares. Barrier Hazard is Blocking Terrain, has HP equal to your Recovery Value, has 5 in all Defenses, and is treated as Psychic-Type for the purposes of damage and effects."
-    },
-    {
-        "timestamp": "2020-06-30T04:51:59.863Z",
-        "name": "Wandering Spirit",
-        "action": "Free Action",
-        "frequency": "Scene x1",
-        "trigger": "You are hit by a Strike.",
-        "effect": "Your attacker reveals their Ability List. Choose one Ability. You gain that Ability, and your attacker replaces that Ability with Wandering Spirit. "
-    },
-    {
-        "timestamp": "2020-06-30T04:56:30.195Z",
-        "name": "Wild Rhythm",
-        "action": "Free Action",
-        "frequency": "Scene x2",
-        "keywords": "Limited",
-        "trigger": "You use a Move with the Sonic Keyword",
-        "effect": "Foes hit by the Move become Enraged until the end of your next turn. "
-    },
-    {
-        "timestamp": "2020-06-30T04:48:59.598Z",
-        "name": "Wing Shield",
-        "action": "Free Action",
-        "frequency": "Scene x1",
-        "trigger": "An adjacent ally is targeted by a ranged Strike.",
-        "effect": "Until the end of your next turn, the target has Cover against 1-target attacks and ignores all non-Damage effects from Strikes."
-    },
-    {
-        "timestamp": "2020-06-30T01:12:06.947Z",
-        "name": "Wistful Melody",
-        "action": "Free Action",
-        "frequency": "Scene x1",
-        "trigger": "You use a Trick or a Move with the Sonic tag",
-        "effect": "Foes hit by the Move must immediately spend their next Move Action to Move as close to you as possible. Until the end of your next turn, whenever you Move, you may Slide any adjacent foes along with you, and you do not provoke Punish Attacks from adjacent foes."
-    },
-    {
-        "timestamp": "2020-06-30T04:58:33.565Z",
-        "name": "Yappy Dog",
-        "action": "Free Action",
-        "frequency": "At-Will",
-        "keywords": "Limited",
-        "trigger": "An adjacent enemy attacks an ally",
-        "effect": "The triggering enemy takes a Bane on their next attack."
-    }
+  {
+    "timestamp": "2020-07-10T03:10:14.290Z",
+    "name": "Ambush",
+    "action": "Free Action",
+    "frequency": "Scene x1",
+    "effect": "Hide as a Free Action (you must still meet all requirements). The next time this Scene you hit with a damaging attack while Hidden, choose one of the following effects:\n* Choose a hit target. It falls Prone and all allies have +3 to Critical Hit Range against the target while it is Prone.\n* Choose a hit target. They take their next turn as if their Initiative was 0, and they are Vulnerable until the end of that turn."
+  },
+  {
+    "timestamp": "2020-06-30T01:13:38.347Z",
+    "name": "Aroma Veil",
+    "frequency": "Static",
+    "effect": "You have a Burst 2 Aura around you. You and all allies in the Aura are immune to being Disabled, Confused, and Enraged."
+  },
+  {
+    "timestamp": "2020-06-30T04:57:07.391Z",
+    "name": "Cry Baby",
+    "action": "Free Action",
+    "frequency": "At-Will",
+    "trigger": "You are hit by a damaging attack.",
+    "effect": "The enemy that hit you takes a bane to accuracy to hit you again until the end of their next turn."
+  },
+  {
+    "timestamp": "2020-06-30T04:52:31.959Z",
+    "name": "Cursed Body",
+    "action": "Free Action",
+    "frequency": "Scene x1",
+    "trigger": "You are hit by a Move.",
+    "effect": "Disable (Persistent) the Triggering Move. "
+  },
+  {
+    "timestamp": "2020-06-10T03:42:10.881Z",
+    "name": "Cute Charm",
+    "action": "Free Action",
+    "frequency": "Scene x2",
+    "keywords": "Limited",
+    "trigger": "You are hit by a Strike.",
+    "effect": "Your attacker takes a Bane to all Accuracy Rolls on Strikes until the end of their next turn. If they target you with a Strike before that time, they then become Weakened until the end of their next turn. Weakened applies before resolving any damage from the attack. "
+  },
+  {
+    "timestamp": "2020-06-30T04:58:07.593Z",
+    "name": "Fetch!",
+    "action": "Free Action",
+    "frequency": "At-Will",
+    "trigger": "An ally adjacent to you uses a Ranged, 1 Target attack.",
+    "effect": "As a free action, you may move up to your Movement speed toward the target of the attack."
+  },
+  {
+    "timestamp": "2020-06-30T04:45:14.670Z",
+    "name": "Fluffy",
+    "frequency": "Static",
+    "effect": "You resist all physical damage one step, but are weak to Fire damage (Physical Fire attacks deal regular damage)."
+  },
+  {
+    "timestamp": "2020-05-20T07:50:47.474Z",
+    "name": "Frost Spikes",
+    "action": "Free Action",
+    "frequency": "At-Will",
+    "trigger": "You use an Ice-Type Move",
+    "effect": "For one full round, foes who attack you with a melee attack lose a Tick of Hit Points after their attack is resolved. When this effect ends, set up to three squares of Spikes Hazard adjacent to you. Frost Spikes can only be used once per round."
+  },
+  {
+    "timestamp": "2020-05-20T07:46:16.927Z",
+    "name": "Frost Threads",
+    "frequency": "Static",
+    "effect": "Once a round, when you use your Threaded Gift targeting a character or you move through a character’s square using your Threaded Gift  you may force them to make a Save or else become Chilled for one full round."
+  },
+  {
+    "timestamp": "2020-06-30T04:48:28.179Z",
+    "name": "Gallant Charge",
+    "action": "Free Action",
+    "frequency": "Scene x2",
+    "keywords": "Limited",
+    "trigger": "You begin your turn",
+    "effect": "Choose a foe within your movement. You and that foe become Marked by each other until the end of your next turn, and you may immediately Move adjacent to them, ignoring Slow Terrain. While the target is Marked this way, your 1-target Melee attacks deal +1D damage against them. "
+  },
+  {
+    "timestamp": "2020-06-30T04:54:28.213Z",
+    "name": "Gremlin",
+    "action": "Free Action",
+    "frequency": "At-Will",
+    "trigger": "You hit a foe with an attack.",
+    "effect": "You may spend 1 AP to gain one Charge of the Gremlin Buff. You may have a maximum of 3 Charges of the Gremlin Buff at any time. While you have any Charges of the Gremlin Buff, Tricks have +1 Bane to Accuracy Rolls against you. Once per Scene on your turn, you may spend all Charges of the Gremlin Buff as a free Action. When you do, you gain X AP that only you can spend, where X is equal to twice the number of Charges spent. You may use that AP only to use Tricks, and you may Disengage 2 between each different Trick you use."
+  },
+  {
+    "timestamp": "2020-07-16T04:19:08.333Z",
+    "name": "Heliovolt",
+    "action": "Free Action",
+    "frequency": "Scene x3",
+    "trigger": "You use an Electric-Type Attack or Move.",
+    "effect": "Choose one of the following effects:\n* Sprint as a Free Action.\n* Create a Burst 1 Aura. For one full round, all characters in the Aura, including you, are treated as if they were in Harsh Sunlight.\n* Gain +2 Evasion for one full round."
+  },
+  {
+    "timestamp": "2020-06-30T04:53:39.926Z",
+    "name": "Ice Body",
+    "action": "Free Action",
+    "frequency": "Daily x5",
+    "effect": "Gain 1 Tick of Temporary Hit Points. Ice Body may only be used if the user is in Hail Weather, is standing on ice or snow terrain, or is Shaken. Ice Body may only be used once per round."
+  },
+  {
+    "timestamp": "2020-06-30T01:15:51.646Z",
+    "name": "Ice Face",
+    "action": "Free Action",
+    "frequency": "Scene x1",
+    "trigger": "You are hit by a damaging attack.",
+    "effect": "You take the damage as if Resisted one step further. Once a Scene, you can restore the Frequency of Ice Face in one of the following ways:\n* As a Free Action when you are in Hail\n* As a Move Action when you are standing on or adjacent to icy or snowy terrain"
+  },
+  {
+    "timestamp": "2020-06-30T04:53:01.813Z",
+    "name": "Inner Focus",
+    "frequency": "Static",
+    "effect": "The user cannot be Flinched, their Initiative cannot be unwillingly lowered by any effects, and they get a +3 bonus to all Save Checks. "
+  },
+  {
+    "timestamp": "2020-07-10T03:09:07.327Z",
+    "name": "Intimidate",
+    "action": "Free Action",
+    "frequency": "Scene x1",
+    "trigger": "You hit with a Strike or a Move with the Social Keyword ",
+    "effect": "Choose one hit Target. That target deals Physical Damage as if Resisted one step further until the end of their next turn. The Frequency of this Ability refreshes any time your Strike causes a foe to be Shaken or Defeated. "
+  },
+  {
+    "timestamp": "2020-06-30T04:55:56.273Z",
+    "name": "Keep The Beat",
+    "frequency": "At-Will",
+    "trigger": "You use a Strike against a foe that has been hit by you or your partner’s attack since the start of the previous round.",
+    "effect": "The triggering attack gains +1 Boon to Accuracy."
+  },
+  {
+    "timestamp": "2020-06-30T04:50:51.900Z",
+    "name": "Lead Astray",
+    "action": "Free Action",
+    "frequency": "Scene x2",
+    "keywords": "Limited",
+    "trigger": "You hit a foe with a Trick while Hidden.",
+    "effect": "Immediately Disengage 3. At the start of the foe's next turn, they must choose whether to become Stuck until the end of the Round or to immediately spend their Movement Action to Move as close to you as possible. "
+  },
+  {
+    "timestamp": "2020-06-30T04:55:05.521Z",
+    "name": "Leek Parry",
+    "action": "Free Action",
+    "frequency": "At-Will",
+    "trigger": "An enemy misses you with a ranged attack.",
+    "effect": "You Push the target 1 Square, and they are knocked Prone. Leek Parry may be used once per Round.",
+    "targets": "The triggering enemy or an enemy within 5 squares of you."
+  },
+  {
+    "timestamp": "2020-07-16T06:04:44.198Z",
+    "name": "Levitation",
+    "frequency": "Static",
+    "effect": "While you aren't touching the ground, you resist all Ground-Type Damage one step further. As long as you are no more than 2 spaces above the ground, whenever you would become Prone, roll a Save Check. On a success, you are not Prone and may Disengage 1 as a Free Action."
+  },
+  {
+    "timestamp": "2020-06-30T04:55:28.297Z",
+    "name": "Lightning Kicks",
+    "frequency": "Static",
+    "effect": "You can use Moves with “Kick” in the name as Priority Moves. When you use Moves with “Kick” in the name on your turn, they gain the Accurate Keyword. "
+  },
+  {
+    "timestamp": "2020-06-30T04:46:11.030Z",
+    "name": "Malicious Giggles",
+    "frequency": "Static",
+    "effect": "Whenever you roll a Critical Hit with a Trick, the target gains ongoing Dark damage equal to their Tick value (Save ends)."
+  },
+  {
+    "timestamp": "2020-06-09T05:45:22.638Z",
+    "name": "Poison Membrane",
+    "action": "Free Action",
+    "frequency": "Scene x2",
+    "trigger": "You become Wet or use a Water-Type Attack, Poison-Type Attack, or Attack with “Mud” or “Muddy” in the name",
+    "effect": "Refresh the Frequency of your Poison Skin Trait."
+  },
+  {
+    "timestamp": "2020-06-30T04:47:13.763Z",
+    "name": "Power Spot",
+    "frequency": "Static",
+    "effect": "Your allies gain a +3/4/5 bonus to damage rolls while adjacent to you."
+  },
+  {
+    "timestamp": "2020-06-30T04:45:49.507Z",
+    "name": "Prankster",
+    "frequency": "Static",
+    "effect": "You may use Tricks and Maneuvers with Priority."
+  },
+  {
+    "timestamp": "2020-06-10T03:43:28.017Z",
+    "name": "Pride",
+    "frequency": "Static",
+    "effect": "While afflicted with Ongoing Damage, Paralysis, or Chilled, you deal +6/8/10 more Damage with all Special Attacks."
+  },
+  {
+    "timestamp": "2020-06-30T04:45:34.088Z",
+    "name": "Rock Head",
+    "frequency": "Static",
+    "effect": "When using a Move with the Recoil keyword, you may remove the Recoil keyword from that move. If you don’t, you gain a +3/4/5 damage bonus with that attack."
+  },
+  {
+    "timestamp": "2020-06-09T05:48:05.525Z",
+    "name": "Slippery Skin",
+    "action": "Free Action",
+    "frequency": "Scene x2",
+    "trigger": "You become Wet or use a Water-Type Attack, Poison-Type Attack, or Attack with “Mud” or “Muddy” in the name",
+    "effect": "Gain the following benefits until you are next hit by a Strike:\n* Melee attacks targeting you are made with +1 Bane to the Accuracy Roll\n* You may Disengage in a straight line up to your Move speed as a Movement Action"
+  },
+  {
+    "timestamp": "2020-06-29T18:49:15.813Z",
+    "name": "Snow Cloak",
+    "frequency": "Static",
+    "effect": "While in Hailing weather or on icy or snowy terrain, you have a +2 bonus to all Defenses. Additionally, the first time each round you use an Ice-Type attack or Move, gain this bonus until the start of your next turn if you don’t already have it. "
+  },
+  {
+    "timestamp": "2020-06-30T01:11:27.338Z",
+    "name": "Soothing Melody",
+    "action": "Free Action",
+    "frequency": "Scene x2",
+    "trigger": "You use a Move that targets only allies or that has the Sonic Keyword",
+    "effect": "The targeted allies and all allies in a Burst 1 may make a Save Check against any one Status Condition affecting them. Any ally that is cured of a Status Condition this way gains a Tick of Temporary HP. This stacks with any Temp HP granted by the triggering Move."
+  },
+  {
+    "timestamp": "2020-06-30T04:46:52.441Z",
+    "name": "Squad Formation",
+    "frequency": "Static",
+    "effect": "Each time Falinks finishes a Move or Disengages, they must choose one of the Formation effects below. The benefits last until they choose another Formation. Each formation changes the Falink’s Defense priority.\n* Blockade: The Falink occupy a Blast 2 (as normal for a Large sized Pokemon). Defenses: Evasion > Vigor > Resolve\n* Line: The Falink occupy a Line 4. Defenses: Vigor > Resolve > Evasion\n* Stack: The Falink stack together to occupy one square. Defenses: Resolve > Evasion > Vigor\n"
+  },
+  {
+    "timestamp": "2020-06-30T04:51:25.109Z",
+    "name": "Startle",
+    "action": "Free Action",
+    "frequency": "Scene x2",
+    "trigger": "You hit a foe with a Strike while Hidden.",
+    "effect": "The foe must immediately take their next Movement Action as if Slowed. This movement does not provoke Punish Attacks from Startle’s user."
+  },
+  {
+    "timestamp": "2020-06-30T01:15:03.746Z",
+    "name": "Sweet Veil",
+    "frequency": "Static",
+    "effect": "You have a Close Burst 2 Aura around you. You and all allies in the Aura are immune to Sleep."
+  },
+  {
+    "timestamp": "2020-06-30T01:13:00.553Z",
+    "name": "Toxicitea",
+    "frequency": "Static",
+    "effect": "You begin each Scene with one Charge of the Toxicitea Buff, and while you have at least one Charge of this Buff you have the following benefits:\n* When you are hit by an attack with the Drain keyword, the attacker loses HP instead of gaining Temporary HP\n* When you Critically Hit with an attack, your target gains Ongoing Damage 5/8/10 (Poison, Save Ends)\nYou can expend the Toxicitea Buff when you are hit by a Move to cause that Move to become Disabled (Persistent)."
+  },
+  {
+    "timestamp": "2020-06-30T04:44:54.818Z",
+    "name": "Vibe Check",
+    "action": "Free Action",
+    "frequency": "Scene x1",
+    "trigger": "You use a move that targets a character besides yourself.",
+    "effect": "The target chooses to grant you either the Positive Vibe or Negative Vibe status.  You gain the following effects depending on your Vibe:\n* Positive: You gain +1 Resolve while you have a Positive Vibe.  You may expend the Positive Vibe Status when using a Maneuver on an ally to give them a Tick of Temporary HP (this stacks with any Temporary HP you might already be giving with Healer’s Touch or the Maneuver).\n* Negative: You gain a +3/4/5 damage bonus to Special attacks while you have this status.  You may Expend the Negative Vibe status when hitting with a Strike to make one of the targets Vulnerable for one full Round.",
+    "targets": "One of the targets of the triggering Move"
+  },
+  {
+    "timestamp": "2020-06-30T01:16:21.062Z",
+    "name": "Wallmaster",
+    "action": "Movement Action",
+    "frequency": "At-Will",
+    "effect": "Create a 3x1 section of Barrier Hazard as a Maneuver. At least one square must be adjacent to you, and you may only place this terrain in unoccupied squares. Barrier Hazard is Blocking Terrain, has HP equal to your Recovery Value, has 5 in all Defenses, and is treated as Psychic-Type for the purposes of damage and effects."
+  },
+  {
+    "timestamp": "2020-06-30T04:51:59.863Z",
+    "name": "Wandering Spirit",
+    "action": "Free Action",
+    "frequency": "Scene x1",
+    "trigger": "You are hit by a Strike.",
+    "effect": "Your attacker reveals their Ability List. Choose one Ability. You gain that Ability, and your attacker replaces that Ability with Wandering Spirit. "
+  },
+  {
+    "timestamp": "2020-06-30T04:56:30.195Z",
+    "name": "Wild Rhythm",
+    "action": "Free Action",
+    "frequency": "Scene x2",
+    "keywords": "Limited",
+    "trigger": "You use a Move with the Sonic Keyword",
+    "effect": "Foes hit by the Move become Enraged until the end of your next turn. "
+  },
+  {
+    "timestamp": "2020-06-30T04:48:59.598Z",
+    "name": "Wing Shield",
+    "action": "Free Action",
+    "frequency": "Scene x1",
+    "trigger": "An adjacent ally is targeted by a ranged Strike.",
+    "effect": "Until the end of your next turn, the target has Cover against 1-target attacks and ignores all non-Damage effects from Strikes."
+  },
+  {
+    "timestamp": "2020-06-30T01:12:06.947Z",
+    "name": "Wistful Melody",
+    "action": "Free Action",
+    "frequency": "Scene x1",
+    "trigger": "You use a Trick or a Move with the Sonic tag",
+    "effect": "Foes hit by the Move must immediately spend their next Move Action to Move as close to you as possible. Until the end of your next turn, whenever you Move, you may Slide any adjacent foes along with you, and you do not provoke Punish Attacks from adjacent foes."
+  },
+  {
+    "timestamp": "2020-06-30T04:58:33.565Z",
+    "name": "Yappy Dog",
+    "action": "Free Action",
+    "frequency": "At-Will",
+    "keywords": "Limited",
+    "trigger": "An adjacent enemy attacks an ally",
+    "effect": "The triggering enemy takes a Bane on their next attack."
+  }
 ]
