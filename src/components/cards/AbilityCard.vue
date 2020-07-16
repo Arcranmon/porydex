@@ -11,7 +11,8 @@
         ><b>Trigger:</b> {{ ability.trigger }} <br />
         <br
       /></inline>
-      <vue-simple-markdown
+      <b>Effect: </b
+      ><vue-simple-markdown
         :source="ability.effect"
         class="ability--format"
       ></vue-simple-markdown>
