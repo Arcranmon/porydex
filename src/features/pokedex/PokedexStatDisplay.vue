@@ -35,8 +35,8 @@
           ><br />
           <b>Initiative:</b> {{ pokemon.initiative }} <br />
           <b>Movement:</b> {{ pokemon.movement }}
-          <span v-if="(pokemon.movementtypes)">{{
-            pokemon.movementtypes
+          <span v-if="(pokemon.movementtype1)">{{
+            pokemon.movementtype1
           }}</span>
           <br />
           <b>Size:</b> {{ pokemon.size }} <br />
