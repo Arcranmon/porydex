@@ -76,7 +76,7 @@
           <v-expansion-panel-header class="pokedex--cell-dropdown-header"
             ><h1>Abilities</h1></v-expansion-panel-header
           >
-          <v-expansion-panel-content class="pokedex-cell-dropdown-interior">
+          <v-expansion-panel-content class="pokedex--cell-dropdown-content">
             <show-cards :names="parseAbilities(pokemon)" job="Ability" />
           </v-expansion-panel-content>
         </v-expansion-panel>
