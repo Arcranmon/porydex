@@ -43,7 +43,7 @@
           <br />
           <b>Defense Priority:</b> {{ pokemon.def1 }} > {{ pokemon.def2 }} >
           {{ pokemon.def3 }} <br />
-          <b>Basic Attack:</b>
+          <b>Basic Attack: </b>
           <span v-for="i in attacklist" :key="i"
             >{{ i
             }}<span v-if="i != attacklist[attacklist.length - 1]"
