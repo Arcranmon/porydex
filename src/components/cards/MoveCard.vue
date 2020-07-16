@@ -9,11 +9,11 @@
     <div class="move--content" v-bind:class="[move.category]">
       <b>Targets:</b> {{ move.target }}
       <span v-if="(move.defense)"> ✦ vs {{ move.defense }}</span> <br />
-      <div v-if="(move.hit)"><b>Hit:</b> {{ move.hit }}</div>
       <div v-if="(move.damage)">
-        <b>Hit:</b> {{ move.damage }} {{ move.damagetype }}
+        <b>Damage:</b> {{ move.damage }} {{ move.damagetype }}
         {{ move.type }} Damage
       </div>
+      <div v-if="(move.hit)"><b>Hit:</b> {{ move.hit }}</div>
       <div v-if="(move.always)">
         <vue-simple-markdown
           class="move--format"
