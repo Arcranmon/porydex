@@ -43,7 +43,9 @@
         </span>
       </div>
     </v-card>
-    <available :name="roleName" />
+    <div v-if="showA == true">
+      <available :name="roleName" />
+    </div>
   </div>
 </template>
 
