@@ -19,16 +19,19 @@ export default Vue.extend({
   data() {
     return {
       allTraits,
+      errtrt: {
+        effect: 'This trait was not found.',
+      },
     };
   },
   computed: {
     trait: function () {
-      var abls = [];
       for (const trt of this.allTraits) {
         if (this.traitName == trt.name) {
           return trt;
         }
       }
+      return this.errtrt;
     },
   },
 });

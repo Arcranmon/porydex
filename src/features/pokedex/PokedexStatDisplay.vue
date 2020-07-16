@@ -55,7 +55,10 @@
       <v-col cols="6" class="pokedex--header-content-right" lg="4">
         <h3 class="text-center">Traits</h3>
         <parse-trait :traitName="pokemon.trait1" /> <br />
-        <parse-trait :traitName="pokemon.trait2" /> <br />
+        <span v-if="(pokemon.trait2)"
+          ><parse-trait :traitName="pokemon.trait2"
+        /></span>
+        <br />
       </v-col>
     </v-row>
     <div class="pokedex--cell-header">
