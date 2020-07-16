@@ -10,7 +10,7 @@
       <b>Targets:</b> {{ move.target }}
       <span v-if="(move.defense)"> ✦ vs {{ move.defense }}</span> <br />
       <div v-if="(move.damage)">
-        <b>Damage:</b> {{ move.damage }} {{ move.damagetype }}
+        <b>Damage:</b> {{ move.damage }}6 {{ move.damagetype }}
         {{ move.type }} Damage
       </div>
       <div v-if="(move.hit)"><b>Hit:</b> {{ move.hit }}</div>
