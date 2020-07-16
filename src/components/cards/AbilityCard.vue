@@ -11,9 +11,8 @@
         ><b>Trigger:</b> {{ ability.trigger }} <br />
         <br
       /></inline>
-      <b>Effect: </b
-      ><vue-simple-markdown
-        :source="ability.effect"
+      <vue-simple-markdown
+        :source="abilityEffect"
         class="ability--format"
       ></vue-simple-markdown>
     </div>
@@ -54,6 +53,9 @@ export default Vue.extend({
           return arr;
         }
       }
+    },
+    abilityEffect: function () {
+      return '**Effect:** ' + this.ability.effect;
     },
   },
   components: {
