@@ -70,6 +70,18 @@ export default Vue.extend({
   data() {
     return {
       allRoles,
+      errRole: {
+        name: this.roleName,
+        role: 'DPS',
+        summary: 'Role was not found',
+        hp: 'X',
+        def1: 'X',
+        def2: 'X',
+        def3: 'X',
+        init: 'X',
+        ability1: 'Error',
+        ability1effect: 'Role was not found',
+      },
     };
   },
   computed: {
@@ -80,6 +92,7 @@ export default Vue.extend({
           return rl;
         }
       }
+      return this.errRole;
     },
     numAbilities: function () {
       if (this.role.ability4) {

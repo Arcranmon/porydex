@@ -41,6 +41,9 @@ export default Vue.extend({
           pklist.push(pkm.name);
         }
       }
+      if (pklist.length() == 0) {
+        return 'None';
+      }
       return pklist;
     },
   },

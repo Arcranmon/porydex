@@ -43,6 +43,11 @@ export default Vue.extend({
   data() {
     return {
       allAbilities,
+      errAbility: {
+        name: this.abilityName,
+        frequency: 'Error',
+        effect: 'Ability was not found',
+      },
     };
   },
   computed: {
@@ -53,6 +58,7 @@ export default Vue.extend({
           return arr;
         }
       }
+      return this.errAbility;
     },
     abilityEffect: function () {
       return '**Effect:** ' + this.ability.effect;

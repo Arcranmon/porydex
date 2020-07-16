@@ -74,6 +74,15 @@ export default Vue.extend({
   data() {
     return {
       allMoves,
+      errMove: {
+        name: this.moveName,
+        tier: 1,
+        type: 'Error',
+        action: 'Error',
+        category: 'Error',
+        target: 'Error',
+        hit: 'Move was not found',
+      },
     };
   },
   computed: {
@@ -83,6 +92,7 @@ export default Vue.extend({
           return mv;
         }
       }
+      return this.errMove;
     },
     tierImage: function () {
       return require('../../assets/tier' + this.move.tier + '.png');

@@ -31,6 +31,10 @@ export default Vue.extend({
   data() {
     return {
       allTraits,
+      errTrait: {
+        name: this.traitName,
+        effect: 'Trait was not found',
+      },
     };
   },
   computed: {
@@ -40,6 +44,7 @@ export default Vue.extend({
           return trt;
         }
       }
+      return this.errTrait;
     },
   },
   components: {
