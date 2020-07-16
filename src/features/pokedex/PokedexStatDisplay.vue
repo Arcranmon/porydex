@@ -58,84 +58,62 @@
         <parse-trait :traitName="pokemon.trait2" /> <br />
       </v-col>
     </v-row>
-    <div class="pokedex--cell-header" style="width: 100%; text-align: center;">
+    <div class="pokedex--cell-header">
       <v-expansion-panels>
         <v-expansion-panel>
-          <v-expansion-panel-header
-            expand-icon="mdi-chevron-down"
-            class="pokemon-cell-dropdown"
+          <v-expansion-panel-header class="pokedex--cell-dropdown-header"
             ><h1>Roles</h1></v-expansion-panel-header
           >
-          <v-expansion-panel-content class="pokemon-cell-dropdown-interior">
+          <v-expansion-panel-content class="pokedex--cell-dropdown-content">
             <show-cards :names="parseRoles(pokemon)" job="Role" />
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
     </div>
-    <div
-      class="pokedex--cell-header"
-      style="width: 100%; float: left; text-align: center;"
-    >
+    <div class="pokedex--cell-header">
       <v-expansion-panels>
         <v-expansion-panel>
-          <v-expansion-panel-header
-            expand-icon="mdi-chevron-down"
-            class="pokemon-cell-dropdown"
+          <v-expansion-panel-header class="pokedex--cell-dropdown-header"
             ><h1>Abilities</h1></v-expansion-panel-header
           >
-          <v-expansion-panel-content class="pokemon-cell-dropdown-interior">
+          <v-expansion-panel-content class="pokedex-cell-dropdown-interior">
             <show-cards :names="parseAbilities(pokemon)" job="Ability" />
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
     </div>
-    <div
-      class="pokedex--cell-header"
-      style="width: 100%; float: left; text-align: center;"
-    >
+    <div class="pokedex--cell-header">
       <v-expansion-panels>
         <v-expansion-panel>
-          <v-expansion-panel-header
-            expand-icon="mdi-chevron-down"
-            class="pokemon-cell-dropdown"
+          <v-expansion-panel-header class="pokedex--cell-dropdown-header"
             ><h1>Starting Moves</h1></v-expansion-panel-header
           >
-          <v-expansion-panel-content class="pokemon-cell-dropdown-interior">
+          <v-expansion-panel-content class="pokedex--cell-dropdown-content">
             <show-cards :names="parseMoves(pokemon, 0, false)" job="Move" />
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
     </div>
-    <div
-      class="pokedex--cell-header"
-      style="width: 100%; float: left; text-align: center;"
-    >
+    <div class="pokedex--cell-header">
       <v-expansion-panels>
         <v-expansion-panel>
-          <v-expansion-panel-header
-            expand-icon="mdi-chevron-down"
-            class="pokemon-cell-dropdown"
+          <v-expansion-panel-header class="pokedex--cell-dropdown-header"
             ><h1>Natural Moves</h1></v-expansion-panel-header
           >
-          <v-expansion-panel-content class="pokemon-cell-dropdown-interior">
+          <v-expansion-panel-content class="pokedex--cell-dropdown-content">
             <show-cards :names="parseMoves(pokemon, 1, false)" job="Move" />
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
     </div>
 
-    <div
-      class="pokedex--cell-header"
-      style="width: 100%; float: left; text-align: center;"
-    >
+    <div class="pokedex--cell-header">
       <v-expansion-panels>
         <v-expansion-panel>
-          <v-expansion-panel-header
-            expand-icon="mdi-chevron-down"
-            class="pokemon-cell-dropdown"
+          <v-expansion-panel-header class="pokedex--cell-dropdown-header"
             ><h1>Tutor Moves</h1></v-expansion-panel-header
           >
-          <v-expansion-panel-content class="pokemon-cell-dropdown-interior">
+          <v-expansion-panel-content class="pokedex--cell-dropdown-content">
             <show-cards :names="parseMoves(pokemon, 1, true)" job="Move" />
           </v-expansion-panel-content>
         </v-expansion-panel>
@@ -235,12 +213,12 @@ export default Vue.extend({
   background-color: darkcyan;
   padding: $space--xs;
 }
-.pokemon-cell-dropdown {
+.pokedex--cell-dropdown-header {
   color: white;
   background-color: rgb(1, 95, 95);
   padding: $space--xs;
 }
-.pokemon-cell-dropdown-interior {
+.pokedex--cell-dropdown-content {
   color: black;
   background-color: rgb(136, 212, 212);
 }
