@@ -20,9 +20,7 @@
         <b>Initiative Mod:</b>
         {{ role.init }}
         <br />
-        <br />
         <h3 class="text-center">{{ roleName }} Abilities</h3>
-        <br />
         <span v-if="numAbilities >= 1">
           <b>{{ role.ability1 }}:</b>
           {{ role.ability1effect }}
@@ -110,7 +108,7 @@ export default Vue.extend({
 .role--header {
   align-items: center;
   background-color: grey;
-  border: 2px solid black;
+  border: $border--black-standard;
   display: flex;
   font-size: $font-size--l;
   padding: $space--m;
@@ -118,14 +116,14 @@ export default Vue.extend({
 }
 .role--content {
   background-color: $color--grey-light;
-  border: 2px solid black;
+  border: $border--black-standard;
   border-top: 0px solid black;
   padding: $space--xs;
   text-align: left;
 }
 .role--icon {
   align-items: center;
-  border: 2px solid black;
+  border: $border--black-standard;
   border-right: 0;
   display: flex;
   height: 6em;

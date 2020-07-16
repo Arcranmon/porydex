@@ -48,7 +48,7 @@
     "google-fonts-webpack-plugin": "^0.4.4",
     "husky": "^4.2.5",
     "material-design-icons-iconfont": "^5.0.1",
-    "prettier": "^2.0.5",
+    "prettier": "2.0.5",
     "pretty-quick": "^2.0.1",
     "sass": "^1.26.9",
     "sass-loader": "^8.0.2",

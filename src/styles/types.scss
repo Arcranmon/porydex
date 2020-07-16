@@ -1,84 +1,85 @@
-$color--normal: #C6C6A7;
-$color--fire: #F5AC78;
-$color--water: #9DB7F5;
-$color--grass: #A7DB8D;
-$color--electric: #FAE078;
-$color--dark: #A29288;
-$color--fighting: #D67873;
-$color--psychic: #FA92B2;
-$color--poison: #C183C1;
-$color--fairy: #F4BDC9;
-$color--bug: #C6D16E;
-$color--ghost: #A292BC;
-$color--dragon: #A27DFA;
-$color--ice:  #BCE6E6;
-$color--rock: #D1C17D;
-$color--ground: #E0C068;
-$color--steel: #D1D1E0;
-$color--flying: #C6B7F5;
+$color--normal: #c6c6a7;
+$color--fire: #f5ac78;
+$color--water: #9db7f5;
+$color--grass: #a7db8d;
+$color--electric: #fae078;
+$color--dark: #a29288;
+$color--fighting: #d67873;
+$color--psychic: #fa92b2;
+$color--poison: #c183c1;
+$color--fairy: #f4bdc9;
+$color--bug: #c6d16e;
+$color--ghost: #a292bc;
+$color--dragon: #a27dfa;
+$color--ice: #bce6e6;
+$color--rock: #d1c17d;
+$color--ground: #e0c068;
+$color--steel: #d1d1e0;
+$color--flying: #c6b7f5;
 
-.Type{
-    border-radius: 3px;
-    line-height: 18px;
-    max-width: 110px;
-    min-width: 110px;
-    text-transform: none;
-    text-align: center;
-    width: 38.4375%;
-    display: inline-block;
-    margin: 0 1.5625% 0 0;
-  }
-  .Normal{
-    background-color: $color--normal;
-  }
-  .Fire{
-    background-color: $color--fire;
-  }
-  .Water{
-    background-color: $color--water;
-  }
-  .Grass{
-    background-color:$color--grass;
-  }
-  .Electric{
-    background-color: $color--electric;
-  }
-  .Dark{
-    background-color: $color--dark;
-  }
-  .Fighting{
-    background-color: $color--fighting;
-  }
-  .Psychic{
-    background-color: $color--psychic;
-  }
-  .Poison{
-    background-color: $color--poison;
-  }
-  .Fairy{
-    background-color: $color--fairy;
-  }
-  .Bug{
-    background-color: $color--bug;
-  }
-  .Ghost{
-    background-color: $color--ghost;
-  }
-  .Dragon{
-    background-color: $color--dragon;
-  }
-  .Ice{
-    background-color: $color--ice;
-  }
-  .Rock{
-    background-color: $color--rock;
-  }
-  .Ground{
-    background-color: $color--ground;
-  }
-  .Steel{
-    background-color: $color--steel;
-  }
-  .Flying{
-    background-color: $color--flying;
-  }  
+.Type {
+  border-radius: 3px;
+  border: 1px darkslategray solid;
+  line-height: 18px;
+  max-width: 110px;
+  min-width: 110px;
+  text-transform: none;
+  text-align: center;
+  width: 38.4375%;
+  display: inline-block;
+  margin: 0 1.5625% 0 0;
+}
+.Normal {
+  background-color: $color--normal;
+}
+.Fire {
+  background-color: $color--fire;
+}
+.Water {
+  background-color: $color--water;
+}
+.Grass {
+  background-color: $color--grass;
+}
+.Electric {
+  background-color: $color--electric;
+}
+.Dark {
+  background-color: $color--dark;
+}
+.Fighting {
+  background-color: $color--fighting;
+}
+.Psychic {
+  background-color: $color--psychic;
+}
+.Poison {
+  background-color: $color--poison;
+}
+.Fairy {
+  background-color: $color--fairy;
+}
+.Bug {
+  background-color: $color--bug;
+}
+.Ghost {
+  background-color: $color--ghost;
+}
+.Dragon {
+  background-color: $color--dragon;
+}
+.Ice {
+  background-color: $color--ice;
+}
+.Rock {
+  background-color: $color--rock;
+}
+.Ground {
+  background-color: $color--ground;
+}
+.Steel {
+  background-color: $color--steel;
+}
+.Flying {
+  background-color: $color--flying;
+}

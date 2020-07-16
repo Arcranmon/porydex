@@ -4,11 +4,18 @@ $color--dps: lightyellow;
 $color--tank: lightyellow;
 $color--support: lightyellow;
 
+$color--ability-header: #9dc1b7;
+$color--off-white: #f0f0f0;
+
+$color--pokedex-light: rgb(136, 212, 212);
+
 $color--maneuver: #00991c;
 $color--strike: #990000;
 $color--trick: #006199;
 
 $color--grey-light: #f0f0f0;
+
+$border--black-standard: 2px solid black;
 
 $font-size--l: 1.25em;
 
@@ -17,3 +24,17 @@ $space--m: 1em;
 $space--s: 0.75em;
 $space--xs: 0.5em;
 $space--xxs: 0.25em;
+
+.page--title {
+  text-align: center;
+  font-size: 4em;
+  font-family: 'Press Start 2P';
+  color: white;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+}
+
+.dropdown--light {
+  background: lightcyan;
+  width: 100%;
+}

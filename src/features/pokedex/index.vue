@@ -1,17 +1,17 @@
 <template>
-    <div >
-        <pokedex-brower></pokedex-brower>
-    </div>
+  <div>
+    <pokedex-brower></pokedex-brower>
+  </div>
 </template>
 
 <script>
-    import Vue from 'vue'
-    import PokedexBrower from './PokedexBrowser.vue'
+import Vue from 'vue';
+import PokedexBrower from './PokedexBrowser.vue';
 
-    export default Vue.extend({
-    name: 'pokedex',
-    components: {
-        PokedexBrower
-    },
-    })
+export default Vue.extend({
+  name: 'pokedex',
+  components: {
+    PokedexBrower,
+  },
+});
 </script>

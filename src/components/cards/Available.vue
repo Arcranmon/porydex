@@ -1,71 +1,68 @@
 <template>
-                <v-expansion-panels flat accordion>
-                    <v-expansion-panel >                            
-                        <v-expansion-panel-header expand-icon='mdi-chevron-down' class="top"><b>Available To:</b></v-expansion-panel-header>
-                            <v-expansion-panel-content class="bottom"><span v-for="n in namelist" :key="n">{{n}}<span v-if="n != namelist[namelist.length-1]">, </span></span>  </v-expansion-panel-content>
-                    </v-expansion-panel>
-                </v-expansion-panels>
+  <v-expansion-panels flat accordion class="available--wrapper">
+    <v-expansion-panel>
+      <v-expansion-panel-header
+        expand-icon="mdi-chevron-down"
+        class="available--top"
+        ><b>Available To:</b></v-expansion-panel-header
+      >
+      <v-expansion-panel-content class="available--bottom"
+        ><span v-for="n in namelist" :key="n"
+          >{{ n
+          }}<span v-if="n != namelist[namelist.length - 1]">, </span></span
+        >
+      </v-expansion-panel-content>
+    </v-expansion-panel>
+  </v-expansion-panels>
 </template>
 
-
 <script>
-    import Vue from 'vue'
-    import allPokemon from '@/assets/database/pokemon.json'
+import Vue from 'vue';
+import allPokemon from '@/assets/database/pokemon.json';
 
-    export default Vue.extend({
-        name: 'available',
-        props: {
-            name: {
-                type: String,
-                required: true,
-            },
-        },
-        data() {  
-            return {
-                allPokemon,
-            }
-
-        },
-        computed: {
-            namelist: function() {
-                var pklist = []
-                for(const pkm of this.allPokemon){
-                    if(Object.values(pkm).includes(this.name)){
-                        pklist.push(pkm.name)
-                  }
-                }
-                return pklist
-            }
-        },
-    
-    })
+export default Vue.extend({
+  name: 'available',
+  props: {
+    name: {
+      type: String,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      allPokemon,
+    };
+  },
+  computed: {
+    namelist: function () {
+      var pklist = [];
+      for (const pkm of this.allPokemon) {
+        if (Object.values(pkm).includes(this.name)) {
+          pklist.push(pkm.name);
+        }
+      }
+      return pklist;
+    },
+  },
+});
 </script>
 
-<style scoped>
-  .top {
-    background-color: lightgrey;
-    white-space: normal!important;
-    color: black;
-    font-family: "Courier New";  
-    border-radius: 0px;
-    font-size: 16px;
-    border:2px solid black;
-    border-top:0px solid black;
-    padding: 2px;
-    box-sizing: border-box;
-    text-align: left;
-  }
-  .bottom {
-    background-color: #f0f0f0;
-    white-space: normal!important;
-    border-radius: 0px;
-    color: black;
-    font-family: "Courier New";    
-    border:2px solid black;
-    border-top:0px solid black;
-    font-size: 14px;
-    padding: 0px;
-    box-sizing: border-box;
-    text-align: left;
-  }
+<style scoped lang="scss">
+.available--wrapper {
+  font-family: $font--standard;
+  border-radius: 0px;
+}
+.available--top {
+  background-color: lightgrey;
+  white-space: normal !important;
+  border: $border--black-standard;
+  border-top: 0px solid black;
+  padding: $space--xs;
+}
+.available--bottom {
+  background-color: $color--off-white;
+  border: $border--black-standard;
+  border-top: 0px solid black;
+  padding: $space--xs;
+}
 </style>
