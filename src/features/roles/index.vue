@@ -27,7 +27,7 @@ import ShowCards from '@/components/cards/ShowCards';
 import allRoles from '@/assets/database/roles.json';
 
 export default Vue.extend({
-  name: 'moves',
+  name: 'roles',
   components: {
     ShowCards,
   },

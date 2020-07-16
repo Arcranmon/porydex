@@ -17,6 +17,9 @@
         <span class="card--box" v-if="job == 'Role'">
           <role-card :roleName="n" :showA="showA"
         /></span>
+        <span class="card--box" v-if="job == 'Traits'">
+          <traits-card :traitName="n" :showA="showA"
+        /></span>
       </v-col>
     </v-row>
   </v-container>
@@ -27,6 +30,7 @@ import Vue from 'vue';
 import MoveCard from './MoveCard';
 import AbilityCard from './AbilityCard';
 import RoleCard from './RoleCard';
+import TraitsCard from './TraitsCard';
 import Available from './Available.vue';
 
 export default Vue.extend({
@@ -49,6 +53,7 @@ export default Vue.extend({
     MoveCard,
     AbilityCard,
     RoleCard,
+    TraitsCard,
     Available,
   },
   computed: {

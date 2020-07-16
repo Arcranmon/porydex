@@ -6,6 +6,7 @@ import Pokedex from '@/features/pokedex/index.vue';
 import Moves from '@/features/moves/index.vue';
 import Abilities from '@/features/abilities/index.vue';
 import Roles from '@/features/roles/index.vue';
+import Traits from '@/features/traits/index.vue';
 import Pokemon from '@/features/pokemon/index.vue';
 
 Vue.use(Router);
@@ -51,6 +52,11 @@ const r = new Router({
       path: '/pokemon',
       name: 'pokemon',
       component: Pokemon,
+    },
+    {
+      path: '/traits',
+      name: 'traits',
+      component: Traits,
     },
   ],
 });
