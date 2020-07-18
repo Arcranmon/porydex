@@ -58,7 +58,7 @@ export default Vue.extend({
   font-family: $font--standard;
 }
 .trait--header {
-  background-color: $color--ability-header;
+  background-color: $color--dex;
   border: $border--black-standard;
   font-size: $font-size--l;
   padding: $space--xs;
