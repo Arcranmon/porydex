@@ -1,6 +1,6 @@
 <template>
   <!-- 70% width to work with -->
-  <div class="pokedex--wrapper">
+  <div class="pokedex--wrapper" v-if="pokemon.hasOwnProperty('name')">
     <v-row flex fluid fill-height no-gutters class="pokedex--header">
       <v-col cols="12" class="flex flex-column" lg="4">
         <div class="pokedex--header-content-left">
@@ -12,6 +12,7 @@
             }}</span></span
           ><br />
           <img
+            v-if="(pokemon.hasOwnProperty('dexnumber'))"
             :src="require('../../assets/pokemon/' + pokemon.dexnumber + '.png')"
             style="max-width: 60%;"
           />
@@ -55,7 +56,7 @@
       <v-col cols="6" class="pokedex--header-content-right" lg="4">
         <h3 class="text-center">Traits</h3>
         <parse-trait :traitName="pokemon.trait1" /> <br />
-        <span v-if="(pokemon.trait2)"
+        <span v-if="(pokemon.hasOwnProperty('trait2'))"
           ><parse-trait :traitName="pokemon.trait2"
         /></span>
         <br />

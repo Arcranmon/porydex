@@ -7,10 +7,10 @@
       {{ ability.frequency }}
     </div>
     <div class="ability--content">
-      <inline v-if="(ability.trigger)"
+      <span v-if="(ability.trigger)"
         ><b>Trigger:</b> {{ ability.trigger }} <br />
         <br
-      /></inline>
+      /></span>
       <vue-simple-markdown
         :source="abilityEffect"
         class="ability--format"

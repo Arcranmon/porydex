@@ -7,19 +7,21 @@
         v-for="n in names"
         :key="n"
         :lg="colWidth"
+        v-on:click="clickMethod(n)"
+        v-bind:class="{ 'card--button': selectButton }"
       >
-        <span class="card--box" v-if="job == 'Move'">
-          <move-card :moveName="n" :showA="showA"
-        /></span>
-        <span class="card--box" v-if="job == 'Ability'">
-          <ability-card :abilityName="n" :showA="showA"
-        /></span>
-        <span class="card--box" v-if="job == 'Role'">
-          <role-card :roleName="n" :showA="showA"
-        /></span>
-        <span class="card--box" v-if="job == 'Traits'">
-          <traits-card :traitName="n" :showA="showA"
-        /></span>
+        <div class="card--box" v-if="job == 'Move'">
+          <move-card :moveName="n" :showA="showA" />
+        </div>
+        <div class="card--box" v-if="job == 'Ability'">
+          <ability-card :abilityName="n" :showA="showA" />
+        </div>
+        <div class="card--box" v-if="job == 'Role'">
+          <role-card :roleName="n" :showA="showA" />
+        </div>
+        <div class="card--box" v-if="job == 'Traits'">
+          <traits-card :traitName="n" :showA="showA" />
+        </div>
       </v-col>
     </v-row>
   </v-container>
@@ -48,6 +50,10 @@ export default Vue.extend({
       type: Boolean,
       required: false,
     },
+    selectButton: {
+      type: Boolean,
+      required: false,
+    },
   },
   components: {
     MoveCard,
@@ -55,6 +61,11 @@ export default Vue.extend({
     RoleCard,
     TraitsCard,
     Available,
+  },
+  methods: {
+    clickMethod(variable) {
+      this.$emit('chose', variable);
+    },
   },
   computed: {
     colWidth: function () {
@@ -66,7 +77,11 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 .card--box {
-  display: flexbox;
   width: 100%;
+}
+
+.card--button:hover {
+  transform: scale(1.01);
+  cursor: pointer;
 }
 </style>

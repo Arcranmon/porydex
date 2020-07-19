@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div class="page--title">
-      POKEDEX
-    </div>
     <v-container fluid>
       <v-row align="center">
         <v-col cols="12" lg="4">
@@ -54,6 +51,7 @@
             outlined
             return-object
             class="dropdown--light"
+            @change="$emit('chose', selectedPokemon)"
           >
             <template slot="item" slot-scope="{ item }">
               #{{ item.dexnumber }} - {{ item.name }}
@@ -82,7 +80,7 @@ export default Vue.extend({
   data() {
     return {
       allPokemon,
-      selectedPokemon: '',
+      selectedPokemon: {},
       type: undefined,
       allTypes: [
         'Bug',

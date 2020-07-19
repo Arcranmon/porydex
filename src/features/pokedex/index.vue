@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="page--title">
+      POKEDEX
+    </div>
     <pokedex-brower></pokedex-brower>
   </div>
 </template>

@@ -86,7 +86,6 @@ export default Vue.extend({
   },
   computed: {
     role: function () {
-      var rl = [];
       for (const rl of this.allRoles) {
         if (this.roleName == rl.name) {
           return rl;
