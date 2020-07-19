@@ -124,7 +124,8 @@
               <span v-if="index % 3 == 0"
                 ><h3><br /></h3
               ></span>
-              <span v-if="Number(skill) >= 0">+</span>{{ pokemon[skill] }}
+              <span v-if="Number(pokemon[skill]) >= 0">+</span
+              >{{ pokemon[skill] }}
               <br />
             </div>
           </v-col>
