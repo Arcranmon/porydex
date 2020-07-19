@@ -103,11 +103,11 @@
           <h2 style="text-align: center;">Skills</h2>
         </div>
         <v-row no-gutters style="padding: 10px;">
-          <v-col cols="6">
+          <v-col cols="10">
             <div v-for="(skill, index) in pokemon.Skills.names" :key="skill">
-              <span v-if="index == 0"><h3>Action Skills</h3></span>
-              <span v-if="index == 3"><h3>Clever Skills</h3></span>
-              <span v-if="index == 6"><h3>Social Skills</h3></span>
+              <span v-if="index == 0"><h3>Action</h3></span>
+              <span v-if="index == 3"><h3>Clever</h3></span>
+              <span v-if="index == 6"><h3>Social</h3></span>
               <span
                 v-bind:class="{
                   goodskill: pokemon.IsFavored(skill),
@@ -119,7 +119,7 @@
             </div>
             <br />
           </v-col>
-          <v-col cols="6" style="text-align: center;">
+          <v-col cols="2" style="text-align: center;">
             <div v-for="(skill, index) in pokemon.Skills.names" :key="skill">
               <span v-if="index % 3 == 0"
                 ><h3><br /></h3
@@ -223,22 +223,20 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .pokemon-cell {
   background-color: darkcyan;
-  font-family: 'Courier New';
+  font-family: $font--standard;
   border-bottom: 2px solid darkslategrey;
-  font-size: 18px;
-  padding: 5px;
-  box-sizing: border-box;
+  font-size: $font-size--l;
+  padding: $space--xs;
 }
 .pokemon-cell-bottom {
   color: black;
   background-color: rgb(136, 212, 212);
   outline: 2px solid darkslategrey;
-  font-family: 'Courier New';
-  font-size: 14px;
-  box-sizing: border-box;
+  font-family: $font--standard;
+  font-size: $font-size--m;
 }
 .goodskill {
   color: darkgreen;
