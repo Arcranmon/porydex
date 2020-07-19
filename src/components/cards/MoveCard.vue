@@ -127,6 +127,7 @@ export default Vue.extend({
 .move--format {
   white-space: normal;
   font-family: $font--standard;
+  font-size: $font-size--m;
   text-align: left;
 }
 .move--icon {

@@ -89,6 +89,7 @@ export default Vue.extend({
 .ability--format {
   white-space: normal;
   font-family: $font--standard;
+  font-size: $font-size--m;
   text-align: left;
 }
 </style>
