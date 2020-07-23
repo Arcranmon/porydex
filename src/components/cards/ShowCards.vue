@@ -11,7 +11,12 @@
         v-bind:class="{ 'card--button': selectButton }"
       >
         <div class="card--box" v-if="job == 'Move'">
-          <move-card :moveName="n" :showA="showA" />
+          <move-card
+            :moveName="n"
+            :showA="showA"
+            :melee="melee"
+            :range="range"
+          />
         </div>
         <div class="card--box" v-if="job == 'Ability'">
           <ability-card :abilityName="n" :showA="showA" />
@@ -53,6 +58,16 @@ export default Vue.extend({
     selectButton: {
       type: Boolean,
       required: false,
+    },
+    melee: {
+      type: Number,
+      required: false,
+      default: 6,
+    },
+    range: {
+      type: Number,
+      required: false,
+      default: 6,
     },
   },
   components: {

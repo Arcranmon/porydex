@@ -1,5 +1,5 @@
 import { store } from '@/store';
-import { PokemonRaw, RoleRaw, Skills } from '@/class';
+import { PokemonRaw, RoleRaw, TraitRaw, Skills } from '@/class';
 
 class Pokemon {
   private species: String;
@@ -14,8 +14,9 @@ class Pokemon {
   private maxSkillPoints: number;
   private skills: Skills;
 
-  private _raw: PokemonRaw;
+  private _monRaw: PokemonRaw;
   private _roleRaw: RoleRaw;
+  private _traitsRaw: Array<TraitRaw>;
 
   public constructor() {
     this.species = '';
@@ -26,20 +27,25 @@ class Pokemon {
     this.moves = [];
     this.maxSkillPoints = 2;
     this.skills = new Skills();
-    this._raw = new PokemonRaw();
+    this._monRaw = new PokemonRaw();
+    this._traitsRaw = [];
   }
 
   public get Raw() {
-    return this._raw;
+    return this._monRaw;
   }
 
   public set Raw(newVal: PokemonRaw) {
     this.constructor();
-    this._raw = newVal;
+    this._monRaw = newVal;
     this.species = newVal.name;
-    this.moves = [this._raw.smove1, this._raw.smove2, this._raw.smove3];
+    this.moves = [
+      this._monRaw.smove1,
+      this._monRaw.smove2,
+      this._monRaw.smove3,
+    ];
 
-    this.skills.DeficientSkill = this._raw.badskill;
+    this.skills.DeficientSkill = this._monRaw.badskill;
   }
 
   public get HasSpecies(): boolean {
@@ -50,10 +56,10 @@ class Pokemon {
     return this.ability.length > 0;
   }
   public get AbilityList(): Array<String> {
-    if (this._raw.ability2) {
-      return [this._raw.ability1, this._raw.ability2];
+    if (this._monRaw.ability2) {
+      return [this._monRaw.ability1, this._monRaw.ability2];
     } else {
-      return [this._raw.ability1];
+      return [this._monRaw.ability1];
     }
   }
 
@@ -62,7 +68,7 @@ class Pokemon {
     return this.role.length > 0;
   }
   public get RoleList(): Array<String> {
-    return [this._raw.role1, this._raw.role2, this._raw.role3];
+    return [this._monRaw.role1, this._monRaw.role2, this._monRaw.role3];
   }
   public set Role(newRole: RoleRaw) {
     this.role = newRole.name;
@@ -77,7 +83,11 @@ class Pokemon {
     return this.moves.length > 3;
   }
   public get Tier1NaturalMoveList(): Array<String> {
-    return [this._raw.t1natmove1, this._raw.t1natmove2, this._raw.t1natmove3];
+    return [
+      this._monRaw.t1natmove1,
+      this._monRaw.t1natmove2,
+      this._monRaw.t1natmove3,
+    ];
   }
   public AddMove(newMove: string) {
     if (!this.moves.includes(newMove)) {
@@ -127,16 +137,16 @@ class Pokemon {
     return this.SkillPoints == 0;
   }
   public get FavoredSkillPoints(): number {
-    return this.skills[this._raw.skill1] + this.skills[this._raw.skill2];
+    return this.skills[this._monRaw.skill1] + this.skills[this._monRaw.skill2];
   }
   public get Favored1(): string {
-    return this._raw.skill1;
+    return this._monRaw.skill1;
   }
   public get Favored2(): string {
-    return this._raw.skill2;
+    return this._monRaw.skill2;
   }
   public get Deficient(): string {
-    return this._raw.badskill;
+    return this._monRaw.badskill;
   }
   public IsFavored(skillName: string): boolean {
     if (skillName == this.Favored1 || skillName == this.Favored2) {
@@ -153,42 +163,42 @@ class Pokemon {
 
   // UTILITY TO RETURN RAW DATA
   public get DexNumber(): string {
-    return this._raw.dexnumber;
+    return this._monRaw.dexnumber;
   }
   public get NumTypes(): number {
-    if (this._raw.type2) {
+    if (this._monRaw.type2) {
       return 2;
     }
     return 1;
   }
   public get Type1(): string {
-    return this._raw.type1;
+    return this._monRaw.type1;
   }
   public get Type2(): string {
-    return this._raw.type2;
+    return this._monRaw.type2;
   }
   public get Size(): string {
-    return this._raw.size;
+    return this._monRaw.size;
   }
   public get TurfList(): Array<String> {
-    if (this._raw.turf2) {
-      return [this._raw.turf1, this._raw.turf2];
+    if (this._monRaw.turf2) {
+      return [this._monRaw.turf1, this._monRaw.turf2];
     } else {
-      return [this._raw.turf1];
+      return [this._monRaw.turf1];
     }
   }
   public get GiftList(): Array<String> {
-    if (this._raw.gift2) {
-      return [this._raw.gift1, this._raw.gift2];
+    if (this._monRaw.gift2) {
+      return [this._monRaw.gift1, this._monRaw.gift2];
     } else {
-      return [this._raw.gift1];
+      return [this._monRaw.gift1];
     }
   }
   public get TraitList(): Array<String> {
-    if (this._raw.trait2) {
-      return [this._raw.trait1, this._raw.trait2];
+    if (this._monRaw.trait2) {
+      return [this._monRaw.trait1, this._monRaw.trait2];
     } else {
-      return [this._raw.trait1];
+      return [this._monRaw.trait1];
     }
   }
 
@@ -210,23 +220,86 @@ class Pokemon {
     }
   }
   public get Init(): number {
-    return Number(this._raw.initiative) + Number(this._roleRaw.init);
+    return Number(this._monRaw.initiative) + Number(this._roleRaw.init);
   }
   public get Movement(): string {
-    if (this._raw.movementtype1) {
-      return this._raw.movement + ' ' + this._raw.movementtype1;
+    if (this._monRaw.movementtype1) {
+      return this._monRaw.movement + ' ' + this._monRaw.movementtype1;
     } else {
-      return String(this._raw.movement);
+      return String(this._monRaw.movement);
     }
   }
   public DefenseStat(stat: string): number {
-    if (this._raw.def1 == stat) {
+    if (this._monRaw.def1 == stat) {
       return this._roleRaw.def1;
     }
-    if (this._raw.def2 == stat) {
+    if (this._monRaw.def2 == stat) {
       return this._roleRaw.def2;
     }
     return this._roleRaw.def3;
+  }
+
+  public PhysicalDamage(): number {
+    var phys = 0;
+    for (var tr of this._traitsRaw) {
+      if (tr.physical && tr.damage) {
+        phys += tr.value; // Add increment later
+      }
+    }
+    return phys;
+  }
+
+  public SpecialDamage(): number {
+    var spec = 0;
+    for (var tr of this._traitsRaw) {
+      if (tr.special && tr.damage) {
+        spec += tr.value; // Add increment later
+      }
+    }
+    return spec;
+  }
+
+  public PhysicalArmor(): number {
+    var phys = 0;
+    for (var tr of this._traitsRaw) {
+      if (tr.physical && tr.armor) {
+        phys += tr.value; // Add increment later
+      }
+    }
+    return phys;
+  }
+
+  public SpecialArmor(): number {
+    var spec = 0;
+    for (var tr of this._traitsRaw) {
+      if (tr.special && tr.armor) {
+        spec += tr.value; // Add increment later
+      }
+    }
+    return spec;
+  }
+
+  public MeleeDamageDie(): number {
+    if (this._roleRaw.ability1 == 'Melee Attacker') {
+      return 10;
+    } else if (this._roleRaw.ability1 == 'Versatile Attacker') {
+      return 8;
+    }
+    return 6;
+  }
+
+  public RangedDamageDie(): number {
+    if (this._roleRaw.ability1 == 'Ranged Attacker') {
+      return 8;
+    } else if (this._roleRaw.ability1 == 'Versatile Attacker') {
+      return 8;
+    }
+    return 6;
+  }
+
+  // TRAIT UTILTY
+  public AddTrait(newVal: TraitRaw) {
+    this._traitsRaw.push(newVal);
   }
 }
 

@@ -70,19 +70,19 @@
           <h2 style="text-align: center;">Combat Statistics</h2>
         </div>
         <v-row no-gutters style="padding: 10px;">
-          <v-col cols="6">
+          <v-col cols="10">
             <b>HP:</b> <br />
             <b>Initiative:</b> <br />
             <b>Movement:</b> <br />
             <b>Evasion:</b> <br />
             <b>Resolve:</b> <br />
             <b>Vigor:</b> <br />
-            <b>Melee Damage:</b> <br />
-            <b>Ranged Damage:</b> <br />
+            <b>Physical Damage:</b> <br />
+            <b>Special Damage:</b> <br />
             <b>Physical Armor:</b> <br />
             <b>Special Armor:</b> <br />
           </v-col>
-          <v-col cols="6" style="text-align: center;">
+          <v-col cols="2" style="text-align: left;">
             {{ pokemon.MaxHP }} <br />
             {{ pokemon.Init }} <br />
             {{ pokemon.Movement }}
@@ -90,6 +90,10 @@
             {{ pokemon.DefenseStat('Evasion') }} <br />
             {{ pokemon.DefenseStat('Resolve') }}<br />
             {{ pokemon.DefenseStat('Vigor') }}<br />
+            {{ pokemon.PhysicalDamage() }}<br />
+            {{ pokemon.SpecialDamage() }}<br />
+            {{ pokemon.PhysicalArmor() }}<br />
+            {{ pokemon.SpecialArmor() }}<br />
           </v-col>
         </v-row>
       </v-col>
@@ -193,7 +197,12 @@
         style="flex-direction: column;"
         lg="12"
       >
-        <show-cards :names="pokemon.moves" job="Move" />
+        <show-cards
+          :names="pokemon.moves"
+          :melee="pokemon.MeleeDamageDie()"
+          :range="pokemon.RangedDamageDie()"
+          job="Move"
+        />
       </v-col>
     </v-row>
   </div>

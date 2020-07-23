@@ -180,6 +180,7 @@ import PokedexBrowser from '@/features/pokedex/PokedexBrowser';
 import ShowCards from '@/components/cards/ShowCards';
 import DisplayPokemon from '../pokemon-manager/DisplayPokemon';
 import allRoles from '@/assets/database/roles';
+import allTraits from '@/assets/database/traits';
 
 export default Vue.extend({
   name: 'pokemon-builder',
@@ -190,6 +191,7 @@ export default Vue.extend({
     selectedMove: '',
     nickname: '',
     allRoles,
+    allTraits,
   }),
   created() {
     this.pokemon = new Pokemon();
@@ -197,6 +199,11 @@ export default Vue.extend({
   methods: {
     updatePokemon(variable) {
       this.pokemon.Raw = variable;
+      for (const tr of this.allTraits) {
+        if (this.pokemon.TraitList.includes(tr.name)) {
+          this.pokemon.AddTrait(tr);
+        }
+      }
     },
     updateRole(variable) {
       for (const rl of this.allRoles) {

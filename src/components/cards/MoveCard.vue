@@ -10,7 +10,7 @@
       <b>Targets:</b> {{ move.target }}
       <span v-if="(move.defense)"> ✦ vs {{ move.defense }}</span> <br />
       <div v-if="(move.damage)">
-        <b>Damage:</b> {{ move.damage }}6 {{ move.damagetype }}
+        <b>Damage:</b> {{ move.damage }}{{ damageDie }} {{ move.damagetype }}
         {{ move.type }} Damage
       </div>
       <div v-if="(move.hit)"><b>Hit:</b> {{ move.hit }}</div>
@@ -70,6 +70,16 @@ export default Vue.extend({
       required: false,
       default: false,
     },
+    melee: {
+      type: Number,
+      required: false,
+      default: 6,
+    },
+    range: {
+      type: Number,
+      required: false,
+      default: 6,
+    },
   },
   data() {
     return {
@@ -96,6 +106,23 @@ export default Vue.extend({
     },
     tierImage: function () {
       return require('../../assets/tier' + this.move.tier + '.png');
+    },
+    damageDie: function () {
+      if (
+        this.move.target.includes('Range') ||
+        this.move.target.includes('Line') ||
+        this.move.target.includes('Blast')
+      ) {
+        return this.range;
+      }
+      if (
+        this.move.target.includes('Melee') ||
+        this.move.target.includes('Pass') ||
+        this.move.target.includes('Burst')
+      ) {
+        return this.melee;
+      }
+      return 6;
     },
   },
   components: {
