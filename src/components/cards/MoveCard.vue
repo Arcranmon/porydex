@@ -3,7 +3,7 @@
     <div class="move--header" v-bind:class="[move.type, move.category]">
       <span class="move--icon"><img :src="tierImage" /></span>
       <b>{{ move.name }} </b> ✦ {{ move.type }}<br />
-      {{ move.action }} ✦ {{ move.category }}
+      {{ move.action }}, {{ move.frequency }} ✦ {{ move.category }}
       <span v-if="(move.keywords)"> ✦ {{ move.keywords }}</span>
     </div>
     <div class="move--content" v-bind:class="[move.category]">
