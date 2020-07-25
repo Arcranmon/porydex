@@ -35,7 +35,7 @@
       <div v-if="(move.boost)">
         <vue-simple-markdown
           class="move--format"
-          :source="'**Boost:** ' + move.boost"
+          :source="'**Boost:** ' + boostDamage + move.boost"
         />
       </div>
       <div v-if="(move.special)">
@@ -106,6 +106,12 @@ export default Vue.extend({
     },
     tierImage: function () {
       return require('../../assets/tier' + this.move.tier + '.png');
+    },
+    boostDamage: function () {
+      if (this.move.boostdmg) {
+        return this.move.boostdmg + this.damageDie + '. ';
+      }
+      return '';
     },
     damageDie: function () {
       if (
