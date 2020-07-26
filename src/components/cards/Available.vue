@@ -42,7 +42,7 @@ export default Vue.extend({
         }
       }
       if (pklist.length == 0) {
-        return 'None';
+        pklist.push('None');
       }
       return pklist;
     },
