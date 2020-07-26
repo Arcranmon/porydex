@@ -64,6 +64,4 @@ export default Vue.extend({
   width: 100%;
   height: 100%;
 }
-.box--button-text {
-}
 </style>
