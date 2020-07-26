@@ -3,20 +3,19 @@
     <v-row flex fluid fill-height no-gutters>
       <v-col
         cols="12"
-        class="flex flex-column pokemon-cell-bottom"
-        style="flex-direction: column; outline: 2px solid darkslategrey;"
+        class="flex flex-column"
+        style="flex-direction: column;"
         lg="3"
       >
-        <div style="text-align: center;">
-          <div class="pokemon-cell">
-            <h2 style="display: inline;">
-              {{ pokemon.nickname }}, Level {{ pokemon.level }}
-              {{ pokemon.species }}
-            </h2>
-          </div>
-          <img
+        <div class="pokemon--cell-image">
+          <h2 style="display: inline;">
+            {{ pokemon.nickname }}, Level {{ pokemon.level }}
+            {{ pokemon.species }}
+          </h2>
+          <v-img
             :src="require('../../assets/pokemon/' + pokemon.DexNumber + '.png')"
-            style="max-width: 60%; width: auto; height: auto;"
+            contain
+            style="width: auto; height: auto;"
           />
         </div>
       </v-col>
@@ -29,54 +28,60 @@
         <div class="pokemon-cell">
           <h2 style="text-align: center;">Basic</h2>
         </div>
-        <v-row no-gutters>
-          <v-col cols="6"> <b>Type:</b> </v-col>
-          <v-col cols="6">
-            <span class="Type" :class="pokemon.Type1">{{ pokemon.Type1 }}</span>
-            <span
-              v-if="(pokemon.NumTypes == 2)"
-              class="Type"
-              :class="pokemon.Type2"
-              >{{ pokemon.Type2 }}</span
-            >
-          </v-col>
-        </v-row>
-        <v-row no-gutters>
-          <v-col cols="6">
-            <b>Level:</b>
-          </v-col>
+        <div class="pokemon-cell-bottom-format">
+          <v-row no-gutters>
+            <v-col cols="6"> <b>Type:</b> </v-col>
+            <v-col cols="6">
+              <span class="Type" :class="pokemon.Type1">{{
+                pokemon.Type1
+              }}</span>
+              <span
+                v-if="(pokemon.NumTypes == 2)"
+                class="Type"
+                :class="pokemon.Type2"
+                >{{ pokemon.Type2 }}</span
+              >
+            </v-col>
+          </v-row>
+          <v-row no-gutters>
+            <v-col cols="6">
+              <b>Level:</b>
+            </v-col>
 
-          <v-col cols="6"> {{ pokemon.Level }} </v-col>
-        </v-row>
-        <v-row no-gutters>
-          <v-col cols="6">
-            <b>Size:</b>
-          </v-col>
+            <v-col cols="6"> {{ pokemon.Level }} </v-col>
+          </v-row>
+          <v-row no-gutters>
+            <v-col cols="6">
+              <b>Size:</b>
+            </v-col>
 
-          <v-col cols="6"> {{ pokemon.Size }} </v-col>
-        </v-row>
-        <v-row no-gutters>
-          <v-col cols="6"> <b>Home Turf:</b> </v-col>
-          <v-col cols="6">
-            <div v-for="i in pokemon.TurfList" :key="i">
-              {{ i
-              }}<span v-if="i != pokemon.TurfList[pokemon.TurfList.length - 1]"
-                >,
-              </span>
-            </div>
-          </v-col>
-        </v-row>
-        <v-row no-gutters>
-          <v-col cols="6"> <b>Gifts:</b> </v-col>
-          <v-col cols="6">
-            <div v-for="i in pokemon.GiftList" :key="i">
-              {{ i
-              }}<span v-if="i != pokemon.GiftList[pokemon.GiftList.length - 1]"
-                >,
-              </span>
-            </div>
-          </v-col>
-        </v-row>
+            <v-col cols="6"> {{ pokemon.Size }} </v-col>
+          </v-row>
+          <v-row no-gutters>
+            <v-col cols="6"> <b>Home Turf:</b> </v-col>
+            <v-col cols="6">
+              <div v-for="i in pokemon.TurfList" :key="i">
+                {{ i
+                }}<span
+                  v-if="i != pokemon.TurfList[pokemon.TurfList.length - 1]"
+                  >,
+                </span>
+              </div>
+            </v-col>
+          </v-row>
+          <v-row no-gutters>
+            <v-col cols="6"> <b>Gifts:</b> </v-col>
+            <v-col cols="6">
+              <div v-for="i in pokemon.GiftList" :key="i">
+                {{ i
+                }}<span
+                  v-if="i != pokemon.GiftList[pokemon.GiftList.length - 1]"
+                  >,
+                </span>
+              </div>
+            </v-col>
+          </v-row>
+        </div>
       </v-col>
       <v-col
         cols="12"
@@ -87,7 +92,7 @@
         <div class="pokemon-cell">
           <h2 style="text-align: center;">Combat</h2>
         </div>
-        <v-row no-gutters style="padding: 10px;">
+        <v-row no-gutters class="pokemon-cell-bottom-format">
           <v-col cols="10">
             <b>HP:</b> <br />
             <b>Initiative:</b> <br />
@@ -124,7 +129,7 @@
         <div class="pokemon-cell">
           <h2 style="text-align: center;">Skills</h2>
         </div>
-        <v-row no-gutters style="padding: 10px;">
+        <v-row no-gutters class="pokemon-cell-bottom-format">
           <v-col cols="10">
             <div v-for="(skill, index) in pokemon.Skills.names" :key="skill">
               <span v-if="index == 0"><h3>Action</h3></span>
@@ -166,7 +171,7 @@
           <div
             v-for="trait in pokemon.TraitList"
             :key="trait"
-            style="padding: 10px;"
+            class="pokemon-cell-bottom-format"
           >
             <parse-trait :traitName="trait" />
           </div>
@@ -251,6 +256,15 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
+.pokemon--cell-image {
+  text-align: center;
+  font-family: $font--standard;
+  white-space: normal;
+  background-color: $color--pokedex-light;
+  border: $space--xs solid darkslategrey;
+  outline: 2px solid darkslategrey;
+  height: 100%;
+}
 .pokemon-cell {
   background-color: darkcyan;
   font-family: $font--standard;
@@ -263,6 +277,9 @@ export default Vue.extend({
   outline: 2px solid darkslategrey;
   font-family: $font--standard;
   font-size: $font-size--m;
+}
+.pokemon-cell-bottom-format {
+  padding: $space--xs;
 }
 .goodskill {
   color: darkgreen;
