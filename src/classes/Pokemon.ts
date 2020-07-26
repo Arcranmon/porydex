@@ -12,7 +12,7 @@ class Pokemon {
   private moves: Array<string>; //Maybe replace with like PokemonRole later
 
   private maxSkillPoints: number;
-  private skills: Skills;
+  private _skills: Skills;
 
   private _monRaw: PokemonRaw;
   private _roleRaw: RoleRaw;
@@ -26,7 +26,7 @@ class Pokemon {
     this.ability = '';
     this.moves = [];
     this.maxSkillPoints = 2;
-    this.skills = new Skills();
+    this._skills = new Skills();
     this._monRaw = new PokemonRaw();
     this._traitsRaw = [];
   }
@@ -45,7 +45,7 @@ class Pokemon {
       this._monRaw.smove3,
     ];
 
-    this.skills.DeficientSkill = this._monRaw.badskill;
+    this._skills.DeficientSkill = this._monRaw.badskill;
   }
 
   public get HasSpecies(): boolean {
@@ -99,45 +99,50 @@ class Pokemon {
   }
 
   // SKILL FUNCTIONS
-  public get Force(): number {
-    return this.skills.Force;
+  public get Skills() {
+    return this._skills;
   }
-  public get Traversal(): number {
-    return this.skills.Traversal;
-  }
-  public get Survival(): number {
-    return this.skills.Survival;
-  }
-  public get Finesse(): number {
-    return this.skills.Finesse;
-  }
-  public get Focus(): number {
-    return this.skills.Focus;
-  }
-  public get Covertness(): number {
-    return this.skills.Covertness;
-  }
-  public get Presence(): number {
-    return this.skills.Presence;
-  }
-  public get Insight(): number {
-    return this.skills.Insight;
-  }
-  public get Sway(): number {
-    return this.skills.Sway;
-  }
-  public get SkillPoints(): number {
-    return this.maxSkillPoints - this.skills.TotalPoints;
-  }
-  public get Skills(): Skills {
-    return this.skills;
+  public set Skills(new_skills: Skills) {
+    this._skills = new_skills;
   }
 
+  public get Force(): number {
+    return this._skills.Force;
+  }
+  public get Traversal(): number {
+    return this._skills.Traversal;
+  }
+  public get Survival(): number {
+    return this._skills.Survival;
+  }
+  public get Finesse(): number {
+    return this._skills.Finesse;
+  }
+  public get Focus(): number {
+    return this._skills.Focus;
+  }
+  public get Covertness(): number {
+    return this._skills.Covertness;
+  }
+  public get Presence(): number {
+    return this._skills.Presence;
+  }
+  public get Insight(): number {
+    return this._skills.Insight;
+  }
+  public get Sway(): number {
+    return this._skills.Sway;
+  }
+  public get SkillPoints(): number {
+    return this.maxSkillPoints - this._skills.TotalPoints;
+  }
   public get HasNoSkillPoints(): boolean {
     return this.SkillPoints == 0;
   }
   public get FavoredSkillPoints(): number {
-    return this.skills[this._monRaw.skill1] + this.skills[this._monRaw.skill2];
+    return (
+      this._skills[this._monRaw.skill1] + this._skills[this._monRaw.skill2]
+    );
   }
   public get Favored1(): string {
     return this._monRaw.skill1;

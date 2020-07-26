@@ -15,11 +15,12 @@ export class PokemonManagementStore extends VuexModule {
 
   @Mutation
   private LoadPokemon(pokemonData: string): void {
-    this.Pokemons = [];
-    var rawObjs = JSON.parse(pokemonData);
-    for (let rawObj of rawObjs) {
-      rawObj.skills = Object.assign(new Skills(), rawObj.skills);
-      this.Pokemons.push(Object.assign(new Pokemon(), rawObj));
+    this.Pokemons = JSON.parse(pokemonData);
+    var ii = 0;
+    for (let pokemon of this.Pokemons) {
+      pokemon.Skills = Object.assign(new Skills(), pokemon.Skills);
+      this.Pokemons[ii] = Object.assign(new Pokemon(), pokemon);
+      ii += 1;
     }
   }
 
