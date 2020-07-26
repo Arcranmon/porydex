@@ -18,8 +18,11 @@ export class PokemonManagementStore extends VuexModule {
     this.Pokemons = JSON.parse(pokemonData);
     var ii = 0;
     for (let pokemon of this.Pokemons) {
-      pokemon.Skills = Object.assign(new Skills(), pokemon.Skills);
       this.Pokemons[ii] = Object.assign(new Pokemon(), pokemon);
+      this.Pokemons[ii].Skills = Object.assign(
+        new Skills(),
+        this.Pokemons[ii].Skills
+      );
       ii += 1;
     }
   }
