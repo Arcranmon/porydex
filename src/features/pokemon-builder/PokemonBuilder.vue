@@ -34,7 +34,7 @@
             :disabled="!pokemon.HasSpecies"
           >
             <span v-if="!pokemon.HasSpecies">CHOOSE A POKEMON</span>
-            <span v-else>CHOOSE {{ pokemon.species }}</span>
+            <span v-else>CHOOSE {{ pokemon.Species }}</span>
           </v-btn>
           <pokedex-browser @chose="updatePokemon" />
         </v-stepper-content>
@@ -47,7 +47,7 @@
             :disabled="!pokemon.HasRole"
           >
             <span v-if="!pokemon.HasRole">CHOOSE A ROLE</span>
-            <span v-else>CHOOSE {{ pokemon.role }}</span>
+            <span v-else>CHOOSE {{ pokemon.RoleName }}</span>
           </v-btn>
           <show-cards
             :names="pokemon.RoleList"
@@ -65,7 +65,7 @@
             :disabled="!pokemon.HasAbility"
           >
             <span v-if="!pokemon.HasAbility">CHOOSE AN ABILITY</span>
-            <span v-else>CHOOSE {{ pokemon.ability }}</span>
+            <span v-else>CHOOSE {{ pokemon.Ability }}</span>
           </v-btn>
           <show-cards
             :names="pokemon.AbilityList"
@@ -214,7 +214,7 @@ export default Vue.extend({
       }
     },
     updateAbility(variable) {
-      this.pokemon.ability = variable;
+      this.pokemon.Ability = variable;
     },
     selectMove(variable) {
       this.selectedMove = variable;

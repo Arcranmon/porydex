@@ -2,7 +2,7 @@ import { store } from '@/store';
 import { PokemonRaw, RoleRaw, TraitRaw, Skills } from '@/class';
 
 class Pokemon {
-  private _species: String;
+  private _species: string;
   private _nickname: string;
 
   private _level: number;
@@ -51,6 +51,10 @@ class Pokemon {
   public get HasSpecies(): boolean {
     return this._species.length > 0;
   }
+  public get Species(): string {
+    return this._species;
+  }
+
   // ABILITIY FUNCTIONS
   public get HasAbility(): boolean {
     return this._ability.length > 0;
@@ -63,6 +67,13 @@ class Pokemon {
     }
   }
 
+  public get Ability(): string {
+    return this._ability;
+  }
+  public set Ability(newAbility: string) {
+    this._ability = newAbility;
+  }
+
   // ROLE FUNCTIONS
   public get HasRole(): boolean {
     return this._role.length > 0;
@@ -73,6 +84,9 @@ class Pokemon {
   public set Role(newRole: RoleRaw) {
     this._role = newRole.name;
     this._roleRaw = newRole;
+  }
+  public get RoleName(): string {
+    return this._role;
   }
 
   // MOVE FUNCTIONS

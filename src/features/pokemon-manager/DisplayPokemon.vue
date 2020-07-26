@@ -9,8 +9,8 @@
       >
         <div class="pokemon--cell-image">
           <h2 style="display: inline;">
-            {{ pokemon.nickname }}, Level {{ pokemon.level }}
-            {{ pokemon.species }}
+            {{ pokemon.Nickname }}, Level {{ pokemon.Level }}
+            {{ pokemon.Species }}
           </h2>
           <v-img
             :src="require('../../assets/pokemon/' + pokemon.DexNumber + '.png')"
@@ -189,7 +189,7 @@
         <div class="pokemon-cell">
           <h2 style="text-align: center;">Ability</h2>
         </div>
-        <show-cards :names="[pokemon.ability]" job="Ability" />
+        <show-cards :names="[pokemon.Ability]" job="Ability" />
       </v-col>
       <v-col
         cols="12"
@@ -200,7 +200,7 @@
         <div class="pokemon-cell">
           <h2 style="text-align: center;">Role</h2>
         </div>
-        <show-cards :names="[pokemon.role]" job="Role" />
+        <show-cards :names="[pokemon.RoleName]" job="Role" />
       </v-col>
     </v-row>
     <v-row flex fluid fill-height no-gutters>
@@ -221,7 +221,7 @@
         lg="12"
       >
         <show-cards
-          :names="pokemon.moves"
+          :names="pokemon.MoveList"
           :melee="pokemon.MeleeDamageDie()"
           :range="pokemon.RangedDamageDie()"
           job="Move"

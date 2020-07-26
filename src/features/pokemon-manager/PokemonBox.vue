@@ -10,7 +10,7 @@
               v-bind="attrs"
               v-on="on"
               ><span class="box-button-text"
-                >{{ pokemon.nickname }} <br /> </span
+                >{{ pokemon.Nickname }} <br /> </span
             ></v-btn>
           </template>
           {{ pokemon.Summary }}
