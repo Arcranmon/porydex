@@ -26,7 +26,9 @@ export class PokemonManagementStore extends VuexModule {
 
   @Action
   public AddPokemon(pokemon: Pokemon): void {
-    this.loadPokemon();
+    if (Boolean(localStorage.getItem('pokemon_box.json'))) {
+      this.loadPokemon();
+    }
     this.Pokemons.push(pokemon);
     savePokemons(this.Pokemons);
   }
