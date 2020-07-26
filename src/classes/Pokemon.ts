@@ -180,6 +180,9 @@ class Pokemon {
   public get Size(): string {
     return this._monRaw.size;
   }
+  public get Level(): number {
+    return this.level;
+  }
   public get TurfList(): Array<String> {
     if (this._monRaw.turf2) {
       return [this._monRaw.turf1, this._monRaw.turf2];

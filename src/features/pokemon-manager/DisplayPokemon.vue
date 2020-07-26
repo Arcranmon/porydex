@@ -43,6 +43,13 @@
         </v-row>
         <v-row no-gutters>
           <v-col cols="6">
+            <b>Level:</b>
+          </v-col>
+
+          <v-col cols="6"> {{ pokemon.Level }} </v-col>
+        </v-row>
+        <v-row no-gutters>
+          <v-col cols="6">
             <b>Size:</b>
           </v-col>
 
