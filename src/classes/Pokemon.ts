@@ -2,16 +2,16 @@ import { store } from '@/store';
 import { PokemonRaw, RoleRaw, TraitRaw, Skills } from '@/class';
 
 class Pokemon {
-  private species: String;
-  private nickname: string;
+  private _species: String;
+  private _nickname: string;
 
-  private level: number;
-  private role: string; //Maybe replace with like PokemonRole later
-  private ability: string; //Maybe replace with like PokemonRole later
+  private _level: number;
+  private _role: string; //Maybe replace with like PokemonRole later
+  private _ability: string; //Maybe replace with like PokemonRole later
 
-  private moves: Array<string>; //Maybe replace with like PokemonRole later
+  private _moves: Array<string>; //Maybe replace with like PokemonRole later
 
-  private maxSkillPoints: number;
+  private _maxSkillPoints: number;
   private _skills: Skills;
 
   private _monRaw: PokemonRaw;
@@ -19,13 +19,13 @@ class Pokemon {
   private _traitsRaw: Array<TraitRaw>;
 
   public constructor() {
-    this.species = '';
-    this.nickname = '';
-    this.level = 1;
-    this.role = '';
-    this.ability = '';
-    this.moves = [];
-    this.maxSkillPoints = 2;
+    this._species = '';
+    this._nickname = '';
+    this._level = 1;
+    this._role = '';
+    this._ability = '';
+    this._moves = [];
+    this._maxSkillPoints = 2;
     this._skills = new Skills();
     this._monRaw = new PokemonRaw();
     this._traitsRaw = [];
@@ -38,8 +38,8 @@ class Pokemon {
   public set Raw(newVal: PokemonRaw) {
     this.constructor();
     this._monRaw = newVal;
-    this.species = newVal.name;
-    this.moves = [
+    this._species = newVal.name;
+    this._moves = [
       this._monRaw.smove1,
       this._monRaw.smove2,
       this._monRaw.smove3,
@@ -49,11 +49,11 @@ class Pokemon {
   }
 
   public get HasSpecies(): boolean {
-    return this.species.length > 0;
+    return this._species.length > 0;
   }
   // ABILITIY FUNCTIONS
   public get HasAbility(): boolean {
-    return this.ability.length > 0;
+    return this._ability.length > 0;
   }
   public get AbilityList(): Array<String> {
     if (this._monRaw.ability2) {
@@ -65,22 +65,22 @@ class Pokemon {
 
   // ROLE FUNCTIONS
   public get HasRole(): boolean {
-    return this.role.length > 0;
+    return this._role.length > 0;
   }
   public get RoleList(): Array<String> {
     return [this._monRaw.role1, this._monRaw.role2, this._monRaw.role3];
   }
   public set Role(newRole: RoleRaw) {
-    this.role = newRole.name;
+    this._role = newRole.name;
     this._roleRaw = newRole;
   }
 
   // MOVE FUNCTIONS
   public get MoveList(): Array<string> {
-    return this.moves;
+    return this._moves;
   }
   public get HasStartingMove(): boolean {
-    return this.moves.length > 3;
+    return this._moves.length > 3;
   }
   public get Tier1NaturalMoveList(): Array<String> {
     return [
@@ -90,12 +90,12 @@ class Pokemon {
     ];
   }
   public AddMove(newMove: string) {
-    if (!this.moves.includes(newMove)) {
-      this.moves.push(newMove);
+    if (!this._moves.includes(newMove)) {
+      this._moves.push(newMove);
     }
   }
   public PopMove() {
-    this.moves.pop();
+    this._moves.pop();
   }
 
   // SKILL FUNCTIONS
@@ -134,7 +134,7 @@ class Pokemon {
     return this._skills.Sway;
   }
   public get SkillPoints(): number {
-    return this.maxSkillPoints - this._skills.TotalPoints;
+    return this._maxSkillPoints - this._skills.TotalPoints;
   }
   public get HasNoSkillPoints(): boolean {
     return this.SkillPoints == 0;
@@ -186,7 +186,7 @@ class Pokemon {
     return this._monRaw.size;
   }
   public get Level(): number {
-    return this.level;
+    return this._level;
   }
   public get TurfList(): Array<String> {
     if (this._monRaw.turf2) {
@@ -212,23 +212,26 @@ class Pokemon {
 
   // NAMING UTILITY
   public set Nickname(name: string) {
-    this.nickname = name;
+    this._nickname = name;
+  }
+  public get Nickname() {
+    return this._nickname;
   }
 
   public get Summary(): string {
-    return 'Level ' + String(this.level) + ' ' + this.species;
+    return 'Level ' + String(this._level) + ' ' + this._species;
   }
 
   // COMBAT STATS
   public get MaxHP(): number {
     if (this._roleRaw.hp == 'Low') {
-      return Number(35) + Number(3 * Math.floor(this.level / 2));
+      return Number(35) + Number(3 * Math.floor(this._level / 2));
     }
     if (this._roleRaw.hp == 'Medium') {
-      return Number(40) + Number(4 * Math.floor(this.level / 2));
+      return Number(40) + Number(4 * Math.floor(this._level / 2));
     }
     if (this._roleRaw.hp == 'High') {
-      return Number(45) + Number(5 * Math.floor(this.level / 2));
+      return Number(45) + Number(5 * Math.floor(this._level / 2));
     }
   }
   public get Init(): number {
