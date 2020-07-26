@@ -4,6 +4,7 @@ import './styles/variables.scss';
 
 import Vue from 'vue';
 import router from './router';
+import { store } from './store';
 import App from './App.vue';
 import 'vuetify/dist/vuetify.min.css';
 import Vuetify from 'vuetify';
@@ -18,6 +19,7 @@ Vue.use(VueSimpleMarkdown);
 new Vue({
   components: { App },
   router,
+  store,
   vuetify,
   render: (h) => h(App),
 }).$mount('#app');

@@ -27,16 +27,11 @@
         lg="2"
       >
         <div class="pokemon-cell">
-          <h2 style="text-align: center;">Basic Statistics</h2>
+          <h2 style="text-align: center;">Basic</h2>
         </div>
-        <v-row no-gutters style="padding: 10px;">
+        <v-row no-gutters>
+          <v-col cols="6"> <b>Type:</b> </v-col>
           <v-col cols="6">
-            <b>Type:</b> <br />
-            <b>Size:</b> <br />
-            <b>Home Turf:</b> <br />
-            <b>Gifts:</b> <br />
-          </v-col>
-          <v-col cols="6" style="text-align: center;">
             <span class="Type" :class="pokemon.Type1">{{ pokemon.Type1 }}</span>
             <span
               v-if="(pokemon.NumTypes == 2)"
@@ -44,13 +39,29 @@
               :class="pokemon.Type2"
               >{{ pokemon.Type2 }}</span
             >
-            {{ pokemon.Size }} <br />
+          </v-col>
+        </v-row>
+        <v-row no-gutters>
+          <v-col cols="6">
+            <b>Size:</b>
+          </v-col>
+
+          <v-col cols="6"> {{ pokemon.Size }} </v-col>
+        </v-row>
+        <v-row no-gutters>
+          <v-col cols="6"> <b>Home Turf:</b> </v-col>
+          <v-col cols="6">
             <div v-for="i in pokemon.TurfList" :key="i">
               {{ i
               }}<span v-if="i != pokemon.TurfList[pokemon.TurfList.length - 1]"
                 >,
               </span>
             </div>
+          </v-col>
+        </v-row>
+        <v-row no-gutters>
+          <v-col cols="6"> <b>Gifts:</b> </v-col>
+          <v-col cols="6">
             <div v-for="i in pokemon.GiftList" :key="i">
               {{ i
               }}<span v-if="i != pokemon.GiftList[pokemon.GiftList.length - 1]"
@@ -67,7 +78,7 @@
         lg="2"
       >
         <div class="pokemon-cell">
-          <h2 style="text-align: center;">Combat Statistics</h2>
+          <h2 style="text-align: center;">Combat</h2>
         </div>
         <v-row no-gutters style="padding: 10px;">
           <v-col cols="10">
@@ -238,7 +249,6 @@ export default Vue.extend({
   font-family: $font--standard;
   border-bottom: 2px solid darkslategrey;
   font-size: $font-size--l;
-  padding: $space--xs;
 }
 .pokemon-cell-bottom {
   color: black;

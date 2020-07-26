@@ -8,6 +8,7 @@ import Abilities from '@/features/abilities/index.vue';
 import Roles from '@/features/roles/index.vue';
 import Traits from '@/features/traits/index.vue';
 import PokemonBuilder from '@/features/pokemon-builder/index.vue';
+import PokemonManager from '@/features/pokemon-manager/index.vue';
 
 Vue.use(Router);
 
@@ -52,6 +53,11 @@ const r = new Router({
       path: '/pokemon-builder',
       name: 'pokemon-builder',
       component: PokemonBuilder,
+    },
+    {
+      path: '/pokemon-manager',
+      name: 'pokemon-manager',
+      component: PokemonManager,
     },
     {
       path: '/traits',

@@ -7,6 +7,8 @@
     <trainer-button to="/traits">Traits</trainer-button> <br />
     <trainer-button to="/pokemon-builder">Pokemon Builder (WIP)</trainer-button>
     <br />
+    <trainer-button to="/pokemon-manager">Pokemon Box (WIP)</trainer-button>
+    <br />
   </div>
 </template>
 

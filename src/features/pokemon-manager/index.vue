@@ -1,23 +1,15 @@
 <template>
-  <div id="app"></div>
+  <pokemon-box />
 </template>
 
 <script>
 import Vue from 'vue';
-import FileReader from '@/components/FileReader';
-import DisplayPokemon from './DisplayPokemonFromJson';
+import PokemonBox from './PokemonBox';
 
 export default Vue.extend({
-  name: 'pokemon-display',
   components: {
-    FileReader,
-    DisplayPokemon,
+    PokemonBox,
   },
-  data: () => ({ ptext: '[]' }),
-  computed: {
-    pjson: function () {
-      return JSON.parse(this.ptext);
-    },
-  },
+  data: {},
 });
 </script>

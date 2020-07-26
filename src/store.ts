@@ -1,19 +1,13 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import Vuex from 'vuex';
+import { PokemonManagementStore } from './features/pokemon-manager/store';
 
+Vue.use(Vuex);
 
-Vue.use(Vuex)
+const store = new Vuex.Store({
+  modules: {
+    pokemon: PokemonManagementStore,
+  },
+});
 
-export const store = new Vuex.Store({
-    state: {
-        selectedPokemon: null
-    },
-    mutations: {
-      change(state, selectedPokemon) {
-        state.selectedPokemon = selectedPokemon
-      }
-    },
-    getters: {
-       selectedPokemon: state => state.selectedPokemon
-    }
-})
+export { store, PokemonManagementStore };

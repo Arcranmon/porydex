@@ -85,7 +85,8 @@
     "damage": "2d",
     "damagetype": "Physical",
     "miss": "Push 1.",
-    "boost": "+1d6 Damage. Resisted Damage on miss. All targets are Marked by you for one full round. "
+    "boost": "Resisted Damage on miss. All targets are Marked by you for one full round. ",
+    "boostdmg": "+1d"
   },
   {
     "timestamp": "2020-07-16T05:05:29.507Z",
@@ -101,7 +102,8 @@
     "damage": "3d",
     "damagetype": "Physical",
     "miss": "Disengage 5 after resolving this attack. You may Hide as a Free Action if you meet all conditions to do so.",
-    "boost": "+2d6 Damage. Resisted Damage on a Miss. "
+    "boost": "Resisted Damage on a Miss. ",
+    "boostdmg": "+2d"
   },
   {
     "timestamp": "2020-05-17T22:39:32.606Z",
@@ -116,7 +118,8 @@
     "hit": "If the target begins and ends their next turn adjacent to you, they lose two Ticks of HP.",
     "damage": "3d",
     "damagetype": "Physical",
-    "boost": "+2d6 Damage. Resisted Damage on miss. Increase the HP loss on remaining adjacent to three Ticks."
+    "boost": "Resisted Damage on miss. Increase the HP loss on remaining adjacent to three Ticks.",
+    "boostdmg": "+2d"
   },
   {
     "timestamp": "2020-06-29T23:18:24.209Z",
@@ -228,8 +231,9 @@
     "damage": "3d",
     "damagetype": "Physical",
     "always": "Push the target up to 3 squares and move along with the target as you Push them. This does not provoke Punish Attacks. Dragon Rush deals Super-Effective Damage to the Fighting Type.",
-    "boost": "+2d6 Damage. Resisted Damage on miss. ",
-    "critical": "The target is Flinched."
+    "boost": "Resisted Damage on miss. ",
+    "critical": "The target is Flinched.",
+    "boostdmg": "+2d"
   },
   {
     "timestamp": "2020-07-16T04:25:24.974Z",
@@ -258,6 +262,21 @@
     "always": "You gain one Charge of the Overcharged Buff. You may expend the Overcharged Buff when you make a Special Strike to use its Boost effect without spending BP. "
   },
   {
+    "timestamp": "2020-07-26T04:10:30.678Z",
+    "name": "Discharge",
+    "type": "Electric",
+    "category": "Strike",
+    "tier": 1,
+    "action": "2 AP",
+    "frequency": "At-Will",
+    "target": "Burst 1",
+    "defense": "Vigor",
+    "damage": "2d",
+    "damagetype": "Special",
+    "always": "If there are at least 2 targets in Discharge's area of effect, they all become Slowed until the end of their next turn. If there are at least 3 targets, they also become Paralyzed until the end of their next turn.",
+    "boost": "Resisted Damage on a Miss. Discharge becomes a Burst 2."
+  },
+  {
     "timestamp": "2020-07-25T19:12:29.200Z",
     "name": "Electrolytic Blast",
     "type": "Electric",
@@ -270,7 +289,8 @@
     "damage": "3d",
     "damagetype": "Special",
     "always": "If the target is Soaked, repeat this attack against another target within 4 spaces as a Free Action. Electrolytic Blast can be repeated as a Free Action like this twice per round. ",
-    "boost": "+1d6 Damage. Half damage on Miss. Characters targeted by Electrolytic Blast become Paralyzed until the end of their next turn, regardless of hit or miss. For Soaked characters, this is Save Ends instead."
+    "boost": "Resisted damage on Miss. Characters targeted by Electrolytic Blast become Paralyzed until the end of their next turn, regardless of hit or miss. For Soaked characters, this is Save Ends instead.",
+    "boostdmg": "+1d"
   },
   {
     "timestamp": "2020-07-25T21:35:53.555Z",
@@ -324,7 +344,23 @@
     "damage": "3d",
     "damagetype": "Special",
     "always": "The first time each Scene you use Lightning Coil, gain 2 Charges of the Lightning Coil Buff at the end of your turn. Once per round, you may spend Charges of the Lightning Coil Buff to use Lightning Coil as a Free Action that is not restricted by the normal limitations on using multiple Strikes, but you lose two Ticks of HP after the attack resolves. ",
-    "boost": "Half Damage on Miss. Lightning Coil becomes a Ranged Blast 2 or a Line 4. The Move retains these Boost properties whenever used as a Free Action for the rest of the Scene. "
+    "boost": "Resisted Damage on Miss. Lightning Coil becomes a Ranged Blast 2 or a Line 4. The Move retains these Boost properties whenever used as a Free Action for the rest of the Scene. "
+  },
+  {
+    "timestamp": "2020-07-26T06:45:29.999Z",
+    "name": "Lightning Strike",
+    "type": "Electric",
+    "category": "Strike",
+    "keywords": "Zone",
+    "tier": 1,
+    "action": "2 AP",
+    "frequency": "At-Will",
+    "target": "Range 8, Blast 2",
+    "defense": "Evasion",
+    "damage": "2d",
+    "damagetype": "Special",
+    "always": "Create a Zone in Lightning Strike's area of effect that lasts until the start of your next turn. All characters in the Zone take +1 Bane to their first Accuracy Roll each turn.",
+    "boost": "This attack creates two non-overlapping Blasts instead. A character cannot be targeted twice by this attack, even if they are in both Blasts."
   },
   {
     "timestamp": "2020-06-29T23:22:28.679Z",
@@ -354,7 +390,8 @@
     "damage": "3d",
     "damagetype": "Physical",
     "always": "Both you and the target are Pushed up to 4 meters away in directions of your choice. The direction and distance may be chosen separately for you and the target, but they must both be Pushed at least 2 meters.",
-    "boost": "+2d6 Damage. Half Damage on Miss. On a Hit, the target cannot willingly move closer to you until the end of its next turn. "
+    "boost": "Resisted Damage on Miss. On a Hit, the target cannot willingly move closer to you until the end of its next turn. ",
+    "boostdmg": "+2d"
   },
   {
     "timestamp": "2020-07-25T21:59:54.624Z",
@@ -372,7 +409,7 @@
     "damagetype": "Versatile",
     "miss": "The target falls Prone.",
     "special": "Railgun cannot be used if you have moved, voluntarily or not, during your turn. Railgun cannot be used as an Interrupt for any reason.",
-    "boost": "Half Damage on Miss. Becomes a Line 12.",
+    "boost": "Resisted Damage on Miss. Becomes a Line 12.",
     "boostdmg": "+1d"
   },
   {
@@ -429,8 +466,9 @@
     "damage": "3d",
     "damagetype": "Physical",
     "always": "This attack gains a +2 bonus to Critical Hit Range.",
-    "boost": "+2d6 Damage.  Resisted damage on Miss.",
-    "critical": "The target is knocked prone."
+    "boost": "Resisted damage on Miss.",
+    "critical": "The target is knocked prone.",
+    "boostdmg": "+2d"
   },
   {
     "timestamp": "2020-06-29T20:00:46.002Z",
@@ -484,7 +522,8 @@
     "damage": "1d",
     "damagetype": "Special",
     "always": "All targets have +1 Bane on Accuracy Rolls against you for one full round. You may Disengage 1. ",
-    "boost": "+1d6 Damage. Resisted Damage on miss. On a hit, targets that target you with a Strike before the end of their next turn become Weakened for one full round. This effect applies before damage is resolved."
+    "boost": "Resisted Damage on miss. On a hit, targets that target you with a Strike before the end of their next turn become Weakened for one full round. This effect applies before damage is resolved.",
+    "boostdmg": "+1d"
   },
   {
     "timestamp": "2020-06-29T20:20:10.884Z",
@@ -499,8 +538,9 @@
     "defense": "Vigor",
     "damage": "2d",
     "damagetype": "Special",
-    "boost": "+2d6 Damage. Resisted Damage on a miss. ",
-    "critical": "On their next turn, the target becomes Slowed until the end of their turn if they move away from you."
+    "boost": "Resisted Damage on a miss. ",
+    "critical": "On their next turn, the target becomes Slowed until the end of their turn if they move away from you.",
+    "boostdmg": "+2d"
   },
   {
     "timestamp": "2020-05-20T08:01:47.036Z",
@@ -544,7 +584,8 @@
     "damage": "3d",
     "damagetype": "Physical",
     "always": "The target chooses—you get to perform a Grapple against them as a Free Action, or they take a -5 penalty to all Physical Damage Rolls until the end of their next turn.",
-    "boost": "+2d6 Damage. Resisted Damage on a Miss. On a Hit, do both options instead of the target choosing."
+    "boost": "Resisted Damage on a Miss. On a Hit, do both options instead of the target choosing.",
+    "boostdmg": "+2d"
   },
   {
     "timestamp": "2020-06-29T22:10:37.443Z",
@@ -601,8 +642,9 @@
     "damage": "3d",
     "damagetype": "Physical",
     "special": "If the Target is Stuck, Fast Blade gets a +3 to its Critical Hit range.",
-    "boost": "+2d6 Damage.  Resisted damage on Miss.  ",
-    "critical": "The target is knocked Prone."
+    "boost": "Resisted damage on Miss.  ",
+    "critical": "The target is knocked Prone.",
+    "boostdmg": "+2d"
   },
   {
     "timestamp": "2020-06-29T21:55:15.915Z",
@@ -656,8 +698,9 @@
     "hit": "If the target begins and ends their next turn adjacent to you, they gain Ongoing Damage 5/8/10 (Fire, Save Ends). If they already had Ongoing Damage (Fire) when this effect triggers, instead they are Flinched.",
     "damage": "2d",
     "damagetype": "Physical",
-    "boost": "+1d6 Damage. Resisted Damage on miss. Always, the target is Slowed.",
-    "critical": "The target gains Ongoing Damage 5/8/10 (Fire, Save Ends). "
+    "boost": "Resisted Damage on miss. Always, the target is Slowed.",
+    "critical": "The target gains Ongoing Damage 5/8/10 (Fire, Save Ends). ",
+    "boostdmg": "+1d"
   },
   {
     "timestamp": "2020-06-29T23:03:47.996Z",
@@ -672,7 +715,8 @@
     "damage": "3d",
     "damagetype": "Physical",
     "always": "Increase your Initiative by +1 for the rest of the Scene, up to a maximum of +3. Increase your Movement by +2 until the end of your next turn.",
-    "boost": "+1d6 Damage. Resisted Damage on miss. Immediately Move as if Slowed and repeat this attack against a second target. Do not gain the Always effect from this second attack. "
+    "boost": "Resisted Damage on miss. Immediately Move as if Slowed and repeat this attack against a second target. Do not gain the Always effect from this second attack. ",
+    "boostdmg": "+1d"
   },
   {
     "timestamp": "2020-06-29T20:32:12.581Z",
@@ -702,8 +746,9 @@
     "damage": "3d",
     "damagetype": "Physical",
     "always": "You may Disengage 2 before using Bounce.",
-    "boost": "+1d6 Damage. Resisted Damage on a miss. Repeat Bounce on another target. You may not Boost this second attack.",
-    "critical": "The target is Paralyzed (Save Ends)."
+    "boost": "Resisted Damage on a miss. Repeat Bounce on another target. You may not Boost this second attack.",
+    "critical": "The target is Paralyzed (Save Ends).",
+    "boostdmg": "+1d"
   },
   {
     "timestamp": "2020-06-29T23:19:13.088Z",
@@ -817,7 +862,8 @@
     "damage": "2d",
     "damagetype": "Special",
     "always": "If a Melee Strike causes you to become Shaken, you may use Drain Life against the attacker as a Free Action immediately after the attack is resolved.",
-    "boost": "+2d6 Damage. Resisted Damage on miss."
+    "boost": "Resisted Damage on miss.",
+    "boostdmg": "+2d"
   },
   {
     "timestamp": "2020-06-10T03:53:19.725Z",
@@ -832,7 +878,8 @@
     "damage": "2d",
     "damagetype": "Special",
     "always": "The target treats you as if they were Blind until the end of their next turn. This effect is Limited.",
-    "boost": "+2d6 Damage. Resisted Damage on miss. Night Shade’s Always effect applies to your adjacent allies too. "
+    "boost": "Resisted Damage on miss. Night Shade’s Always effect applies to your adjacent allies too. ",
+    "boostdmg": "+2d"
   },
   {
     "timestamp": "2020-06-29T19:55:53.527Z",
@@ -861,7 +908,8 @@
     "damage": "3d",
     "damagetype": "Special",
     "always": "You can draw a curved path for Shadow Ball’s trajectory to reach around cover or hit targets out of Line of Sight as long as you know their position.",
-    "boost": "+2d6 Damage. Resisted Damage on miss. +2 Range."
+    "boost": "Resisted Damage on miss. +2 Range.",
+    "boostdmg": "+2d"
   },
   {
     "timestamp": "2020-06-29T22:40:57.177Z",
@@ -954,7 +1002,8 @@
     "damage": "1d",
     "damagetype": "Special",
     "always": "Create a Drumroll Zone in your square and the targeted squares that lasts until the end of the next round. Allies may give their attacks that target foes in the Drumroll Zone the Sonic tag and cause targets to Flinch on a Super-Effective or Critical Hit.",
-    "boost": "+1d6 Damage. Resisted damage on miss. The Drumroll Zone persists as long as you remain in the Zone. "
+    "boost": "Resisted damage on miss. The Drumroll Zone persists as long as you remain in the Zone. ",
+    "boostdmg": "+1d"
   },
   {
     "timestamp": "2020-06-29T23:14:59.509Z",
@@ -994,8 +1043,9 @@
     "damage": "2d",
     "damagetype": "Physical",
     "always": "Leaf Blade has a +2 to its Critical Range.",
-    "boost": "+1d6 Damage. Resisted damage on a miss. Slide 1 all targets.",
-    "critical": "The target is Slowed until the end of its next turn."
+    "boost": "Resisted damage on a miss. Slide 1 all targets.",
+    "critical": "The target is Slowed until the end of its next turn.",
+    "boostdmg": "+1d"
   },
   {
     "timestamp": "2020-06-29T22:37:51.114Z",
@@ -1039,7 +1089,8 @@
     "defense": "Vigor",
     "damage": "2d",
     "damagetype": "Special",
-    "boost": "+2d6 Damage. Resisted Damage on a miss. "
+    "boost": "Resisted Damage on a miss. ",
+    "boostdmg": "+2d"
   },
   {
     "timestamp": "2020-06-29T22:36:24.430Z",
@@ -1068,7 +1119,8 @@
     "damage": "2d",
     "damagetype": "Physical",
     "always": "All spaces in the area of effect become Slow Terrain for one full round.",
-    "boost": "+1d6 Damage. Resisted Damage on Miss. All squares adjacent to the area of effect, besides squares you occupy, also become Slow Terrain for one full round. "
+    "boost": "Resisted Damage on Miss. All squares adjacent to the area of effect, besides squares you occupy, also become Slow Terrain for one full round. ",
+    "boostdmg": "+1d"
   },
   {
     "timestamp": "2020-06-29T22:59:53.627Z",
@@ -1083,7 +1135,8 @@
     "damage": "3d",
     "damagetype": "Physical",
     "always": "You may spend a Movement Action when using Dig to burrow into soft ground (dirt, sand, mud, etc) and move up to your speed underground, passing under obstacles, before emerging from the ground and using Dig.",
-    "boost": " +2d6 Damage. Resisted Damage on miss. The pathway you burrow becomes a stable tunnel that other characters your size and smaller can move through. "
+    "boost": "Resisted Damage on miss. The pathway you burrow becomes a stable tunnel that other characters your size and smaller can move through. ",
+    "boostdmg": "+2d"
   },
   {
     "timestamp": "2020-06-09T05:23:12.031Z",
@@ -1240,7 +1293,8 @@
     "damage": "2d",
     "damagetype": "Special",
     "always": "Reduce the target’s Initiative and Evasion by 2 for one full round.",
-    "boost": "+1d6 Damage. Resisted damage on a miss. Hit targets are Chilled for one full round."
+    "boost": "Resisted damage on a miss. Hit targets are Chilled for one full round.",
+    "boostdmg": "+1d"
   },
   {
     "timestamp": "2020-05-20T07:56:39.934Z",
@@ -1254,7 +1308,8 @@
     "defense": "Vigor",
     "damage": "2d",
     "damagetype": "Special",
-    "boost": "+1d6 Damage. Resisted Damage on Miss. Hit characters are Chilled (Save Ends)"
+    "boost": "Resisted Damage on Miss. Hit characters are Chilled (Save Ends)",
+    "boostdmg": "+1d"
   },
   {
     "timestamp": "2020-06-29T22:00:30.538Z",
@@ -1571,7 +1626,8 @@
     "damage": "3d",
     "damagetype": "Special",
     "always": "Targets cannot make Punish Attacks for one full Round. Attacks made against allies in the area of effect take +1 Bane to accuracy rolls for one full round.",
-    "boost": "+1d6 Damage.  Resisted Damage on a miss.  Hit Targets take a Bane to Accuracy on their next Attack."
+    "boost": "Resisted Damage on a miss.  Hit Targets take a Bane to Accuracy on their next Attack.",
+    "boostdmg": "+1d"
   },
   {
     "timestamp": "2020-06-29T23:01:39.503Z",
@@ -1600,8 +1656,9 @@
     "damage": "3d",
     "damagetype": "Physical",
     "always": "This attack gains a +2 bonus to Critical Hit Range.",
-    "boost": "+2d6 Damage. Resisted damage on Miss.",
-    "critical": "The target is knocked prone."
+    "boost": "Resisted damage on Miss.",
+    "critical": "The target is knocked prone.",
+    "boostdmg": "+2d"
   },
   {
     "timestamp": "2020-06-09T05:22:23.341Z",
@@ -1631,7 +1688,8 @@
     "damage": "2d",
     "damagetype": "Special",
     "always": "Targets lose all Armor against Special Damage for one full round. (Limited)",
-    "boost": "+1d6 Damage. Resisted Damage on a Miss. Ignore the Limited restriction on this Move's effects."
+    "boost": "Resisted Damage on a Miss. Ignore the Limited restriction on this Move's effects.",
+    "boostdmg": "+1d"
   },
   {
     "timestamp": "2020-06-09T05:24:12.420Z",
@@ -1646,7 +1704,8 @@
     "damage": "3d",
     "damagetype": "Physical",
     "always": "If the target starts its next turn adjacent to you, it becomes Slowed until the end of its turn.",
-    "boost": "+2d6 Damage. Resisted Damage on a Miss. All characters who start their next turn within a Close Burst 2 of you become Slowed until the end of their turn. "
+    "boost": "Resisted Damage on a Miss. All characters who start their next turn within a Close Burst 2 of you become Slowed until the end of their turn. ",
+    "boostdmg": "+2d"
   },
   {
     "timestamp": "2020-05-17T22:54:14.664Z",
@@ -1661,8 +1720,9 @@
     "hit": "If the target begins and ends their next turn adjacent to you, they gain Ongoing Damage 5/8/10 (Poison, Save Ends). If they already had Ongoing Damage (Poison) when this effect triggers, instead increase their Ongoing Damage by the same amount, to a maximum of 10/16/20.",
     "damage": "2d",
     "damagetype": "Physical",
-    "boost": "+2d6 Damage. Resisted Damage on miss. Always, the target is Slowed until the end of their next turn.",
-    "critical": "The target gains Ongoing Damage 5/8/10 (Poison, Save Ends)."
+    "boost": "Resisted Damage on miss. Always, the target is Slowed until the end of their next turn.",
+    "critical": "The target gains Ongoing Damage 5/8/10 (Poison, Save Ends).",
+    "boostdmg": "+2d"
   },
   {
     "timestamp": "2020-06-29T23:05:38.887Z",
@@ -1773,7 +1833,8 @@
     "damage": "3d",
     "damagetype": "Special",
     "always": "Foes adjacent to your target lose HP equal to the target’s Special Armor. ",
-    "boost": "+1d6 Damage. Resisted Damage on miss. Affected foes lose double HP from the armor-based HP loss effect. "
+    "boost": "Resisted Damage on miss. Affected foes lose double HP from the armor-based HP loss effect. ",
+    "boostdmg": "+1d"
   },
   {
     "timestamp": "2020-06-29T20:39:17.096Z",
@@ -1811,7 +1872,8 @@
     "damage": "2d",
     "damagetype": "Special",
     "special": "On a Critical Hit, for one full round, you gain +3/4/5 Armor against all damage, deal +3/4/5 damage with all damaging attacks, and gain a +2 bonus to Initiative and to all Defenses.",
-    "boost": "+1d6 Damage. You Critically Hit with Ancient Power. "
+    "boost": "You Critically Hit with Ancient Power. ",
+    "boostdmg": "+1d"
   },
   {
     "timestamp": "2020-06-29T22:03:32.868Z",
@@ -1856,7 +1918,8 @@
     "damage": "3d",
     "damagetype": "Physical",
     "miss": "Gain one Rollout Counter, up to a maximum of 3, and Disengage 2.",
-    "boost": "+1d6 Damage. Half Damage on miss. Rollout becomes Pass 4. "
+    "boost": "Resisted Damage on miss. Rollout becomes Pass 4. ",
+    "boostdmg": "+1d"
   },
   {
     "timestamp": "2020-06-29T22:11:57.511Z",
@@ -1872,7 +1935,8 @@
     "damage": "2d",
     "damagetype": "Physical",
     "always": "The target loses all Armor for 1 Full Round.",
-    "boost": "+2d6 Damage. Resisted Damage on miss."
+    "boost": "Resisted Damage on miss.",
+    "boostdmg": "+2d"
   },
   {
     "timestamp": "2020-06-29T22:04:27.347Z",
@@ -1930,7 +1994,8 @@
     "hit": "If the target starts their next turn adjacent to you, they lose two Ticks of HP if they take a normal Move or Disengage action on that turn.",
     "damage": "3d",
     "damagetype": "Physical",
-    "boost": "+2d6 Damage. Resisted Damage on miss. Increase the HP loss on movement to three Ticks."
+    "boost": "Resisted Damage on miss. Increase the HP loss on movement to three Ticks.",
+    "boostdmg": "+2d"
   },
   {
     "timestamp": "2020-06-29T21:58:26.294Z",
@@ -1956,7 +2021,8 @@
     "damage": "2d",
     "damagetype": "Physical",
     "always": "Until the end of your next turn, you gain +5 Physical Damage Reduction against the target(s).",
-    "boost": "+1d6 Damage, and you resist Physical attacks one step further until the end of your next turn."
+    "boost": "You resist Physical attacks one step further until the end of your next turn",
+    "boostdmg": "+1d"
   },
   {
     "timestamp": "2020-06-09T05:21:00.095Z",
@@ -1972,7 +2038,8 @@
     "damage": "2d",
     "damagetype": "Physical",
     "always": "Allies you pass through may Disengage 1.",
-    "boost": "+1d6 Damage. Resisted damage on a miss. All targets become Prone. "
+    "boost": "Resisted damage on a miss. All targets become Prone. ",
+    "boostdmg": "+1d"
   },
   {
     "timestamp": "2020-06-29T20:42:41.475Z",
@@ -2014,7 +2081,8 @@
     "damage": "3d",
     "damagetype": "Special",
     "miss": "The target is Pushed 1 square.",
-    "boost": "+2d6 Damage. Resisted Damage on miss. Target is Soaked on a hit."
+    "boost": "Resisted Damage on miss. Target is Soaked on a hit.",
+    "boostdmg": "+2d"
   },
   {
     "timestamp": "2020-06-29T19:59:10.860Z",

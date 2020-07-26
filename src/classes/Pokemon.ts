@@ -3,7 +3,7 @@ import { PokemonRaw, RoleRaw, TraitRaw, Skills } from '@/class';
 
 class Pokemon {
   private species: String;
-  private nickname: String;
+  private nickname: string;
 
   private level: number;
   private role: string; //Maybe replace with like PokemonRole later
@@ -205,6 +205,10 @@ class Pokemon {
   // NAMING UTILITY
   public set Nickname(name: string) {
     this.nickname = name;
+  }
+
+  public get Summary(): string {
+    return 'Level ' + String(this.level) + ' ' + this.species;
   }
 
   // COMBAT STATS

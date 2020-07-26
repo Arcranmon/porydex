@@ -163,8 +163,8 @@
           ><input v-model="nickname" placeholder="Input Nickname" />
         </v-stepper-content>
         <v-stepper-content step="7">
-          <v-btn color="success" large tile
-            >SAVE {{ pokemon.nickname }} (WIP, Doesn't Work) </v-btn
+          <v-btn color="success" large tile @click="savePokemon()"
+            >SAVE {{ pokemon.nickname }}</v-btn
           ><display-pokemon :pokemon="pokemon" />
         </v-stepper-content>
       </v-stepper-items>
@@ -172,15 +172,16 @@
   </v-container>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue';
-import store from '@/store';
+import { getModule } from 'vuex-module-decorators';
+import { PokemonManagementStore } from '@/store';
 import { Pokemon } from '@/class';
-import PokedexBrowser from '@/features/pokedex/PokedexBrowser';
-import ShowCards from '@/components/cards/ShowCards';
-import DisplayPokemon from '../pokemon-manager/DisplayPokemon';
-import allRoles from '@/assets/database/roles';
-import allTraits from '@/assets/database/traits';
+import PokedexBrowser from '@/features/pokedex/PokedexBrowser.vue';
+import ShowCards from '@/components/cards/ShowCards.vue';
+import DisplayPokemon from '../pokemon-manager/DisplayPokemon.vue';
+import allRoles from '@/assets/database/roles.json';
+import allTraits from '@/assets/database/traits.json';
 
 export default Vue.extend({
   name: 'pokemon-builder',
@@ -223,6 +224,11 @@ export default Vue.extend({
         this.pokemon.PopMove();
       }
       this.pokemon.AddMove(variable);
+    },
+    savePokemon() {
+      const store = getModule(PokemonManagementStore, this.$store);
+      store.AddPokemon(this.pokemon);
+      this.$router.push('pokemon-manager');
     },
   },
 });
