@@ -112,6 +112,93 @@ class Pokemon {
     this._moves.pop();
   }
 
+  public BasicAttackList(): string[] {
+    var baList = [];
+    var move = '';
+    if (this._monRaw.basicattack1) {
+      if (this._monRaw.basicattack1.includes('Melee')) {
+        move = 'Melee Basic Attack';
+      } else {
+        move = 'Ranged Basic Attack';
+      }
+      if (this._monRaw.basicattack1.includes('Innate')) {
+        baList.push(move);
+      }
+      baList.push(move);
+    }
+    if (this._monRaw.basicattack2) {
+      if (this._monRaw.basicattack2.includes('Melee')) {
+        move = 'Melee Basic Attack';
+      } else {
+        move = 'Ranged Basic Attack';
+      }
+      if (this._monRaw.basicattack2.includes('Innate')) {
+        baList.push(move);
+      }
+      baList.push(move);
+    }
+    return baList;
+  }
+
+  public BasicAttackTypes(): string[] {
+    var baList = [];
+    if (this._monRaw.basicattack1) {
+      if (this._monRaw.basicattack1.includes('Innate')) {
+        baList.push('Normal');
+        baList.push(this._monRaw.type1);
+      } else {
+        baList.push(
+          this._monRaw.basicattack1.substring(
+            this._monRaw.basicattack1.indexOf(' ') + 1,
+            this._monRaw.basicattack1.lastIndexOf(' ')
+          )
+        );
+      }
+    }
+    if (this._monRaw.basicattack2) {
+      if (this._monRaw.basicattack2.includes('Innate')) {
+        baList.push('Normal');
+        baList.push(this._monRaw.type1);
+      } else {
+        baList.push(
+          this._monRaw.basicattack2.substring(
+            this._monRaw.basicattack2.indexOf(' ') + 1,
+            this._monRaw.basicattack2.lastIndexOf(' ')
+          )
+        );
+      }
+    }
+    return baList;
+  }
+
+  public BasicAttackDamage(): string[] {
+    var baList = [];
+    var move = '';
+    if (this._monRaw.basicattack1) {
+      if (this._monRaw.basicattack1.includes('Physical')) {
+        move = 'Physical';
+      } else {
+        move = 'Special';
+      }
+      if (this._monRaw.basicattack1.includes('Innate')) {
+        baList.push(move);
+      }
+      baList.push(move);
+    }
+    if (this._monRaw.basicattack2) {
+      if (this._monRaw.basicattack2.includes('Physical')) {
+        move = 'Physical';
+      } else {
+        move = 'Special';
+      }
+      if (this._monRaw.basicattack2.includes('Innate')) {
+        baList.push(move);
+      }
+      baList.push(move);
+    }
+    return baList;
+  }
+
   // SKILL FUNCTIONS
   public get Skills() {
     return this._skills;

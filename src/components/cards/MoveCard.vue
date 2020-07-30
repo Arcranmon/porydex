@@ -1,8 +1,8 @@
 <template>
   <div class="move--wrapper" inline>
-    <div class="move--header" v-bind:class="[move.type, move.category]">
+    <div class="move--header" v-bind:class="[type, move.category]">
       <span class="move--icon"><img :src="tierImage" /></span>
-      <b>{{ move.name }} </b> ✦ {{ move.type }}<br />
+      <b>{{ move.name }} </b> ✦ {{ type }}<br />
       {{ move.action }}, {{ move.frequency }} ✦ {{ move.category }}
       <span v-if="(move.keywords)"> ✦ {{ move.keywords }}</span>
     </div>
@@ -11,7 +11,7 @@
       <span v-if="(move.defense)"> ✦ vs {{ move.defense }}</span> <br />
       <div v-if="(move.damage)">
         <b>Damage:</b> {{ move.damage }}{{ damageDie }} {{ move.damagetype }}
-        {{ move.type }} Damage
+        {{ type }} Damage
       </div>
       <div v-if="(move.hit)"><b>Hit:</b> {{ move.hit }}</div>
       <div v-if="(move.always)">
@@ -55,6 +55,7 @@
 import Vue from 'vue';
 import 'vue-simple-markdown/dist/vue-simple-markdown.css';
 import allMoves from '@/assets/database/moves.json';
+import basicAttacks from '@/assets/database/basicattacks.json';
 import '@/styles/types.scss';
 import Available from './Available.vue';
 
@@ -80,6 +81,14 @@ export default Vue.extend({
       required: false,
       default: 6,
     },
+    basicType: {
+      type: String,
+      required: false,
+    },
+    basicDamage: {
+      type: String,
+      required: false,
+    },
   },
   data() {
     return {
@@ -93,10 +102,19 @@ export default Vue.extend({
         target: 'Error',
         hit: 'Move was not found',
       },
+      basicAttacks,
     };
   },
   computed: {
     move: function () {
+      if (this.basicType) {
+        for (const mv of this.basicAttacks) {
+          if (this.moveName == mv.name) {
+            mv.damagetype = this.basicDamage;
+            return mv;
+          }
+        }
+      }
       for (const mv of this.allMoves) {
         if (this.moveName == mv.name) {
           return mv;
@@ -129,6 +147,12 @@ export default Vue.extend({
         return this.melee;
       }
       return 6;
+    },
+    type: function () {
+      if (this.basicType) {
+        return this.basicType;
+      }
+      return this.move.type;
     },
   },
   components: {

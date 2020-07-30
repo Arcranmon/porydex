@@ -4,7 +4,7 @@
       <v-col
         cols="12"
         class="d-flex justify-center"
-        v-for="n in names"
+        v-for="(n, index) in names"
         :key="n"
         :lg="colWidth"
         v-on:click="clickMethod(n)"
@@ -16,6 +16,16 @@
             :showA="showA"
             :melee="melee"
             :range="range"
+          />
+        </div>
+        <div class="card--box" v-if="job == 'BA'">
+          <move-card
+            :moveName="n"
+            :showA="showA"
+            :melee="melee"
+            :range="range"
+            :basicType="basicType[index]"
+            :basicDamage="basicDamage[index]"
           />
         </div>
         <div class="card--box" v-if="job == 'Ability'">
@@ -68,6 +78,14 @@ export default Vue.extend({
       type: Number,
       required: false,
       default: 6,
+    },
+    basicType: {
+      type: Array,
+      required: false,
+    },
+    basicDamage: {
+      type: Array,
+      required: false,
     },
   },
   components: {

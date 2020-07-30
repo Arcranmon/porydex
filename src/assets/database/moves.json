@@ -719,6 +719,22 @@
     "boostdmg": "+1d"
   },
   {
+    "timestamp": "2020-07-29T06:39:12.242Z",
+    "name": "Heat Wave",
+    "type": "Fire",
+    "category": "Strike",
+    "tier": 3,
+    "action": "2 AP",
+    "frequency": "Scene x2",
+    "target": "Close Blast 3",
+    "defense": "Vigor",
+    "damage": "2d",
+    "damagetype": "Special",
+    "always": "All characters in a Burst 3, including the user, are treated as if they were hit by a Fire-Type attack (ex: for the purposes of the Soaked condition).",
+    "boost": "Resisted Damage on Miss. For the rest of the Scene, you may repeat the Always effect of Heat Wave once per round as a 1 AP Maneuver. ",
+    "boostdmg": "+1d"
+  },
+  {
     "timestamp": "2020-06-29T20:32:12.581Z",
     "name": "Aerial Ace",
     "type": "Flying",

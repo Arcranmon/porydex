@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Melee Basic Attack",
+    "type": "Normal",
+    "category": "Strike",
+    "tier": 1,
+    "action": "1 AP",
+    "frequency": "At-Will",
+    "target": "Melee, 1 Target",
+    "defense": "Evasion",
+    "damage": "2d",
+    "damagetype": "Physical"
+  },
+  {
+    "name": "Ranged Basic Attack",
+    "type": "Normal",
+    "category": "Strike",
+    "tier": 1,
+    "action": "2 AP",
+    "frequency": "At-Will",
+    "target": "Range 4, 1 Target",
+    "defense": "Evasion",
+    "damage": "2d",
+    "damagetype": "Physical"
+  }
+]

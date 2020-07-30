@@ -211,6 +211,33 @@
         lg="12"
       >
         <div class="pokemon-cell">
+          <h2 style="text-align: center;">Basic Attacks</h2>
+        </div>
+      </v-col>
+      <v-col
+        cols="12"
+        class="flex flex-column pokemon-cell-bottom"
+        style="flex-direction: column;"
+        lg="12"
+      >
+        <show-cards
+          :names="pokemon.BasicAttackList()"
+          :melee="pokemon.MeleeDamageDie()"
+          :range="pokemon.RangedDamageDie()"
+          :basicType="pokemon.BasicAttackTypes()"
+          :basicDamage="pokemon.BasicAttackDamage()"
+          job="BA"
+        />
+      </v-col>
+    </v-row>
+    <v-row flex fluid fill-height no-gutters>
+      <v-col
+        cols="12"
+        class="flex flex-column pokemon-cell-bottom"
+        style="flex-direction: column;"
+        lg="12"
+      >
+        <div class="pokemon-cell">
           <h2 style="text-align: center;">Moves</h2>
         </div>
       </v-col>

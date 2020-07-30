@@ -16,6 +16,8 @@ class PokemonRaw {
   public ability2: string;
   public skill1: string;
   public skill2: string;
+  public basicattack1: string;
+  public basicattack2: string;
   public badskill: string;
   public dexnumber: string;
   public type1: string;
