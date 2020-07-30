@@ -109,14 +109,14 @@ export default Vue.extend({
     move: function () {
       if (this.basicType) {
         for (const mv of this.basicAttacks) {
-          if (this.moveName == mv.name) {
+          if (this.moveName.trim() == mv.name.trim()) {
             mv.damagetype = this.basicDamage;
             return mv;
           }
         }
       }
       for (const mv of this.allMoves) {
-        if (this.moveName == mv.name) {
+        if (this.moveName.trim() == mv.name.trim()) {
           return mv;
         }
       }

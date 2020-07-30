@@ -54,7 +54,7 @@ export default Vue.extend({
     ability: function () {
       var abls = [];
       for (const arr of this.allAbilities) {
-        if (this.abilityName == arr.name) {
+        if (this.abilityName.trim() == arr.name.trim()) {
           return arr;
         }
       }

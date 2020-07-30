@@ -37,7 +37,7 @@ export default Vue.extend({
     namelist: function () {
       var pklist = [];
       for (const pkm of this.allPokemon) {
-        if (Object.values(pkm).includes(this.name)) {
+        if (Object.values(pkm).includes(this.name.trim())) {
           pklist.push(pkm.name);
         }
       }

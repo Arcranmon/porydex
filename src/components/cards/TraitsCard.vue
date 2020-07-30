@@ -40,7 +40,7 @@ export default Vue.extend({
   computed: {
     trait: function () {
       for (const trt of this.allTraits) {
-        if (this.traitName == trt.name) {
+        if (this.traitName.trim() == trt.name.trim()) {
           return trt;
         }
       }

@@ -87,7 +87,7 @@ export default Vue.extend({
   computed: {
     role: function () {
       for (const rl of this.allRoles) {
-        if (this.roleName == rl.name) {
+        if (this.roleName.trim() == rl.name.trim()) {
           return rl;
         }
       }
