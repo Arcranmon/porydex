@@ -38,7 +38,7 @@
                 <div class="text-xs-center">
                   <v-btn
                     color="button--template button--delete"
-                    @click="deletePokemon()"
+                    @click="deletePokemon(), (pokemonSelected = false)"
                   >
                     Delete {{ selectedPokemon.Nickname }}
                   </v-btn>
@@ -48,7 +48,8 @@
           </v-card>
         </v-dialog>
       </span>
-      <span> <display-pokemon :pokemon="selectedPokemon" /> </span
+      <span v-if="pokemonSelected">
+        <display-pokemon :pokemon="selectedPokemon" /> </span
     ></v-col>
   </v-row>
 </template>
