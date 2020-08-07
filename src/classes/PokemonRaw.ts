@@ -12,6 +12,9 @@ class PokemonRaw {
   public t1natmove1: string;
   public t1natmove2: string;
   public t1natmove3: string;
+  public t1tutmove1: string;
+  public t1tutmove2: string;
+  public t1tutmove3: string;
   public ability1: string;
   public ability2: string;
   public skill1: string;

@@ -38,133 +38,28 @@
           </v-btn>
           <pokedex-browser @chose="updatePokemon" />
         </v-stepper-content>
-        <v-stepper-content step="2">
-          <v-btn
-            color="success"
-            large
-            tile
-            @click="step++"
-            :disabled="!pokemon.HasRole"
-          >
-            <span v-if="!pokemon.HasRole">CHOOSE A ROLE</span>
-            <span v-else>CHOOSE {{ pokemon.RoleName }}</span>
-          </v-btn>
-          <show-cards
-            :names="pokemon.RoleList"
-            job="Role"
-            :selectButton="true"
-            @chose="updateRole"
-          />
-        </v-stepper-content>
+        <v-stepper-content step="2"
+          ><role-select :pokemon="pokemon" @chose-role="step++"
+        /></v-stepper-content>
         <v-stepper-content step="3">
-          <v-btn
-            color="success"
-            large
-            tile
-            @click="step++"
-            :disabled="!pokemon.HasAbility"
-          >
-            <span v-if="!pokemon.HasAbility">CHOOSE AN ABILITY</span>
-            <span v-else>CHOOSE {{ pokemon.Ability }}</span>
-          </v-btn>
-          <show-cards
-            :names="pokemon.AbilityList"
-            job="Ability"
-            :selectButton="true"
-            @chose="updateAbility"
-          />
+          <ability-select :pokemon="pokemon" @chose-ability="step++" />
         </v-stepper-content>
-        <v-stepper-content step="4">
-          <v-btn
-            color="success"
-            large
-            tile
-            @click="
-              step++;
-              updateMove(selectedMove);
-            "
-            :disabled="(selectedMove == '')"
-          >
-            <span v-if="(selectedMove == '')">CHOOSE A STARTING MOVE</span>
-            <span v-else>CHOOSE {{ selectedMove }}</span>
-          </v-btn>
-          <show-cards
-            :names="pokemon.Tier1NaturalMoveList"
-            job="Move"
-            :selectButton="true"
-            @chose="selectMove"
+        <v-stepper-content step="4"
+          ><move-select
+            :pokemon="pokemon"
+            :creation="true"
+            @chose-move="step++"
           />
         </v-stepper-content>
         <v-stepper-content step="5">
-          <v-btn
-            color="success"
-            large
-            tile
-            @click="step++"
-            :disabled="
-              !(pokemon.HasNoSkillPoints && pokemon.FavoredSkillPoints >= 2)
-            "
-          >
-            CONTINUE
-          </v-btn>
-          <div>
-            <b>{{ pokemon.SkillPoints }} Remaining Skill Points</b><br />
-            <span v-if="(pokemon.FavoredSkillPoints < 2)"
-              ><i
-                >Must add {{ 2 - pokemon.FavoredSkillPoints }} more points to
-                Favored Skills.</i
-              ></span
-            >
-            <span v-else><br /></span>
-          </div>
-          <div v-for="skill in pokemon.Skills.names" :key="skill">
-            <v-row no-gutters="">
-              <v-col cols="1">
-                <b
-                  v-bind:class="{
-                    'skill--good': pokemon.IsFavored(skill),
-                    'skill--bad': pokemon.IsDeficient(skill),
-                  }"
-                  >{{ skill }}:
-                </b></v-col
-              >
-              <v-col cols="1">{{ pokemon[skill] }}</v-col>
-              <v-col cols="2">
-                <v-btn
-                  inline
-                  x-small
-                  @click="pokemon.Skills.Increment(skill)"
-                  color="green"
-                  >+</v-btn
-                >
-                <v-btn
-                  inline
-                  x-small
-                  @click="pokemon.Skills.Decrement(skill)"
-                  color="red"
-                  >-</v-btn
-                >
-              </v-col>
-            </v-row>
-          </div>
-        </v-stepper-content>
+          <skill-select :pokemon="pokemon" @chose-skill="step++"
+        /></v-stepper-content>
         <v-stepper-content step="6">
-          <v-btn
-            color="success"
-            large
-            tile
-            @click="step++, (pokemon.Nickname = nickname)"
-            :disabled="(nickname == '')"
-            ><span v-if="(nickname == '')">CHOOSE A NICKNAME</span>
-            <span v-else>CHOOSE {{ nickname }}</span></v-btn
-          >
-          <br />
-          <br /><b>Nickname: </b
-          ><input v-model="nickname" placeholder="Input Nickname" />
-        </v-stepper-content>
+          <nickname-select :pokemon="pokemon" @chose-nickname="step++"
+        /></v-stepper-content>
         <v-stepper-content step="7">
           <v-btn color="success" large tile @click="savePokemon()"
-            >SAVE {{ pokemon.nickname }}</v-btn
+            >SAVE {{ pokemon.Nickname }}</v-btn
           ><display-pokemon :pokemon="pokemon" />
         </v-stepper-content>
       </v-stepper-items>
@@ -180,18 +75,28 @@ import { Pokemon } from '@/class';
 import PokedexBrowser from '@/features/pokedex/PokedexBrowser.vue';
 import ShowCards from '@/components/cards/ShowCards.vue';
 import DisplayPokemon from '../pokemon-manager/DisplayPokemon.vue';
-import allRoles from '@/assets/database/roles.json';
 import allTraits from '@/assets/database/traits.json';
+import RoleSelect from './RoleSelect.vue';
+import AbilitySelect from './AbilitySelect.vue';
+import SkillSelect from './SkillSelect.vue';
+import MoveSelect from './MoveSelect.vue';
+import NicknameSelect from './NicknameSelect.vue';
 
 export default Vue.extend({
   name: 'pokemon-builder',
-  components: { PokedexBrowser, ShowCards, DisplayPokemon },
+  components: {
+    PokedexBrowser,
+    ShowCards,
+    DisplayPokemon,
+    RoleSelect,
+    AbilitySelect,
+    MoveSelect,
+    SkillSelect,
+    NicknameSelect,
+  },
   data: () => ({
     step: 1,
     pokemon: {},
-    selectedMove: '',
-    nickname: '',
-    allRoles,
     allTraits,
   }),
   created() {
@@ -205,25 +110,6 @@ export default Vue.extend({
           this.pokemon.AddTrait(tr);
         }
       }
-    },
-    updateRole(variable) {
-      for (const rl of this.allRoles) {
-        if (variable == rl.name) {
-          this.pokemon.Role = rl;
-        }
-      }
-    },
-    updateAbility(variable) {
-      this.pokemon.Ability = variable;
-    },
-    selectMove(variable) {
-      this.selectedMove = variable;
-    },
-    updateMove(variable) {
-      if (this.pokemon.HasStartingMove) {
-        this.pokemon.PopMove();
-      }
-      this.pokemon.AddMove(variable);
     },
     savePokemon() {
       const store = getModule(PokemonManagementStore, this.$store);

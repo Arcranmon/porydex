@@ -79,17 +79,20 @@ export default Vue.extend({
   border: $border--black-standard;
   font-size: $font-size--l;
   padding: $space--xs;
+  color: black;
 }
 .ability--content {
   background-color: $color--off-white;
   border: $border--black-standard;
   border-top: 0px solid black;
   padding: $space--xs;
+  color: black;
 }
 .ability--format {
   white-space: normal;
   font-family: $font--standard;
   font-size: $font-size--m;
   text-align: left;
+  color: black;
 }
 </style>

@@ -164,6 +164,7 @@ export default Vue.extend({
 <style scoped lang="scss">
 .move--wrapper {
   font-family: $font--standard;
+  color: black;
 }
 .move--header {
   border: $border--black-standard;
@@ -176,7 +177,6 @@ export default Vue.extend({
   background-color: $color--off-white;
   border: $border--black-standard;
   border-top: 0px solid black;
-  color: black;
   padding: $space--xs;
   text-align: left;
   width: 100%;

@@ -26,7 +26,24 @@
         lg="2"
       >
         <div class="pokemon-cell">
-          <h2 style="text-align: center;">Basic</h2>
+          <v-dialog v-model="nicknameDialog" hide-overlay persistent>
+            <template v-slot:activator="{}">
+              <v-icon @click="nicknameDialog = true" class="edit--symbol">
+                mdi-pencil
+              </v-icon>
+            </template>
+            <v-card>
+              <v-card-title>Edit Nickname</v-card-title>
+              <v-card-text>
+                <nickname-select
+                  :pokemon="pokemon"
+                  @chose-nickname="savePokemon(), (nicknameDialog = false)"
+              /></v-card-text>
+            </v-card>
+          </v-dialog>
+          <h2 style="text-align: center;">
+            Basic
+          </h2>
         </div>
         <div class="pokemon-cell-bottom-format">
           <v-row no-gutters>
@@ -127,6 +144,21 @@
         lg="2"
       >
         <div class="pokemon-cell">
+          <v-dialog v-model="skillDialog" hide-overlay persistent>
+            <template v-slot:activator="{}">
+              <v-icon @click="skillDialog = true" class="edit--symbol">
+                mdi-pencil
+              </v-icon>
+            </template>
+            <v-card>
+              <v-card-title>Edit Skills</v-card-title>
+              <v-card-text>
+                <skill-select
+                  :pokemon="pokemon"
+                  @chose-skill="savePokemon(), (skillDialog = false)"
+              /></v-card-text>
+            </v-card>
+          </v-dialog>
           <h2 style="text-align: center;">Skills</h2>
         </div>
         <v-row no-gutters class="pokemon-cell-bottom-format">
@@ -187,6 +219,21 @@
         lg="6"
       >
         <div class="pokemon-cell">
+          <v-dialog v-model="abilityDialog" hide-overlay persistent>
+            <template v-slot:activator="{}">
+              <v-icon @click="abilityDialog = true" class="edit--symbol">
+                mdi-pencil
+              </v-icon>
+            </template>
+            <v-card>
+              <v-card-title>Edit Ability</v-card-title>
+              <v-card-text class="popup">
+                <ability-select
+                  :pokemon="pokemon"
+                  @chose-ability="savePokemon(), (abilityDialog = false)"
+              /></v-card-text>
+            </v-card>
+          </v-dialog>
           <h2 style="text-align: center;">Ability</h2>
         </div>
         <show-cards :names="[pokemon.Ability]" job="Ability" />
@@ -198,6 +245,21 @@
         lg="6"
       >
         <div class="pokemon-cell">
+          <v-dialog v-model="roleDialog" hide-overlay persistent>
+            <template v-slot:activator="{}">
+              <v-icon @click="roleDialog = true" class="edit--symbol">
+                mdi-pencil
+              </v-icon>
+            </template>
+            <v-card>
+              <v-card-title>Edit Role</v-card-title>
+              <v-card-text class="popup">
+                <role-select
+                  :pokemon="pokemon"
+                  @chose-role="savePokemon(), (roleDialog = false)"
+              /></v-card-text>
+            </v-card>
+          </v-dialog>
           <h2 style="text-align: center;">Role</h2>
         </div>
         <show-cards :names="[pokemon.RoleName]" job="Role" />
@@ -238,6 +300,21 @@
         lg="12"
       >
         <div class="pokemon-cell">
+          <v-dialog v-model="moveDialog" hide-overlay persistent>
+            <template v-slot:activator="{}">
+              <v-icon @click="moveDialog = true" class="edit--symbol">
+                mdi-pencil
+              </v-icon>
+            </template>
+            <v-card>
+              <v-card-title>Edit Moves</v-card-title>
+              <v-card-text class="popup">
+                <move-select
+                  :pokemon="pokemon"
+                  @chose-move="savePokemon(), (moveDialog = false)"
+              /></v-card-text>
+            </v-card>
+          </v-dialog>
           <h2 style="text-align: center;">Moves</h2>
         </div>
       </v-col>
@@ -261,9 +338,16 @@
 <script>
 import Vue from 'vue';
 import store from '@/store';
+import { getModule } from 'vuex-module-decorators';
 import { Pokemon } from '@/class';
+import { PokemonManagementStore } from '@/store';
 import ShowCards from '@/components/cards/ShowCards';
 import ParseTrait from '@/components/ParseTrait';
+import NicknameSelect from '@/features/pokemon-builder/NicknameSelect';
+import SkillSelect from '@/features/pokemon-builder/SkillSelect';
+import AbilitySelect from '@/features/pokemon-builder/AbilitySelect';
+import RoleSelect from '@/features/pokemon-builder/RoleSelect';
+import MoveSelect from '@/features/pokemon-builder/MoveSelect';
 
 export default Vue.extend({
   name: 'display-pokemon',
@@ -273,11 +357,30 @@ export default Vue.extend({
       required: true,
     },
   },
-  methods: {},
+  methods: {
+    savePokemon() {
+      const store = getModule(PokemonManagementStore, this.$store);
+      store.UpdatePokemon(this.pokemon);
+    },
+  },
+  data() {
+    return {
+      nicknameDialog: false,
+      skillDialog: false,
+      abilityDialog: false,
+      roleDialog: false,
+      moveDialog: false,
+    };
+  },
   computed: {},
   components: {
     ShowCards,
     ParseTrait,
+    NicknameSelect,
+    SkillSelect,
+    AbilitySelect,
+    RoleSelect,
+    MoveSelect,
   },
 });
 </script>
@@ -316,5 +419,12 @@ export default Vue.extend({
 }
 .wrapper {
   display: flex;
+  color: black;
+}
+.edit--symbol {
+  float: right;
+}
+.popup {
+  color: black;
 }
 </style>

@@ -4,6 +4,7 @@ import { PokemonRaw, RoleRaw, TraitRaw, Skills } from '@/class';
 class Pokemon {
   private _species: string;
   private _nickname: string;
+  private _id: string;
 
   private _level: number;
   private _role: string; //Maybe replace with like PokemonRole later
@@ -21,6 +22,7 @@ class Pokemon {
   public constructor() {
     this._species = '';
     this._nickname = '';
+    this._id = '';
     this._level = 1;
     this._role = '';
     this._ability = '';
@@ -33,6 +35,14 @@ class Pokemon {
 
   public get Raw() {
     return this._monRaw;
+  }
+
+  public get ID() {
+    return this._id;
+  }
+
+  public set ID(id: string) {
+    this._id = id;
   }
 
   public set Raw(newVal: PokemonRaw) {
@@ -55,7 +65,7 @@ class Pokemon {
     return this._species;
   }
 
-  // ABILITIY FUNCTIONS
+  // ABILITY FUNCTIONS
   public get HasAbility(): boolean {
     return this._ability.length > 0;
   }
@@ -96,17 +106,103 @@ class Pokemon {
   public get HasStartingMove(): boolean {
     return this._moves.length > 3;
   }
-  public get Tier1NaturalMoveList(): Array<String> {
+  public get Tier1NaturalMoveList(): Array<string> {
     return [
       this._monRaw.t1natmove1,
       this._monRaw.t1natmove2,
       this._monRaw.t1natmove3,
     ];
   }
+  public get Tier1TutorMoveList(): Array<string> {
+    var tutMoves = [];
+
+    if (this._monRaw.t1tutmove1) {
+      tutMoves.push(this._monRaw.t1tutmove1);
+    }
+    if (this._monRaw.t1tutmove2) {
+      tutMoves.push(this._monRaw.t1tutmove2);
+    }
+    if (this._monRaw.t1tutmove3) {
+      tutMoves.push(this._monRaw.t1tutmove3);
+    }
+
+    return tutMoves;
+  }
+  public get StartingMoves(): Array<string> {
+    return [this._monRaw.smove1, this._monRaw.smove2, this._monRaw.smove3];
+  }
   public AddMove(newMove: string) {
     if (!this._moves.includes(newMove)) {
       this._moves.push(newMove);
     }
+  }
+  public RemoveMove(newMove: string) {
+    for (let ii in this._moves) {
+      if (this._moves[ii] == newMove) {
+        this.MoveList.splice(Number(ii), 1);
+        return;
+      }
+    }
+  }
+  public ValidMoveNumber(): boolean {
+    if (this.MoveList.length > 0 && this.MoveList.length <= 6) {
+      return true;
+    }
+    return false;
+  }
+  public ValidTutorMoves(): boolean {
+    var numTut = 0;
+    for (var move of this.Tier1TutorMoveList) {
+      if (!this._moves.includes(move)) {
+        numTut += 1;
+      }
+    }
+
+    return numTut <= 2;
+  }
+  public MovesValid(): boolean {
+    return this.ValidMoveNumber() && this.ValidTutorMoves();
+  }
+
+  public MovesErrorMessage(): string {
+    if (!this.ValidMoveNumber()) {
+      return 'Invalid number of moves; maximum is 6, minimum is 1.';
+    }
+    if (!this.ValidTutorMoves()) {
+      return 'Too many tutor moves known; maximum is 2.';
+    }
+    return '\n';
+  }
+  public SetMoves(newMoves: string[]) {
+    this._moves = newMoves;
+  }
+  public UnknownNaturalMoves(): string[] {
+    var moveContainer = [];
+    for (var move of this.StartingMoves) {
+      if (!this._moves.includes(move)) {
+        moveContainer.push(move);
+      }
+    }
+    for (var move of this.Tier1NaturalMoveList) {
+      if (!this._moves.includes(move)) {
+        moveContainer.push(move);
+      }
+    }
+
+    return moveContainer;
+  }
+  public UnknownTutorMoves(): string[] {
+    var moveContainer = [];
+    for (var move of this.Tier1TutorMoveList) {
+      if (!this._moves.includes(move)) {
+        moveContainer.push(move);
+      }
+    }
+
+    return moveContainer;
+  }
+  public MaxMoves(): number {
+    return 6;
   }
   public PopMove() {
     this._moves.pop();
@@ -288,6 +384,9 @@ class Pokemon {
   }
   public get Level(): number {
     return this._level;
+  }
+  public get Tier(): number {
+    return 1;
   }
   public get TurfList(): Array<String> {
     if (this._monRaw.turf2) {
