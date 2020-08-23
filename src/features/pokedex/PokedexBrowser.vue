@@ -17,7 +17,7 @@
         <v-col cols="12" lg="4">
           <v-select
             label="Filter By Role"
-            :items="allRoles"
+            :items="[]"
             item-text="name"
             item-value="name"
             hide-details
@@ -45,33 +45,33 @@
         <v-col cols="12">
           <v-select
             label="Choose a Pokemon (Or Type Their Name)!"
-            :items="filtermon"
+            :items="this.$store.getters.filteredPokemon(type, role, turf)"
             hide-details
-            v-model="selectedPokemon"
+            v-model="pokemon"
             outlined
             return-object
             class="dropdown--light"
-            @change="$emit('chose', selectedPokemon)"
+            @change="$emit('chose', pokemon)"
           >
             <template slot="item" slot-scope="{ item }">
-              #{{ item.dexnumber }} - {{ item.name }}
+              #{{ item.DexNumber }} - {{ item.Name }}
             </template>
             <template slot="selection" slot-scope="{ item }">
-              #{{ item.dexnumber }} - {{ item.name }}
+              #{{ item.DexNumber }} - {{ item.Name }}
             </template>
           </v-select>
         </v-col>
       </v-row>
     </v-container>
-    <pokedex-stat-display :pokemon="selectedPokemon" />
+    <pokedex-stat-display :pokemon="pokemon" />
   </div>
 </template>
 
 <script>
 import Vue from 'vue';
-import allPokemon from '@/assets/database/pokemon.json';
-import allRoles from '@/assets/database/roles.json';
 import PokedexStatDisplay from './PokedexStatDisplay';
+import { Pokemon } from '@/class';
+import { store } from '@/store';
 
 export default Vue.extend({
   components: {
@@ -79,8 +79,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      allPokemon,
-      selectedPokemon: {},
+      pokemon: new Pokemon(),
       type: undefined,
       allTypes: [
         'Bug',
@@ -103,7 +102,6 @@ export default Vue.extend({
         'Water',
       ],
       role: undefined,
-      allRoles,
       turf: undefined,
       allTurf: [
         'Caves',
@@ -117,28 +115,6 @@ export default Vue.extend({
         'Wetlands',
       ],
     };
-  },
-  computed: {
-    filtermon: function () {
-      var pklist = [];
-      for (const pk of this.allPokemon) {
-        if (
-          (this.type == undefined ||
-            this.type == pk.type1 ||
-            ('type2' in pk && this.type == pk.type2)) &&
-          (this.role == undefined ||
-            this.role == pk.role1 ||
-            this.role == pk.role2 ||
-            this.role == pk.role3) &&
-          (this.turf == undefined ||
-            ('turf1' in pk && this.turf == pk.turf1) ||
-            ('turf2' in pk && this.turf == pk.turf2))
-        ) {
-          pklist.push(pk);
-        }
-      }
-      return pklist;
-    },
   },
 });
 </script>

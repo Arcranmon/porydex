@@ -10,7 +10,7 @@
         <div class="pokemon--cell-image">
           <h2 style="display: inline;">
             {{ pokemon.Nickname }}, Level {{ pokemon.Level }}
-            {{ pokemon.Species }}
+            {{ pokemon.Name }}
           </h2>
           <v-img
             :src="require('../../assets/pokemon/' + pokemon.DexNumber + '.png')"
@@ -37,7 +37,7 @@
               <v-card-text>
                 <nickname-select
                   :pokemon="pokemon"
-                  @chose-nickname="savePokemon(), (nicknameDialog = false)"
+                  @chose-nickname="nicknameDialog = false"
               /></v-card-text>
             </v-card>
           </v-dialog>
@@ -53,7 +53,7 @@
                 pokemon.Type1
               }}</span>
               <span
-                v-if="(pokemon.NumTypes == 2)"
+                v-if="(!pokemon.Monotype)"
                 class="Type"
                 :class="pokemon.Type2"
                 >{{ pokemon.Type2 }}</span
@@ -77,7 +77,7 @@
           <v-row no-gutters>
             <v-col cols="6"> <b>Home Turf:</b> </v-col>
             <v-col cols="6">
-              <div v-for="i in pokemon.TurfList" :key="i">
+              <div v-for="i in pokemon.TurfList">
                 {{ i
                 }}<span
                   v-if="i != pokemon.TurfList[pokemon.TurfList.length - 1]"
@@ -89,7 +89,7 @@
           <v-row no-gutters>
             <v-col cols="6"> <b>Gifts:</b> </v-col>
             <v-col cols="6">
-              <div v-for="i in pokemon.GiftList" :key="i">
+              <div v-for="i in pokemon.GiftList">
                 {{ i
                 }}<span
                   v-if="i != pokemon.GiftList[pokemon.GiftList.length - 1]"
@@ -100,41 +100,89 @@
           </v-row>
         </div>
       </v-col>
-      <v-col
-        cols="12"
-        class="flex flex-column pokemon-cell-bottom"
-        style="flex-direction: column;"
-        lg="2"
-      >
+      <v-col cols="12" class="pokemon-cell-bottom" lg="2">
         <div class="pokemon-cell">
           <h2 style="text-align: center;">Combat</h2>
         </div>
-        <v-row no-gutters class="pokemon-cell-bottom-format">
-          <v-col cols="10">
-            <b>HP:</b> <br />
-            <b>Initiative:</b> <br />
-            <b>Movement:</b> <br />
-            <b>Evasion:</b> <br />
-            <b>Resolve:</b> <br />
-            <b>Vigor:</b> <br />
-            <b>Physical Damage:</b> <br />
-            <b>Special Damage:</b> <br />
-            <b>Physical Armor:</b> <br />
-            <b>Special Armor:</b> <br />
+        <v-row no-gutters>
+          <v-col cols="9">
+            <b>HP:</b>
           </v-col>
-          <v-col cols="2" style="text-align: left;">
-            {{ pokemon.MaxHP }} <br />
-            {{ pokemon.Init }} <br />
+          <v-col cols="3" style="text-align: left; white-space: nowrap;">
+            <span v-if="!newPokemon"> {{ pokemon.CurrentHP }}/</span
+            >{{ pokemon.MaxHP }}
+            <v-dialog v-model="damageDialog" hide-overlay persistent>
+              <template v-slot:activator="{}">
+                <v-icon @click="damageDialog = true" class="edit--symbol" small>
+                  mdi-heart
+                </v-icon>
+              </template>
+              <v-card>
+                <v-card-title>Edit Hit Points</v-card-title>
+                <v-card-text>
+                  <v-btn
+                    color="success"
+                    large
+                    tile
+                    @click="damageDialog = false"
+                    >ACCEPT NEW HP</v-btn
+                  ><br /><b>New Current Hit Points: </b>
+                  <input v-model="pokemon.CurrentHP"
+                /></v-card-text>
+              </v-card> </v-dialog
+          ></v-col>
+        </v-row>
+        <v-row no-gutters>
+          <v-col cols="9"> <b>Initiative:</b> </v-col>
+          <v-col cols="3" style="text-align: left;">{{ pokemon.Init }} </v-col>
+        </v-row>
+        <v-row no-gutters>
+          <v-col cols="9"> <b>Movement:</b> </v-col>
+          <v-col cols="3" style="text-align: left;">
             {{ pokemon.Movement }}
-            <br />
-            {{ pokemon.DefenseStat('Evasion') }} <br />
-            {{ pokemon.DefenseStat('Resolve') }}<br />
-            {{ pokemon.DefenseStat('Vigor') }}<br />
-            {{ pokemon.PhysicalDamage() }}<br />
-            {{ pokemon.SpecialDamage() }}<br />
-            {{ pokemon.PhysicalArmor() }}<br />
-            {{ pokemon.SpecialArmor() }}<br />
           </v-col>
+        </v-row>
+        <v-row no-gutters>
+          <v-col cols="9"> <b>Evasion:</b> </v-col>
+          <v-col cols="3" style="text-align: left;">
+            {{ pokemon.DefenseStat('Evasion') }}</v-col
+          >
+        </v-row>
+        <v-row no-gutters>
+          <v-col cols="9"> <b>Resolve:</b></v-col>
+          <v-col cols="3" style="text-align: left;">
+            {{ pokemon.DefenseStat('Resolve') }}</v-col
+          >
+        </v-row>
+        <v-row no-gutters>
+          <v-col cols="9"> <b>Vigor:</b> </v-col>
+          <v-col cols="3" style="text-align: left;">
+            {{ pokemon.DefenseStat('Vigor') }}
+          </v-col>
+        </v-row>
+        <v-row no-gutters>
+          <v-col cols="9"> <b>Physical Damage:</b> </v-col>
+          <v-col cols="3" style="text-align: left;">
+            {{ pokemon.PhysicalDamage() }}
+          </v-col>
+        </v-row>
+        <v-row no-gutters>
+          <v-col cols="9"> <b>Special Damage:</b></v-col>
+          <v-col cols="3" style="text-align: left;">
+            {{ pokemon.SpecialDamage() }}
+          </v-col>
+        </v-row>
+        <v-row no-gutters>
+          <v-col cols="9"> <b>Physical Armor:</b> </v-col>
+          <v-col cols="3" style="text-align: left;">
+            {{ pokemon.PhysicalArmor() }}
+          </v-col>
+        </v-row>
+        <v-row no-gutters>
+          <v-col cols="9"> <b>Special Armor:</b></v-col>
+          <v-col cols="3" style="text-align: left;">
+            {{ pokemon.SpecialArmor() }}</v-col
+          >
         </v-row>
       </v-col>
       <v-col
@@ -155,7 +203,7 @@
               <v-card-text>
                 <skill-select
                   :pokemon="pokemon"
-                  @chose-skill="savePokemon(), (skillDialog = false)"
+                  @chose-skill="skillDialog = false"
               /></v-card-text>
             </v-card>
           </v-dialog>
@@ -163,7 +211,7 @@
         </div>
         <v-row no-gutters class="pokemon-cell-bottom-format">
           <v-col cols="10">
-            <div v-for="(skill, index) in pokemon.Skills.names" :key="skill">
+            <div v-for="(skill, index) in pokemon.Skills.Names">
               <span v-if="index == 0"><h3>Action</h3></span>
               <span v-if="index == 3"><h3>Clever</h3></span>
               <span v-if="index == 6"><h3>Social</h3></span>
@@ -179,12 +227,12 @@
             <br />
           </v-col>
           <v-col cols="2" style="text-align: center;">
-            <div v-for="(skill, index) in pokemon.Skills.names" :key="skill">
+            <div v-for="(skill, index) in pokemon.Skills.Names">
               <span v-if="index % 3 == 0"
                 ><h3><br /></h3
               ></span>
-              <span v-if="Number(pokemon[skill]) >= 0">+</span
-              >{{ pokemon[skill] }}
+              <span v-if="Number(pokemon.Skills[skill]) >= 0">+</span
+              >{{ pokemon.Skills[skill] }}
               <br />
             </div>
           </v-col>
@@ -201,11 +249,10 @@
             <h2 style="text-align: center;">Traits</h2>
           </div>
           <div
-            v-for="trait in pokemon.TraitList"
-            :key="trait"
+            v-for="trait in pokemon.Traits"
             class="pokemon-cell-bottom-format"
           >
-            <parse-trait :traitName="trait" />
+            <parse-trait :trait="trait" />
           </div>
         </div>
       </v-col>
@@ -230,13 +277,17 @@
               <v-card-text class="popup">
                 <ability-select
                   :pokemon="pokemon"
-                  @chose-ability="savePokemon(), (abilityDialog = false)"
+                  @chose-ability="abilityDialog = false"
               /></v-card-text>
             </v-card>
           </v-dialog>
           <h2 style="text-align: center;">Ability</h2>
         </div>
-        <show-cards :names="[pokemon.Ability]" job="Ability" />
+        <show-cards
+          :inputs="[pokemon.Ability]"
+          job="Ability"
+          :showUses="!newPokemon"
+        />
       </v-col>
       <v-col
         cols="12"
@@ -256,13 +307,13 @@
               <v-card-text class="popup">
                 <role-select
                   :pokemon="pokemon"
-                  @chose-role="savePokemon(), (roleDialog = false)"
+                  @chose-role="roleDialog = false"
               /></v-card-text>
             </v-card>
           </v-dialog>
           <h2 style="text-align: center;">Role</h2>
         </div>
-        <show-cards :names="[pokemon.RoleName]" job="Role" />
+        <show-cards :inputs="[pokemon.Role]" job="Role" />
       </v-col>
     </v-row>
     <v-row flex fluid fill-height no-gutters>
@@ -283,12 +334,10 @@
         lg="12"
       >
         <show-cards
-          :names="pokemon.BasicAttackList()"
+          :inputs="pokemon.BasicAttacks"
           :melee="pokemon.MeleeDamageDie()"
           :range="pokemon.RangedDamageDie()"
-          :basicType="pokemon.BasicAttackTypes()"
-          :basicDamage="pokemon.BasicAttackDamage()"
-          job="BA"
+          job="Move"
         />
       </v-col>
     </v-row>
@@ -311,7 +360,7 @@
               <v-card-text class="popup">
                 <move-select
                   :pokemon="pokemon"
-                  @chose-move="savePokemon(), (moveDialog = false)"
+                  @chose-move="moveDialog = false"
               /></v-card-text>
             </v-card>
           </v-dialog>
@@ -325,9 +374,10 @@
         lg="12"
       >
         <show-cards
-          :names="pokemon.MoveList"
+          :inputs="pokemon.Moves"
           :melee="pokemon.MeleeDamageDie()"
           :range="pokemon.RangedDamageDie()"
+          :showUses="!newPokemon"
           job="Move"
         />
       </v-col>
@@ -356,16 +406,16 @@ export default Vue.extend({
       type: Pokemon,
       required: true,
     },
-  },
-  methods: {
-    savePokemon() {
-      const store = getModule(PokemonManagementStore, this.$store);
-      store.UpdatePokemon(this.pokemon);
+    newPokemon: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
   data() {
     return {
       nicknameDialog: false,
+      damageDialog: false,
       skillDialog: false,
       abilityDialog: false,
       roleDialog: false,
@@ -426,5 +476,8 @@ export default Vue.extend({
 }
 .popup {
   color: black;
+}
+.input {
+  text-decoration: underline;
 }
 </style>

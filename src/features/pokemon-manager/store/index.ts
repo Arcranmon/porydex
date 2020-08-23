@@ -1,10 +1,8 @@
-import { Pokemon } from '@/class';
+import { Pokemon, Skills, Move } from '@/class';
 import { Module, VuexModule, Action, Mutation } from 'vuex-module-decorators';
-import Skills from '@/classes/Skills';
-import { VCalendarMonthly } from 'vuetify/lib';
 
 function savePokemons(pokemons: Pokemon[]) {
-  const stringed = JSON.stringify(pokemons);
+  const stringed = JSON.stringify(pokemons.map((x) => Pokemon.Serialize(x)));
   localStorage.setItem('pokemon_box.json', stringed);
 }
 
@@ -16,14 +14,8 @@ export class PokemonManagementStore extends VuexModule {
 
   @Mutation
   private LoadPokemon(pokemonData: string): void {
-    this.Pokemons = JSON.parse(pokemonData);
-    for (let ii in this.Pokemons) {
-      this.Pokemons[ii] = Object.assign(new Pokemon(), this.Pokemons[ii]);
-      this.Pokemons[ii].Skills = Object.assign(
-        new Skills(),
-        this.Pokemons[ii].Skills
-      );
-    }
+    var tempData = JSON.parse(pokemonData);
+    this.Pokemons = tempData.map((x) => Pokemon.Deserialize(x));
   }
 
   @Action
@@ -36,21 +28,16 @@ export class PokemonManagementStore extends VuexModule {
   public AddPokemon(pokemon: Pokemon): void {
     pokemon.ID =
       String(pokemon.Nickname) +
-      String(pokemon.Species) +
-      String(pokemon.Ability) +
-      String(pokemon.RoleName) +
+      String(pokemon.Name) +
+      String(pokemon.Ability.Name) +
+      String(pokemon.Role.Name) +
       String(Math.random());
     this.Pokemons.push(pokemon);
     savePokemons(this.Pokemons);
   }
 
   @Action
-  public UpdatePokemon(newmon: Pokemon): void {
-    for (let ii in this.Pokemons) {
-      if (newmon.ID == this.Pokemons[ii].ID) {
-        this.Pokemons[ii] = newmon;
-      }
-    }
+  public SavePokemons(): void {
     savePokemons(this.Pokemons);
   }
 

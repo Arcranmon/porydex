@@ -34,7 +34,7 @@
             :disabled="!pokemon.HasSpecies"
           >
             <span v-if="!pokemon.HasSpecies">CHOOSE A POKEMON</span>
-            <span v-else>CHOOSE {{ pokemon.Species }}</span>
+            <span v-else>CHOOSE {{ pokemon.Name }}</span>
           </v-btn>
           <pokedex-browser @chose="updatePokemon" />
         </v-stepper-content>
@@ -60,7 +60,7 @@
         <v-stepper-content step="7">
           <v-btn color="success" large tile @click="savePokemon()"
             >SAVE {{ pokemon.Nickname }}</v-btn
-          ><display-pokemon :pokemon="pokemon" />
+          ><display-pokemon :pokemon="pokemon" :newPokemon="true" />
         </v-stepper-content>
       </v-stepper-items>
     </v-stepper>
@@ -75,7 +75,6 @@ import { Pokemon } from '@/class';
 import PokedexBrowser from '@/features/pokedex/PokedexBrowser.vue';
 import ShowCards from '@/components/cards/ShowCards.vue';
 import DisplayPokemon from '../pokemon-manager/DisplayPokemon.vue';
-import allTraits from '@/assets/database/traits.json';
 import RoleSelect from './RoleSelect.vue';
 import AbilitySelect from './AbilitySelect.vue';
 import SkillSelect from './SkillSelect.vue';
@@ -97,19 +96,13 @@ export default Vue.extend({
   data: () => ({
     step: 1,
     pokemon: {},
-    allTraits,
   }),
   created() {
     this.pokemon = new Pokemon();
   },
   methods: {
     updatePokemon(variable) {
-      this.pokemon.Raw = variable;
-      for (const tr of this.allTraits) {
-        if (this.pokemon.TraitList.includes(tr.name)) {
-          this.pokemon.AddTrait(tr);
-        }
-      }
+      this.pokemon = variable;
     },
     savePokemon() {
       const store = getModule(PokemonManagementStore, this.$store);

@@ -1,52 +1,55 @@
 <template>
   <div class="move--wrapper" inline>
-    <div class="move--header" v-bind:class="[type, move.category]">
-      <span class="move--icon"><img :src="tierImage" /></span>
-      <b>{{ move.name }} </b> ✦ {{ type }}<br />
-      {{ move.action }}, {{ move.frequency }} ✦ {{ move.category }}
-      <span v-if="(move.keywords)"> ✦ {{ move.keywords }}</span>
+    <div class="move--header" v-bind:class="[move.Type, move.Category]">
+      <span class="move--icon"><img :src="move.TierImage" /></span>
+      <b>{{ move.Name }} </b> ✦ {{ move.Type }}<br />
+      {{ move.Action }}, {{ move.Frequency }} ✦ {{ move.Category }}
+      <span v-if="(move.HasKeywords)"> ✦ {{ move.Keywords }}</span>
     </div>
-    <div class="move--content" v-bind:class="[move.category]">
-      <b>Targets:</b> {{ move.target }}
-      <span v-if="(move.defense)"> ✦ vs {{ move.defense }}</span> <br />
-      <div v-if="(move.damage)">
-        <b>Damage:</b> {{ move.damage }}{{ damageDie }} {{ move.damagetype }}
-        {{ type }} Damage
+    <div class="move--content" v-bind:class="[move.Category]">
+      <b>Targets:</b> {{ move.Target }}
+      <span v-if="(move.TargetsDefense)"> ✦ vs {{ move.Defense }}</span> <br />
+      <div v-if="(move.DamageDealing)">
+        <b>Damage:</b> {{ move.Damage }}{{ damageDie }} {{ move.DamageType }}
+        {{ move.Type }} Damage
       </div>
-      <div v-if="(move.hit)"><b>Hit:</b> {{ move.hit }}</div>
-      <div v-if="(move.always)">
+      <div v-if="(move.HasHit)"><b>Hit:</b> {{ move.Hit }}</div>
+      <div v-if="(move.HasAlways)">
         <vue-simple-markdown
           class="move--format"
-          :source="'**Always:** ' + move.always"
+          :source="'**Always:** ' + move.Always"
         />
       </div>
-      <div v-if="(move.miss)">
+      <div v-if="(move.HasMiss)">
         <vue-simple-markdown
           class="move--format"
-          :source="'**Miss:** ' + move.miss"
+          :source="'**Miss:** ' + move.Miss"
         />
       </div>
-      <div v-if="(move.critical)">
+      <div v-if="(move.HasCritical)">
         <vue-simple-markdown
           class="move--format"
-          :source="'**Critical or SE:** ' + move.critical"
+          :source="'**Critical or SE:** ' + move.Critical"
         />
       </div>
-      <div v-if="(move.boost)">
+      <div v-if="(move.HasBoost)">
         <vue-simple-markdown
           class="move--format"
-          :source="'**Boost:** ' + boostDamage + move.boost"
+          :source="'**Boost:** ' + boostDamage + move.Boost"
         />
       </div>
-      <div v-if="(move.special)">
+      <div v-if="(move.HasSpecial)">
         <vue-simple-markdown
           class="move--format"
-          :source="'**Special:** ' + move.special"
+          :source="'**Special:** ' + move.Special"
         />
       </div>
     </div>
     <div v-if="showA == true">
-      <available :name="moveName" />
+      <available :name="move.Name" />
+    </div>
+    <div v-if="showUses == true && move.MaxUses > 0">
+      <uses :input="move" />
     </div>
   </div>
 </template>
@@ -54,19 +57,25 @@
 <script>
 import Vue from 'vue';
 import 'vue-simple-markdown/dist/vue-simple-markdown.css';
-import allMoves from '@/assets/database/moves.json';
-import basicAttacks from '@/assets/database/basicattacks.json';
 import '@/styles/types.scss';
+import { store } from '@/store';
+import { Move } from '@/class';
 import Available from './Available.vue';
+import Uses from './Uses.vue';
 
 export default Vue.extend({
   name: 'move-card',
   props: {
-    moveName: {
-      type: String,
+    move: {
+      type: Move,
       required: true,
     },
     showA: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    showUses: {
       type: Boolean,
       required: false,
       default: false,
@@ -84,79 +93,33 @@ export default Vue.extend({
     basicType: {
       type: String,
       required: false,
+      default: '',
     },
     basicDamage: {
       type: String,
       required: false,
     },
   },
-  data() {
-    return {
-      allMoves,
-      errMove: {
-        name: this.moveName,
-        tier: 1,
-        type: 'Error',
-        action: 'Error',
-        category: 'Error',
-        target: 'Error',
-        hit: 'Move was not found',
-      },
-      basicAttacks,
-    };
-  },
   computed: {
-    move: function () {
-      if (this.basicType) {
-        for (const mv of this.basicAttacks) {
-          if (this.moveName.trim() == mv.name.trim()) {
-            mv.damagetype = this.basicDamage;
-            return mv;
-          }
-        }
-      }
-      for (const mv of this.allMoves) {
-        if (this.moveName.trim() == mv.name.trim()) {
-          return mv;
-        }
-      }
-      return this.errMove;
-    },
-    tierImage: function () {
-      return require('../../assets/tier' + this.move.tier + '.png');
-    },
     boostDamage: function () {
-      if (this.move.boostdmg) {
-        return this.move.boostdmg + this.damageDie + '. ';
+      if (this.move.HasBoostDamage) {
+        return this.move.BoostDamage + this.damageDie + '. ';
       }
       return '';
     },
     damageDie: function () {
-      if (
-        this.move.target.includes('Range') ||
-        this.move.target.includes('Line') ||
-        this.move.target.includes('Blast')
-      ) {
+      if (this.move.IsRanged) {
         return this.range;
       }
-      if (
-        this.move.target.includes('Melee') ||
-        this.move.target.includes('Pass') ||
-        this.move.target.includes('Burst')
-      ) {
+      if (this.move.IsMelee) {
         return this.melee;
       }
       return 6;
     },
-    type: function () {
-      if (this.basicType) {
-        return this.basicType;
-      }
-      return this.move.type;
-    },
   },
   components: {
     Available,
+    Uses,
   },
 });
 </script>

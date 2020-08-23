@@ -8,10 +8,10 @@
       :disabled="!pokemon.HasRole"
     >
       <span v-if="!pokemon.HasRole">CHOOSE A ROLE</span>
-      <span v-else>CHOOSE {{ pokemon.RoleName }}</span>
+      <span v-else>CHOOSE {{ pokemon.Role.Name }}</span>
     </v-btn>
     <show-cards
-      :names="pokemon.RoleList"
+      :inputs="pokemon.Roles"
       job="Role"
       :selectButton="true"
       @chose="updateRole"
@@ -23,7 +23,6 @@
 import Vue from 'vue';
 import { Pokemon } from '@/class';
 import ShowCards from '@/components/cards/ShowCards.vue';
-import allRoles from '@/assets/database/roles.json';
 export default {
   props: {
     pokemon: {
@@ -31,19 +30,12 @@ export default {
       required: true,
     },
   },
-  data: () => ({
-    allRoles,
-  }),
   components: {
     ShowCards,
   },
   methods: {
     updateRole(variable) {
-      for (const rl of this.allRoles) {
-        if (variable == rl.name) {
-          this.pokemon.Role = rl;
-        }
-      }
+      this.pokemon.Role = variable;
     },
   },
 };

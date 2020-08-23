@@ -17,14 +17,18 @@
         </v-col>
       </v-row>
     </v-container>
-    <show-cards :names="rolelist" job="Role" :showA="true" />
+    <show-cards
+      :inputs="this.$store.getters.filteredRole(roleRole)"
+      job="Role"
+      :showA="true"
+    />
   </div>
 </template>
 
 <script>
 import Vue from 'vue';
 import ShowCards from '@/components/cards/ShowCards';
-import allRoles from '@/assets/database/roles.json';
+import { store } from '@/store';
 
 export default Vue.extend({
   name: 'roles',
@@ -33,21 +37,9 @@ export default Vue.extend({
   },
   data() {
     return {
-      allRoles,
       roleRole: 'All',
       roleTypes: ['All', 'DPS', 'Tank', 'Support'],
     };
-  },
-  computed: {
-    rolelist: function () {
-      var rlist = [];
-      for (const rl of this.allRoles) {
-        if (this.roleRole == rl.role || this.roleRole == 'All') {
-          rlist.push(rl.name);
-        }
-      }
-      return rlist;
-    },
   },
 });
 </script>

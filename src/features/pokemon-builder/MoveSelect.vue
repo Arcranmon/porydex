@@ -5,20 +5,17 @@
         color="success"
         large
         tile
-        @click="
-          updateStartingMove(selectedMove);
-          $emit('chose-move');
-        "
-        :disabled="(selectedMove == '')"
+        @click="$emit('chose-move')"
+        :disabled="(!pokemon.HasStartingMove)"
       >
-        <span v-if="(selectedMove == '')">CHOOSE A STARTING MOVE</span>
-        <span v-else>CHOOSE {{ selectedMove }}</span>
+        <span v-if="(!pokemon.HasStartingMove)">CHOOSE A STARTING MOVE</span>
+        <span v-else>CHOOSE {{ pokemon.Moves[3].Name }}</span>
       </v-btn>
       <show-cards
-        :names="pokemon.Tier1NaturalMoveList"
+        :inputs="pokemon.Tier1NaturalMoves"
         job="Move"
         :selectButton="true"
-        @chose="selectMove"
+        @chose="addStartingMove"
       />
     </span>
     <span v-else>
@@ -34,21 +31,21 @@
       {{ pokemon.MovesErrorMessage() }}<br />
       <h2>Known Moves</h2>
       <show-cards
-        :names="pokemon.MoveList"
+        :inputs="pokemon.Moves"
         job="Move"
         :selectButton="true"
         @chose="removeMove"
       />
-      <h2>Unknown Natural Moves</h2>
+      <h2>Natural Moves</h2>
       <show-cards
-        :names="pokemon.UnknownNaturalMoves()"
+        :inputs="pokemon.UnknownNaturalMoves"
         job="Move"
         :selectButton="true"
         @chose="addMove"
       />
-      <h2>Unknown Tutor Moves</h2>
+      <h2>Tutor Moves</h2>
       <show-cards
-        :names="pokemon.UnknownTutorMoves()"
+        :inputs="pokemon.UnknownTutorMoves"
         job="Move"
         :selectButton="true"
         @chose="addMove"
@@ -61,7 +58,6 @@
 import Vue from 'vue';
 import { Pokemon } from '@/class';
 import ShowCards from '@/components/cards/ShowCards.vue';
-import allMoves from '@/assets/database/moves.json';
 export default {
   props: {
     pokemon: {
@@ -74,28 +70,18 @@ export default {
       default: false,
     },
   },
-  data: () => ({
-    allMoves,
-    selectedMove: '',
-  }),
   components: {
     ShowCards,
   },
   methods: {
-    selectMove(variable) {
-      this.selectedMove = variable;
-    },
-    removeMove(variable) {
-      this.pokemon.RemoveMove(variable);
+    addStartingMove(variable) {
+      this.pokemon.AddStartingMove(variable);
     },
     addMove(variable) {
       this.pokemon.AddMove(variable);
     },
-    updateStartingMove(variable) {
-      if (this.pokemon.HasStartingMove) {
-        this.pokemon.PopMove();
-      }
-      this.pokemon.AddMove(variable);
+    removeMove(variable) {
+      this.pokemon.RemoveMove(variable);
     },
   },
 };

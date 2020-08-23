@@ -7,6 +7,7 @@ Welcome to the PoryDex, a tool made to help play Pokemon Odyssey! Just hop on ov
 # Features
 
 - Compendium of Moves, Abilities, Roles, and Pokemon!
+- Create Level 1 Pokemon and track HP and per-scene abilities! These are saved in your local data storage!
 
 # Setup
 
@@ -17,13 +18,9 @@ Welcome to the PoryDex, a tool made to help play Pokemon Odyssey! Just hop on ov
 # In-Development Features
 
 - Make the site prettier and work better on mobile (always)
-- Make character creator save to cache!
-  - Add a page to view saved Pokemon
-  - Make it possible to actually edit saved Pokemon!
-- More auto-calculating values on the sheets
-  - Dice size for attacks
-  - Physical/Special damage bonus and armor
-  - Other assorted bonuses in Abilities/Traits
+- Import/export function for Pokemon data!
+- Better tracking of Scene abilities for Traits and Roles!
+- Level ups, rests, and scene refreshes!
 - More features at the request of users like you!
 
 If you have a feature request or found a bug, <a href="https://docs.google.com/forms/d/e/1FAIpQLSdCjN1-cftS0RHxnauCORvX6CzK1n5ICugoB0x9V8ldWMntOw/viewform?usp=sf_link">please fill out this form!</a>

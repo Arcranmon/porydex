@@ -7,7 +7,7 @@
         ><b>Available To:</b></v-expansion-panel-header
       >
       <v-expansion-panel-content class="available--bottom"
-        ><span v-for="n in namelist" :key="n"
+        ><span v-for="n in namelist"
           >{{ n
           }}<span v-if="n != namelist[namelist.length - 1]">, </span></span
         >
@@ -18,7 +18,7 @@
 
 <script>
 import Vue from 'vue';
-import allPokemon from '@/assets/database/pokemon.json';
+import { store } from '@/store';
 
 export default Vue.extend({
   name: 'available',
@@ -28,23 +28,9 @@ export default Vue.extend({
       required: true,
     },
   },
-  data() {
-    return {
-      allPokemon,
-    };
-  },
   computed: {
     namelist: function () {
-      var pklist = [];
-      for (const pkm of this.allPokemon) {
-        if (Object.values(pkm).includes(this.name.trim())) {
-          pklist.push(pkm.name);
-        }
-      }
-      if (pklist.length == 0) {
-        pklist.push('None');
-      }
-      return pklist;
+      return this.$store.getters.availableTo(this.name);
     },
   },
 });

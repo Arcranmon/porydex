@@ -1,65 +1,56 @@
 <template>
   <!-- 70% width to work with -->
-  <div class="pokedex--wrapper" v-if="pokemon.hasOwnProperty('name')">
+  <div class="pokedex--wrapper" v-if="pokemon.HasSpecies">
     <v-row flex fluid fill-height no-gutters class="pokedex--header">
       <v-col cols="12" class="flex flex-column" lg="4">
         <div class="pokedex--header-content-left">
-          <h1>{{ pokemon.name }}</h1>
+          <h1>{{ pokemon.Name }}</h1>
           <span>
-            <span class="Type" :class="pokemon.type1">{{ pokemon.type1 }}</span>
-            <span v-if="pokemon.type2" class="Type" :class="pokemon.type2">{{
-              pokemon.type2
-            }}</span></span
+            <span class="Type" :class="pokemon.Type1">{{ pokemon.Type1 }}</span>
+            <span
+              v-if="!pokemon.Monotype"
+              class="Type"
+              :class="pokemon.Type2"
+              >{{ pokemon.Type2 }}</span
+            ></span
           ><br />
-          <img
-            v-if="(pokemon.hasOwnProperty('dexnumber'))"
-            :src="require('../../assets/pokemon/' + pokemon.dexnumber + '.png')"
-            style="max-width: 60%;"
-          />
+          <img :src="pokemon.Image" style="max-width: 60%;" />
         </div>
       </v-col>
       <v-col cols="6" class="pokedex--header-content-right" lg="4">
         <div class="pokedex--name-header">
           <h3 class="text-center">Basic Stastics</h3>
-          <b>Favored Skills:</b> {{ pokemon.skill1 }}, {{ pokemon.skill2 }}
+          <b>Favored Skills:</b> {{ pokemon.Skill1 }}, {{ pokemon.Skill2 }}
           <br />
-          <b>Deficient Skill:</b> {{ pokemon.badskill }} <br />
-          <b>Home Turf:</b>
-          <span v-for="i in turflist" :key="i"
+          <b>Deficient Skill:</b> {{ pokemon.BadSkill }} <br />
+          <b>Home Turf: </b>
+          <span v-for="i in pokemon.TurfList"
             >{{ i
-            }}<span v-if="i != turflist[turflist.length - 1]">, </span></span
-          ><br />
-          <b>Gifts:</b>
-          <span v-for="i in giftlist" :key="i"
-            >{{ i
-            }}<span v-if="i != giftlist[giftlist.length - 1]">, </span></span
-          ><br />
-          <b>Initiative:</b> {{ pokemon.initiative }} <br />
-          <b>Movement:</b> {{ pokemon.movement }}
-          <span v-if="(pokemon.movementtype1)">{{
-            pokemon.movementtype1
-          }}</span>
-          <br />
-          <b>Size:</b> {{ pokemon.size }} <br />
-          <br />
-          <b>Defense Priority:</b> {{ pokemon.def1 }} > {{ pokemon.def2 }} >
-          {{ pokemon.def3 }} <br />
-          <b>Basic Attack: </b>
-          <span v-for="i in attacklist" :key="i"
-            >{{ i
-            }}<span v-if="i != attacklist[attacklist.length - 1]"
+            }}<span v-if="i != pokemon.TurfList[pokemon.TurfList.length - 1]"
               >,
             </span></span
           ><br />
+          <b>Gifts: </b>
+          <span v-for="i in pokemon.GiftList"
+            >{{ i
+            }}<span v-if="i != pokemon.GiftList[pokemon.GiftList.length - 1]"
+              >,
+            </span></span
+          ><br />
+          <b>Initiative:</b> {{ pokemon.Initiative }} <br />
+          <b>Movement:</b> {{ pokemon.Movement }}
+          <br />
+          <b>Size:</b> {{ pokemon.Size }} <br />
+          <br />
+          <b>Defense Priority:</b> {{ pokemon.DefenseOrder }} <br />
+          <b>Basic Attack: </b> {{ pokemon.BasicAttackText }} <br />
         </div>
       </v-col>
       <v-col cols="6" class="pokedex--header-content-right" lg="4">
         <h3 class="text-center">Traits</h3>
-        <parse-trait :traitName="pokemon.trait1" /> <br />
-        <span v-if="(pokemon.hasOwnProperty('trait2'))"
-          ><parse-trait :traitName="pokemon.trait2"
-        /></span>
-        <br />
+        <span v-for="i in pokemon.Traits"
+          ><parse-trait :trait="i" /><br /> </span
+        ><br />
       </v-col>
     </v-row>
     <div class="pokedex--cell-header">
@@ -69,7 +60,7 @@
             ><h1>Roles</h1></v-expansion-panel-header
           >
           <v-expansion-panel-content class="pokedex--cell-dropdown-content">
-            <show-cards :names="parseRoles(pokemon)" job="Role" />
+            <show-cards :inputs="pokemon.Roles" job="Role" />
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
@@ -81,7 +72,7 @@
             ><h1>Abilities</h1></v-expansion-panel-header
           >
           <v-expansion-panel-content class="pokedex--cell-dropdown-content">
-            <show-cards :names="parseAbilities(pokemon)" job="Ability" />
+            <show-cards :inputs="pokemon.Abilities" job="Ability" />
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
@@ -93,7 +84,7 @@
             ><h1>Starting Moves</h1></v-expansion-panel-header
           >
           <v-expansion-panel-content class="pokedex--cell-dropdown-content">
-            <show-cards :names="parseMoves(pokemon, 0, false)" job="Move" />
+            <show-cards :inputs="pokemon.StartingMoves" job="Move" />
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
@@ -105,7 +96,7 @@
             ><h1>Natural Moves</h1></v-expansion-panel-header
           >
           <v-expansion-panel-content class="pokedex--cell-dropdown-content">
-            <show-cards :names="parseMoves(pokemon, 1, false)" job="Move" />
+            <show-cards :inputs="pokemon.Tier1NaturalMoveList" job="Move" />
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
@@ -118,7 +109,7 @@
             ><h1>Tutor Moves</h1></v-expansion-panel-header
           >
           <v-expansion-panel-content class="pokedex--cell-dropdown-content">
-            <show-cards :names="parseMoves(pokemon, 1, true)" job="Move" />
+            <show-cards :inputs="pokemon.Tier1TutorMoveList" job="Move" />
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
@@ -130,6 +121,7 @@
 import Vue from 'vue';
 import ShowCards from '@/components/cards/ShowCards';
 import ParseTrait from '@/components/ParseTrait';
+import { Pokemon } from '@/class';
 import '@/styles/types.scss';
 
 export default Vue.extend({
@@ -140,54 +132,8 @@ export default Vue.extend({
   },
   props: {
     pokemon: {
-      type: Object,
+      type: Pokemon,
       required: true,
-    },
-  },
-  methods: {
-    parseAbilities: function (pokemon) {
-      if (!pokemon.ability2) {
-        return [pokemon.ability1];
-      } else {
-        return [pokemon.ability1, pokemon.ability2];
-      }
-    },
-    parseMoves: function (pokemon, tier, tutor) {
-      if (tier == 0) {
-        return [pokemon.smove1, pokemon.smove2, pokemon.smove3];
-      }
-      if (tier == 1 && tutor == 0) {
-        return [pokemon.t1natmove1, pokemon.t1natmove2, pokemon.t1natmove3];
-      }
-      if (tier == 1 && tutor == 1) {
-        return [pokemon.t1tutmove1, pokemon.t1tutmove2];
-      }
-    },
-    parseRoles: function (pokemon) {
-      return [pokemon.role1, pokemon.role2, pokemon.role3];
-    },
-  },
-  computed: {
-    turflist: function () {
-      if ('turf2' in this.pokemon) {
-        return [this.pokemon.turf1, this.pokemon.turf2];
-      } else {
-        return [this.pokemon.turf1];
-      }
-    },
-    giftlist: function () {
-      if ('gift2' in this.pokemon) {
-        return [this.pokemon.gift1, this.pokemon.gift2];
-      } else {
-        return [this.pokemon.gift1];
-      }
-    },
-    attacklist: function () {
-      if ('basicattack2' in this.pokemon) {
-        return [this.pokemon.basicattack1, this.pokemon.basicattack2];
-      } else {
-        return [this.pokemon.basicattack1];
-      }
     },
   },
 });

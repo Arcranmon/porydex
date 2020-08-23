@@ -10,6 +10,5 @@ export default Vue.extend({
   components: {
     PokemonBox,
   },
-  data: {},
 });
 </script>

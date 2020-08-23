@@ -4,38 +4,28 @@
       <v-col
         cols="12"
         class="d-flex justify-center"
-        v-for="(n, index) in names"
-        :key="n"
+        v-for="n in inputs"
         :lg="colWidth"
         v-on:click="clickMethod(n)"
         v-bind:class="{ 'card--button': selectButton }"
       >
         <div class="card--box" v-if="job == 'Move'">
           <move-card
-            :moveName="n"
+            :move="n"
             :showA="showA"
+            :showUses="showUses"
             :melee="melee"
             :range="range"
-          />
-        </div>
-        <div class="card--box" v-if="job == 'BA'">
-          <move-card
-            :moveName="n"
-            :showA="showA"
-            :melee="melee"
-            :range="range"
-            :basicType="basicType[index]"
-            :basicDamage="basicDamage[index]"
           />
         </div>
         <div class="card--box" v-if="job == 'Ability'">
-          <ability-card :abilityName="n" :showA="showA" />
+          <ability-card :ability="n" :showA="showA" :showUses="showUses" />
         </div>
         <div class="card--box" v-if="job == 'Role'">
-          <role-card :roleName="n" :showA="showA" />
+          <role-card :role="n" :showA="showA" />
         </div>
         <div class="card--box" v-if="job == 'Traits'">
-          <traits-card :traitName="n" :showA="showA" />
+          <traits-card :trait="n" :showA="showA" />
         </div>
       </v-col>
     </v-row>
@@ -53,7 +43,7 @@ import Available from './Available.vue';
 export default Vue.extend({
   name: 'show-cards',
   props: {
-    names: {
+    inputs: {
       type: Array,
       required: true,
     },
@@ -62,6 +52,10 @@ export default Vue.extend({
       required: true,
     },
     showA: {
+      type: Boolean,
+      required: false,
+    },
+    showUses: {
       type: Boolean,
       required: false,
     },
@@ -79,14 +73,6 @@ export default Vue.extend({
       required: false,
       default: 6,
     },
-    basicType: {
-      type: Array,
-      required: false,
-    },
-    basicDamage: {
-      type: Array,
-      required: false,
-    },
   },
   components: {
     MoveCard,
@@ -102,7 +88,7 @@ export default Vue.extend({
   },
   computed: {
     colWidth: function () {
-      return Math.max(12 / this.names.length, 4);
+      return Math.max(12 / this.inputs.length, 4);
     },
   },
 });

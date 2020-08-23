@@ -19,7 +19,7 @@
       >
       <span v-else><br /></span>
     </div>
-    <div v-for="skill in pokemon.Skills.names" :key="skill">
+    <div v-for="skill in pokemon.Skills.Names">
       <v-row no-gutters="">
         <v-col cols="1">
           <b
@@ -30,7 +30,7 @@
             >{{ skill }}:
           </b></v-col
         >
-        <v-col cols="1">{{ pokemon[skill] }}</v-col>
+        <v-col cols="1">{{ pokemon.Skills[skill] }}</v-col>
         <v-col cols="2">
           <v-btn
             inline
@@ -62,9 +62,6 @@ export default {
       required: true,
     },
   },
-  data: () => ({}),
-  components: {},
-  methods: {},
 };
 </script>
 

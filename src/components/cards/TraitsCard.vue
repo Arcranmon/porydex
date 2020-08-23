@@ -1,50 +1,31 @@
 <template>
   <div class="trait--wrapper" inline>
     <div class="trait--header">
-      <h3 style="display: inline;">{{ trait.name }}</h3>
+      <h3 style="display: inline;">{{ trait.Name }}</h3>
     </div>
-    <div class="trait--content"><b>Effect: </b> {{ trait.effect }}</div>
+    <div class="trait--content"><b>Effect: </b> {{ trait.Effect }}</div>
     <div v-if="showA == true">
-      <available :name="traitName" />
+      <available :name="trait.Name" />
     </div>
   </div>
 </template>
 
 <script>
 import Vue from 'vue';
-import allTraits from '@/assets/database/traits.json';
 import Available from './Available';
+import { Trait } from '@/class';
 
 export default Vue.extend({
   name: 'trait-card',
   props: {
-    traitName: {
-      type: String,
+    trait: {
+      type: Trait,
       required: true,
     },
     showA: {
       type: Boolean,
       required: false,
       default: false,
-    },
-  },
-  data() {
-    return {
-      allTraits,
-      errTrait: {
-        name: this.traitName,
-        effect: 'Trait was not found',
-      },
-    };
-  },
-  computed: {
-    trait: function () {
-      for (const trt of this.allTraits) {
-        if (this.traitName.trim() == trt.name.trim()) {
-          return trt;
-        }
-      }
-      return this.errTrait;
     },
   },
   components: {

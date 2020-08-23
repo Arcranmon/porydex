@@ -2,110 +2,69 @@
   <div class="role--wrapper">
     <div class="d-flex flex-row">
       <v-card height="100%" outline flat tile>
-        <div class="role--icon" v-bind:class="[role.role]">
-          <img v-bind:src="[imagePath]" max-width="80%" />
+        <div class="role--icon" v-bind:class="[role.Role]">
+          <img :src="role.Image" max-width="80%" />
         </div>
       </v-card>
-      <h3 class="role--header">{{ roleName }}</h3>
+      <h3 class="role--header">{{ role.Name }}</h3>
     </div>
-    <div class="role--content text-center font-italic">{{ role.summary }}</div>
+    <div class="role--content text-center font-italic">{{ role.Summary }}</div>
     <v-card outline flat tile>
       <div class="role--content">
         <b>HP:</b>
-        {{ role.hp }}
+        {{ role.HP }}
         <br />
         <b>Defenses:</b>
-        {{ role.def1 }}, {{ role.def2 }}, {{ role.def3 }}
+        {{ role.Def1 }}, {{ role.Def2 }}, {{ role.Def3 }}
         <br />
         <b>Initiative Mod:</b>
-        {{ role.init }}
+        {{ role.Init }}
         <br />
-        <h3 class="text-center">{{ roleName }} Abilities</h3>
-        <span v-if="numAbilities >= 1">
-          <b>{{ role.ability1 }}:</b>
-          {{ role.ability1effect }}
+        <h3 class="text-center">{{ role.Name }} Abilities</h3>
+        <span v-if="role.Ability1 != ''">
+          <b>{{ role.Ability1 }}:</b>
+          {{ role.Ability1Effect }}
           <br />
         </span>
-        <span v-if="numAbilities >= 2">
-          <b>{{ role.ability2 }}:</b>
-          {{ role.ability2effect }}
+        <span v-if="role.Ability2 != ''">
+          <b>{{ role.Ability2 }}:</b>
+          {{ role.Ability2Effect }}
           <br />
         </span>
-        <span v-if="numAbilities >= 3">
-          <b>{{ role.ability3 }}:</b>
-          {{ role.ability3effect }}
+        <span v-if="role.Ability3 != ''">
+          <b>{{ role.Ability3 }}:</b>
+          {{ role.Ability3Effect }}
           <br />
         </span>
-        <span v-if="numAbilities >= 4">
-          <b>{{ role.ability4 }}:</b>
-          {{ role.ability4effect }}
+        <span v-if="role.Ability4 != ''">
+          <b>{{ role.Ability4 }}:</b>
+          {{ role.Ability4Effect }}
           <br />
         </span>
       </div>
     </v-card>
     <div v-if="showA == true">
-      <available :name="roleName" />
+      <available :name="role.Name" />
     </div>
   </div>
 </template>
 
 <script>
 import Vue from 'vue';
-import allRoles from '@/assets/database/roles.json';
 import Available from './Available';
+import { Role } from '@/class';
 
 export default Vue.extend({
   name: 'role-card',
   props: {
-    roleName: {
-      type: String,
+    role: {
+      type: Role,
       required: true,
     },
     showA: {
       type: Boolean,
       required: false,
       default: false,
-    },
-  },
-  data() {
-    return {
-      allRoles,
-      errRole: {
-        name: this.roleName,
-        role: 'DPS',
-        summary: 'Role was not found',
-        hp: 'X',
-        def1: 'X',
-        def2: 'X',
-        def3: 'X',
-        init: 'X',
-        ability1: 'Error',
-        ability1effect: 'Role was not found',
-      },
-    };
-  },
-  computed: {
-    role: function () {
-      for (const rl of this.allRoles) {
-        if (this.roleName.trim() == rl.name.trim()) {
-          return rl;
-        }
-      }
-      return this.errRole;
-    },
-    numAbilities: function () {
-      if (this.role.ability4) {
-        return 4;
-      } else if (this.role.ability3) {
-        return 3;
-      } else if (this.role.ability2) {
-        return 2;
-      } else if (this.role.ability1) {
-        return 1;
-      }
-    },
-    imagePath: function () {
-      return require('../../assets/' + this.role.role + '.png');
     },
   },
   components: {

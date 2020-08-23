@@ -1,37 +1,19 @@
 <template>
   <div>
-    <b>{{ traitName }}:</b> {{ trait.effect }}
+    <b>{{ trait.Name }}:</b> {{ trait.Effect }}
   </div>
 </template>
 
 <script>
 import Vue from 'vue';
-import allTraits from '@/assets/database/traits.json';
+import { Trait } from '@/class';
 
 export default Vue.extend({
   name: 'trait-text',
   props: {
-    traitName: {
-      type: String,
+    trait: {
+      type: Trait,
       required: true,
-    },
-  },
-  data() {
-    return {
-      allTraits,
-      errtrt: {
-        effect: 'This trait was not found.',
-      },
-    };
-  },
-  computed: {
-    trait: function () {
-      for (const trt of this.allTraits) {
-        if (this.traitName == trt.name) {
-          return trt;
-        }
-      }
-      return this.errtrt;
     },
   },
 });

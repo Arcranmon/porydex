@@ -50,14 +50,25 @@
         </v-col>
       </v-row>
     </v-container>
-    <show-cards :names="movelist" job="Move" :showA="true" />
+    <show-cards
+      :inputs="
+        this.$store.getters.allMoves(
+          moveType,
+          moveCategory,
+          moveAP,
+          moveDefense
+        )
+      "
+      job="Move"
+      :showA="true"
+    />
   </div>
 </template>
 
 <script>
 import Vue from 'vue';
 import ShowCards from '@/components/cards/ShowCards';
-import allMoves from '@/assets/database/moves.json';
+import { store } from '@/store';
 
 export default Vue.extend({
   name: 'moves',
@@ -66,7 +77,6 @@ export default Vue.extend({
   },
   data() {
     return {
-      allMoves,
       moveType: 'All',
       allTypes: [
         'All',
@@ -96,23 +106,6 @@ export default Vue.extend({
       moveDefense: 'All',
       allDefense: ['All', 'Evasion', 'Resolve', 'Vigor'],
     };
-  },
-  computed: {
-    movelist: function () {
-      var mvlist = [];
-      for (const mv of this.allMoves) {
-        if (
-          (this.moveType == mv.type || this.moveType == 'All') &&
-          (this.moveCategory == mv.category || this.moveCategory == 'All') &&
-          (this.moveAP == mv.action || this.moveAP == 'All') &&
-          (this.moveDefense == 'All' ||
-            (this.moveCategory != 'Manuever' && this.moveDefense == mv.defense))
-        ) {
-          mvlist.push(mv.name);
-        }
-      }
-      return mvlist;
-    },
   },
 });
 </script>

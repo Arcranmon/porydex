@@ -11,8 +11,6 @@ class Skills {
   private _insight: number;
   private _sway: number;
 
-  public names: Array<string>;
-
   private _deficientSkill: string;
 
   public constructor() {
@@ -25,7 +23,17 @@ class Skills {
     this._presence = 0;
     this._insight = 0;
     this._sway = 0;
-    this.names = [
+    this._deficientSkill = '';
+  }
+  public set DeficientSkill(val: string) {
+    if (this._deficientSkill != val) {
+      this._deficientSkill = val;
+      this[val] = -1;
+    }
+  }
+
+  public get Names(): Array<string> {
+    return [
       'Force',
       'Traversal',
       'Survival',
@@ -37,64 +45,60 @@ class Skills {
       'Sway',
     ];
   }
-  public set DeficientSkill(val: string) {
-    this._deficientSkill = val;
-    this[val] = -1;
-  }
 
   public get Force(): number {
     return this._force;
   }
-  public set Force(val: number) {
-    this._force = val;
+  public set Force(input: number) {
+    this._force = input;
   }
   public get Traversal(): number {
     return this._traversal;
   }
-  public set Traversal(val: number) {
-    this._traversal = val;
+  public set Traversal(input: number) {
+    this._traversal = input;
   }
   public get Survival(): number {
     return this._survival;
   }
-  public set Survival(val: number) {
-    this._survival = val;
+  public set Survival(input: number) {
+    this._survival = input;
   }
   public get Finesse(): number {
     return this._finesse;
   }
-  public set Finesse(val: number) {
-    this._finesse = val;
+  public set Finesse(input: number) {
+    this._finesse = input;
   }
   public get Focus(): number {
     return this._focus;
   }
-  public set Focus(val: number) {
-    this._focus = val;
+  public set Focus(input: number) {
+    this._focus = input;
   }
   public get Covertness(): number {
     return this._covertness;
   }
-  public set Covertness(val: number) {
-    this._covertness = val;
+  public set Covertness(input: number) {
+    this._covertness = input;
   }
   public get Presence(): number {
     return this._presence;
   }
-  public set Presence(val: number) {
-    this._presence = val;
+  public set Presence(input: number) {
+    this._presence = input;
   }
   public get Insight(): number {
     return this._insight;
   }
-  public set Insight(val: number) {
-    this._insight = val;
+  public set Insight(input: number) {
+    this._insight = input;
   }
   public get Sway(): number {
     return this._sway;
   }
-  public set Sway(val: number) {
-    this._sway = val;
+  public set Sway(input: number) {
+    this._sway = input;
   }
 
   public get TotalPoints(): number {
@@ -121,6 +125,43 @@ class Skills {
     } else if (this[field] > 0) {
       this[field] -= 1;
     }
+  }
+
+  // ==========================================================
+  // SAVING AND LOADING DATA
+  // ==========================================================
+  public static Serialize(s: Skills): ISkillData {
+    return {
+      force: s.Force,
+      traversal: s.Traversal,
+      survival: s.Survival,
+      finesse: s.Finesse,
+      focus: s.Focus,
+      covertness: s.Covertness,
+      presence: s.Presence,
+      insight: s.Insight,
+      sway: s.Sway,
+      deficientSkill: s.DeficientSkill,
+    };
+  }
+
+  public static Deserialize(skillData: ISkillData): Skills {
+    const s = new Skills();
+    s.setSkillData(skillData);
+    return s;
+  }
+
+  public setSkillData(data: ISkillData): void {
+    this._force = data.force || 0;
+    this._traversal = data.traversal || 0;
+    this._survival = data.survival || 0;
+    this._finesse = data.finesse || 0;
+    this._focus = data.focus || 0;
+    this._covertness = data.covertness || 0;
+    this._presence = data.presence || 0;
+    this._insight = data.insight || 0;
+    this._sway = data.sway || 0;
+    this._deficientSkill = data.deficientSkill || '';
   }
 }
 

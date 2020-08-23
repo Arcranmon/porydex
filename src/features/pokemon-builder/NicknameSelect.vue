@@ -4,14 +4,14 @@
       color="success"
       large
       tile
-      @click="(pokemon.Nickname = nickname), $emit('chose-nickname')"
-      :disabled="(nickname == '')"
-      ><span v-if="(nickname == '')">CHOOSE A NICKNAME</span>
-      <span v-else>CHOOSE {{ nickname }}</span></v-btn
+      @click="$emit('chose-nickname')"
+      :disabled="(pokemon.Nickname == '')"
+      ><span v-if="(pokemon.Nickname == '')">CHOOSE A NICKNAME</span>
+      <span v-else>CHOOSE {{ pokemon.Nickname }}</span></v-btn
     >
     <br />
     <br /><b>Nickname: </b
-    ><input v-model="nickname" placeholder="Input Nickname" />
+    ><input v-model="pokemon.Nickname" placeholder="Input Nickname" />
   </span>
 </template>
 
@@ -25,13 +25,6 @@ export default {
       required: true,
     },
   },
-  components: {},
-  data: function () {
-    return {
-      nickname: this.pokemon.Nickname,
-    };
-  },
-  methods: {},
 };
 </script>
 
