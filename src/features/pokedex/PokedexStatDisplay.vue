@@ -96,7 +96,7 @@
             ><h1>Natural Moves</h1></v-expansion-panel-header
           >
           <v-expansion-panel-content class="pokedex--cell-dropdown-content">
-            <show-cards :inputs="pokemon.Tier1NaturalMoveList" job="Move" />
+            <show-cards :inputs="pokemon.Tier1NaturalMoves" job="Move" />
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
@@ -109,7 +109,7 @@
             ><h1>Tutor Moves</h1></v-expansion-panel-header
           >
           <v-expansion-panel-content class="pokedex--cell-dropdown-content">
-            <show-cards :inputs="pokemon.Tier1TutorMoveList" job="Move" />
+            <show-cards :inputs="pokemon.Tier1TutorMoves" job="Move" />
           </v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
