@@ -614,12 +614,24 @@ class Pokemon {
       return Number(45) + Number(5 * Math.floor(this._level / 2));
     }
   }
+  public get HealthPercent() {
+    return (this.CurrentHP / this.MaxHP) * 100;
+  }
+  public get HealthColor() {
+    if (this.HealthPercent <= 20) {
+      return 'red';
+    }
+    if (this.HealthPercent <= 50) {
+      return 'yellow';
+    }
+    return 'green';
+  }
 
   public get Init(): number {
     return Number(this._initiative) + Number(this.Role.Init);
   }
 
-  public DefenseStat(stat: string): number {
+  public Defense(stat: string): number {
     if (this.Def1 == stat) {
       return this.Role.Def1;
     }
