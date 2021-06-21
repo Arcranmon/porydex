@@ -106,19 +106,19 @@
             <v-col cols="2" class="pokemon-cell-bottom-titlebox"
               >Evasion:</v-col
             >
-            <v-col cols="2" class="pokemon-cell-bottom-content">{{
-              pokemon.Defense('Evasion')
-            }}</v-col>
+            <v-col cols="2" class="pokemon-cell-bottom-content">
+              {{ pokemon.Defense('Evasion') }}
+            </v-col>
             <v-col cols="2" class="pokemon-cell-bottom-titlebox"
               >Resolve:</v-col
             >
-            <v-col cols="2" class="pokemon-cell-bottom-content">{{
-              pokemon.Defense('Resolve')
-            }}</v-col>
+            <v-col cols="2" class="pokemon-cell-bottom-content">
+              {{ pokemon.Defense('Resolve') }}
+            </v-col>
             <v-col cols="2" class="pokemon-cell-bottom-titlebox">Vigor:</v-col>
-            <v-col cols="2" class="pokemon-cell-bottom-content">{{
-              pokemon.Defense('Vigor')
-            }}</v-col>
+            <v-col cols="2" class="pokemon-cell-bottom-content">
+              {{ pokemon.Defense('Vigor') }}
+            </v-col>
           </v-row>
           <v-row no-gutters>
             <v-col cols="12" class="pokemon-cell-bottom-header"
@@ -129,15 +129,15 @@
             <v-col cols="2" class="pokemon-cell-bottom-titlebox"
               >Initiative:</v-col
             >
-            <v-col cols="2" class="pokemon-cell-bottom-content">{{
-              pokemon.Initiative
-            }}</v-col>
+            <v-col cols="2" class="pokemon-cell-bottom-content">
+              {{ pokemon.Initiative }}
+            </v-col>
             <v-col cols="2" class="pokemon-cell-bottom-titlebox"
               >Movement:</v-col
             >
-            <v-col cols="2" class="pokemon-cell-bottom-content">{{
-              pokemon.Movement
-            }}</v-col>
+            <v-col cols="2" class="pokemon-cell-bottom-content">
+              {{ pokemon.Movement }}
+            </v-col>
           </v-row>
           <v-row no-gutters>
             <v-col cols="2" class="pokemon-cell-bottom-titlebox"
@@ -174,9 +174,9 @@
           </v-row>
           <v-row no-gutters>
             <v-col cols="2" class="pokemon-cell-bottom-titlebox">Size:</v-col>
-            <v-col cols="2" class="pokemon-cell-bottom-content">{{
-              pokemon.Size
-            }}</v-col>
+            <v-col cols="2" class="pokemon-cell-bottom-content">
+              {{ pokemon.Size }}
+            </v-col>
             <v-col cols="2" class="pokemon-cell-bottom-titlebox"
               >Home Turf:</v-col
             >
