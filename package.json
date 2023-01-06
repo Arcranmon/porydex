@@ -44,7 +44,7 @@
     "@vue/cli-plugin-router": "~4.4.0",
     "@vue/cli-plugin-typescript": "~4.4.0",
     "@vue/cli-plugin-vuex": "~4.4.0",
-    "@vue/cli-service": "~4.4.0",
+    "@vue/cli-service": "~5.0.8",
     "css-loader": "^3.6.0",
     "google-fonts-webpack-plugin": "^0.4.4",
     "husky": "^4.2.5",
